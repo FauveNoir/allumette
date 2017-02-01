@@ -54,6 +54,7 @@ history_area_colour = (69, 59, 49)
 indicator_colour    = (70, 60, 50)
 prompt_colour       = (25, 21, 18)
 creme_colour        = (236,228,217)
+yellow_colour       = (205, 153, 29)
 red                 = (225, 0, 0)
 
 # Sizes deffinitions
@@ -64,10 +65,6 @@ maxPaddingBetwenMatch = 3
 matchPicRatio = 11.813186
 matchPicRatio = 13.818182
 numberOfInitialMatch = innitialNumberOfMatch
-if (numberOfInitialMatch  % 2 == 0): #even
-    numberOfVoids =0
-else: #odd
-    numberOfVoids
 historyAreaWidth = 67
 circleRadius = 10
 gameAreaDim  = [0,0]
@@ -84,7 +81,7 @@ textUserInput = []
 normaUserInput = []
 
 textUserInput = []
-normalUserInput = ""
+normalUserInput = []
 exMode = False
 normalMode = True
 textToAnalyse = ""
@@ -124,6 +121,7 @@ def makeTextZone():
     label = myfont.render("".join(textUserInput), 1, (255,255,255))
     screen.blit(label, (promptZoneInfo.width+trianglePromptWidth+4,heighTextZonePosition))
 
+finalNormalUserInput = ""
 def analyseTyping():
     global programHaveToContinue
     global textUserInput
@@ -133,11 +131,11 @@ def analyseTyping():
     global textToAnalyse
     global normalTextToAnalyse
     global screen
+    global finalNormalUserInput
 
     keyboardInput = dict()
     keyboardInput["mode"] =  "normal"
     keyboardInput["content"] = ""
-    finalNormalUserInput = ""
 
     for event in pygame.event.get():
         if event.type == VIDEORESIZE:
@@ -146,64 +144,59 @@ def analyseTyping():
             programHaveToContinue = False
 
         if event.type == KEYDOWN:
-            if event.unicode == ":":
+            if (event.unicode == ":") and ("".join(normalUserInput) == ""):
                 exMode = True
+                normalMode = False
             if exMode == True:
                 if event.key is K_ESCAPE:
                     exMode = False
                     normalMode = True
                     textUserInput = []
-                if event.key in charInputed:
+                elif event.key in charInputed:
                     textUserInput.append(event.unicode)
-                if event.key == K_BACKSPACE and textUserInput != []:
+                elif event.key == K_BACKSPACE and textUserInput != []:
                     del textUserInput[-1]
                     if len(textUserInput) == 1:
                         exMode = False
                         normalMode = True
                         del textUserInput[-1]
-                if event.key in [K_RETURN, K_KP_ENTER]:
+                elif event.key in [K_RETURN, K_KP_ENTER]:
                     textToAnalyse = "".join(textUserInput[1:])
                     textUserInput = []
                     exMode = False
+                if textUserInput == []:
+                    exMode = False
+                    normalMode = True
 
-            if normalMode == True:
-            #   if (event.unicode in allowedMatchDel) and (normalUserInput == ""):
-            #       normalUserInput = event.unicode
-            #   if (event.key in [K_RETURN, K_KP_ENTER]) and (normalUserInput in allowedMatchDel) :
-            #       normalTextToAnalyse = normalUserInput
-            #       normalUserInput = ""
-            #   else:
-            #       normalUserInput = event
+            elif normalMode == True:
                 if (event.key is K_ESCAPE) and (normalUserInput != []):
                     normalUserInput = []
                 elif (event.key is K_ESCAPE) and (normalUserInput == []):
-                    finalNormalUserInput = event
                     normalUserInput = []
-                elif (event.key not in [K_RETURN, K_KP_ENTER]):
-                   #normalUserInput = normalUserInput + event.unicode
+                    keyboardInput["mode"] = "escape"
+                elif (event.key not in [K_RETURN, K_KP_ENTER, K_ESCAPE]):
                     normalUserInput.append(event.unicode)
                 elif (event.key in [K_RETURN, K_KP_ENTER]):
-                    finalNormalUserInput = normalUserInput
+                    finalNormalUserInput = "".join(normalUserInput)
                     normalUserInput = []
 
 
     if textToAnalyse == "about":
         textToAnalyse = ""
         aboutScreen(screen)
-    elif textToAnalyse == "quit":
+    elif textToAnalyse in ["quit","q"]:
         textToAnalyse = ""
         programHaveToContinue = False
+    elif keyboardInput["mode"] == "escape":
+        keyboardInput["mode"] = "escape"
     else:
         keyboardInput["mode"] = "ex"
         keyboardInput["content"] = textToAnalyse
 
-    if finalNormalUserInput != "":
+
+    if normalUserInput != []:
         keyboardInput["mode"] = "normal"
-        keyboardInput["content"] = finalNormalUserInput
-        finalNormalUserInput = ""
-#   elif normalUserInput != []:
-#       keyboardInput["mode"] = "normal"
-#       keyboardInput["content"] = normalUserInput
+        keyboardInput["content"] = normalUserInput
 
 
 
@@ -212,6 +205,9 @@ def analyseTyping():
 def makeTimetZone(beginingOfGame):
     timeZoneInformation = surfaceInformations()
     timeZoneBackground = surfaceInformations()
+    timeZoneInformation.left = 2
+    timeZoneInformation.right = 2
+
     xSize, ySize = screen.get_size()
 
     myfont = pygame.font.SysFont("monospace", 14)
@@ -220,15 +216,14 @@ def makeTimetZone(beginingOfGame):
     m, s = divmod(secondSinceBegining, 60)
     h, m = divmod(m, 60)
     timePassed = "%02d:%02d" % (m, s)
-    print(timePassed)
 
     heighTextZonePosition=ySize-textZoneHeigh
     timeZoneText = myfont.render(timePassed, 1, (0,0,0))
     timeZoneInformation.width, timeZoneInformation.height = myfont.size(timePassed)
-    timeZoneInformation.x = xSize - timeZoneInformation.width
+    timeZoneInformation.x = xSize - timeZoneInformation.width - timeZoneInformation.left
     timeZoneInformation.y = ySize-textZoneHeigh
 
-    timeZoneBackground.width = timeZoneInformation.width+2
+    timeZoneBackground.width = timeZoneInformation.width+(timeZoneInformation.left+timeZoneInformation.right)
     timeZoneBackground.height = textZoneHeigh
     timeZoneBackground.y = heighTextZonePosition
     timeZoneBackground.x = timeZoneInformation.x-2
@@ -236,8 +231,14 @@ def makeTimetZone(beginingOfGame):
     timeZoneBackgroundSurface.fill(creme_colour)
 
 
+
+
     screen.blit(timeZoneBackgroundSurface, (timeZoneBackground.x, timeZoneBackground.y))
     screen.blit(timeZoneText, (timeZoneInformation.x,timeZoneInformation.y))
+#    screen.blit(timeZoneBorder, (timeZoneInformation.x,timeZoneInformation.y))
+    timeZoneBorder = pygame.draw.polygon(screen, yellow_colour, [[timeZoneBackground.x,timeZoneBackground.y],[timeZoneBackground.x,timeZoneBackground.y+timeZoneBackground.height-2],[timeZoneBackground.x+timeZoneBackground.width-2,timeZoneBackground.y+timeZoneBackground.height-2],[timeZoneBackground.x+timeZoneBackground.width-2,timeZoneBackground.y]], 2)
+
+    return timeZoneBackground.width
 
 
 normalUserInput = []
@@ -258,10 +259,8 @@ def aboutScreen(screen):
     while functionHaveToContinue and programHaveToContinue:
         textToanalyse=analyseTyping()
 
-        if textToanalyse["mode"] == "normal":
-            print(textToanalyse["content"])
-            if textToanalyse["content"][0] is K_ESCAPE:
-                functionHaveToContinue = False
+        if textToanalyse["mode"] == "escape":
+            functionHaveToContinue = False
 
         # Appling variables
         screen.fill(background_colour)
@@ -294,8 +293,100 @@ def aboutScreen(screen):
         pygame.display.flip()
         #####################
 
+def representsInt(s):
+    try: 
+        int(s)
+        return True
+    except ValueError:
+        return False
 
-def trivial(numberOfInitialMatch,screen):
+def playTrivial(currentMatchNumber):
+    if currentMatchNumber != 0:
+        numberOfMatchToDel = 0
+        if currentMatchNumber >= 3:
+            authorisedNumbers = [3, 2, 1]
+        elif currentMatchNumber == 2:
+            authorisedNumbers = [2, 1]
+        elif currentMatchNumber == 1:
+            authorisedNumbers = [1]
+
+        if ((currentMatchNumber-1)%4) == 0:
+            numberComputerHaveToDel = 1
+        elif ((currentMatchNumber-2)%4) == 0:
+            numberComputerHaveToDel = 2
+        elif ((currentMatchNumber-3)%4) == 0:
+            numberComputerHaveToDel = 3
+        else:
+            numberComputerHaveToDel = random.randint(1, 3)
+
+        answer = numberComputerHaveToDel
+    else:
+        answer = 0
+
+    return answer
+
+
+def trivialAnalysis(currentMatchNumber,initialMatchNumber,wtw,userInput):
+    if currentMatchNumber != 0:
+        numberOfMatchToDel = 0
+
+        if currentMatchNumber >= 3:
+            authorisedNumbers = [3, 2, 1]
+        elif currentMatchNumber == 2:
+            authorisedNumbers = [2, 1]
+        elif currentMatchNumber == 1:
+            authorisedNumbers = [1]
+
+        if list(userInput)[0] == "=":
+            action = "application"
+            stringToEvaluate = userInput[1:]
+        elif list(userInput)[0] == "-":
+            action = "soustraction"
+            stringToEvaluate =  userInput[1:]
+        else:
+            action = "soustraction"
+            stringToEvaluate =  userInput
+
+        if representsInt(stringToEvaluate):
+            if action == "soustraction":
+                numberOfMatchToDel = int(stringToEvaluate)
+            elif action == "application":
+                numberOfMatchToDel = currentMatchNumber-int(stringToEvaluate)
+        else:
+            answer = [False, "“" + userInput + "” is not a valid syntax."]
+
+        if numberOfMatchToDel != 0:
+            if numberOfMatchToDel in authorisedNumbers:
+                numberLetByUser = initialMatchNumber-numberOfMatchToDel
+                answer = [True, numberLetByUser, numberOfMatchToDel]
+            else:
+                answer = [False, "“" + str(numberOfMatchToDel) + "” is too big."]
+        elif (numberOfMatchToDel == 0):
+                answer = [False, "“0” is not a valid answer."]
+
+    else:
+        answer = [True, 0, 0]
+    return answer
+
+def winingFallingScreen(winer,variant,numberOfInitialMatch,time):
+    xSize, ySize = screen.get_size()
+
+    if winer == True:
+       matchInformation = surfaceInformations()
+       matchS = []
+       match = 0
+       while match < 1000:
+           matchS.append(pygame.image.load("match-animation.png").convert_alpha())
+           matchInformation.heigh = random.randint(0, ySize)
+           matchInformation.weight = random.randint(0, xSize)
+           rotation = random.randint(0, 360)
+           matchS[match] = pygame.transform.rotate(matchS[match], rotation)
+           screen.blit(matchS[match], (matchInformation.weight, matchInformation.heigh))
+           match=match+1
+    elif winer == False:
+        print("machin")
+
+def trivial(numberOfInitialMatch,wtw,screen):
     global programHaveToContinue
     global textUserInput
     global normalUserInput
@@ -303,15 +394,29 @@ def trivial(numberOfInitialMatch,screen):
     global normalMode
     global textToAnalyse
     global normalTextToAnalyse
+    global finalNormalUserInput
 
     allowedEntry=["1","2","3"]
 
     beginingOfGame = int(time.time())
 
+    currentNumberOfMatch = numberOfInitialMatch
 
+    normalTextInformation = surfaceInformations()
+    indicatorTextInformation = surfaceInformations()
 
+    listOfTry = []
     functionHaveToContinue = True
+
+    myfont = pygame.font.SysFont("monospace", 14)
+    errorToDisplay = False
+    weHaveAWiner = False
+    winer = None
+
+    winMatchDisposition = []
     while functionHaveToContinue and programHaveToContinue:
+        userPlayed = 0
+        computerPlayed = 0
         textToanalyse=analyseTyping()
 
 
@@ -328,75 +433,138 @@ def trivial(numberOfInitialMatch,screen):
         # Appling variables
         screen.fill(background_colour)
 
-        # Historyzone deffinition
-        historyZone = pygame.Surface((historyAreaWidth, ySize))
-        historyZone.fill(history_area_colour)
-        screen.blit(historyZone, (0, 0))
+        if weHaveAWiner == False:
+            # Historyzone deffinition
+            historyZone = pygame.Surface((historyAreaWidth, ySize))
+            historyZone.fill(history_area_colour)
+            screen.blit(historyZone, (0, 0))
 
-        # Indicator area deffinition
-        indicatorArea.fill(indicator_colour)
-        screen.blit(indicatorArea, (indicatorPosition[0], indicatorPosition[1]))
-
-
-        indicatorBorderPositionLeft = (int(indicatorPosition[0]+circleRadius),int(indicatorPosition[1]))
-        pygame.draw.circle(screen, indicator_colour, (indicatorBorderPositionLeft[0],indicatorBorderPositionLeft[1]), circleRadius)
-
-        indicatorBorderPositionRight = (int(indicatorPosition[0]+indicatorDim[0]-circleRadius),int(indicatorPosition[1]))
-        pygame.draw.circle(screen, indicator_colour, (indicatorBorderPositionRight[0],indicatorBorderPositionRight[1]), circleRadius)
-
-        indicatorRadiusCompleterPosition = (indicatorPosition[0]+circleRadius , indicatorPosition[1]-circleRadius)
-        indicatorRadiusCompleterDim = (indicatorDim[0]-2*circleRadius,circleRadius)
-        indicatorRadiusCompleterArea = pygame.Surface((indicatorRadiusCompleterDim[0],indicatorRadiusCompleterDim[1]))
-        indicatorRadiusCompleterArea.fill(indicator_colour)
-        screen.blit(indicatorRadiusCompleterArea, (indicatorRadiusCompleterPosition[0], indicatorRadiusCompleterPosition[1]))
+            # Indicator area deffinition
+            indicatorArea.fill(indicator_colour)
+            screen.blit(indicatorArea, (indicatorPosition[0], indicatorPosition[1]))
 
 
-        # Matchs deffinition
-        maxMatchAreaDim = [xSize-historyAreaWidth-(2*matchAreaBorder.right),ySize-textZoneHeigh-indicatorDim[1]-matchAreaBorder.top-matchAreaBorder.bottom]
+            indicatorBorderPositionLeft = (int(indicatorPosition[0]+circleRadius),int(indicatorPosition[1]))
+            pygame.draw.circle(screen, indicator_colour, (indicatorBorderPositionLeft[0],indicatorBorderPositionLeft[1]), circleRadius)
+
+            indicatorBorderPositionRight = (int(indicatorPosition[0]+indicatorDim[0]-circleRadius),int(indicatorPosition[1]))
+            pygame.draw.circle(screen, indicator_colour, (indicatorBorderPositionRight[0],indicatorBorderPositionRight[1]), circleRadius)
+
+            indicatorRadiusCompleterPosition = (indicatorPosition[0]+circleRadius , indicatorPosition[1]-circleRadius)
+            indicatorRadiusCompleterDim = (indicatorDim[0]-2*circleRadius,circleRadius)
+            indicatorRadiusCompleterArea = pygame.Surface((indicatorRadiusCompleterDim[0],indicatorRadiusCompleterDim[1]))
+            indicatorRadiusCompleterArea.fill(indicator_colour)
+            screen.blit(indicatorRadiusCompleterArea, (indicatorRadiusCompleterPosition[0], indicatorRadiusCompleterPosition[1]))
 
 
-        maxMatchDim = [0,0]
-        maxMatchDim[0] = maxMatchAreaDim[0]/(numberOfInitialMatch*1.5)
-        maxMatchDim[1] = maxMatchDim[0]*matchPicRatio
+            # Matchs deffinition
+            maxMatchAreaDim = [xSize-historyAreaWidth-(2*matchAreaBorder.right),ySize-textZoneHeigh-indicatorDim[1]-matchAreaBorder.top-matchAreaBorder.bottom]
 
-        if maxMatchDim[1] > maxMatchAreaDim[1]:
-            matchDim = [int(maxMatchAreaDim[1]/matchPicRatio),int(maxMatchAreaDim[1])]
+
+            maxMatchDim = [0,0]
+            maxMatchDim[0] = maxMatchAreaDim[0]/(numberOfInitialMatch*1.5)
+            maxMatchDim[1] = maxMatchDim[0]*matchPicRatio
+
+            if maxMatchDim[1] > maxMatchAreaDim[1]:
+                matchDim = [int(maxMatchAreaDim[1]/matchPicRatio),int(maxMatchAreaDim[1])]
+            else:
+                matchDim = [int(maxMatchDim[0]),int(maxMatchDim[0]*matchPicRatio)]
+
+
+
+            matchAreaDim = [matchDim[0]*numberOfInitialMatch, matchDim[1]]
+
+            matchAreaPos = [historyAreaWidth+matchAreaBorder.left+((maxMatchAreaDim[0]-matchAreaDim[0])/2),matchAreaBorder.top]
+            secondMatchAreaPos = [matchAreaPos[0]+(matchAreaDim[0]-(numberOfInitialMatch*1.5)*matchDim[0])/2,matchAreaPos[1]]
+
+            i = 0
+            matchS = []
+            while i < numberOfInitialMatch:
+                if i < currentNumberOfMatch:
+                    matchS.append(pygame.image.load("match.png").convert_alpha())
+                else:
+                    matchS.append(pygame.image.load("match-void.png").convert_alpha())
+
+                matchLeftVoid = 0
+                if i != 0:
+                    matchLeftVoid = matchDim[0]/2
+                currentMatchPos=[secondMatchAreaPos[0]+i*(matchLeftVoid+matchDim[0]),secondMatchAreaPos[1]]
+                matchS[i] = pygame.transform.scale(matchS[i], (matchDim[0], matchDim[1]))
+                screen.blit(matchS[i], (currentMatchPos[0], currentMatchPos[1]))
+                i=i+1
+
+
+            indicatorFont = pygame.font.SysFont("monospace", 34)
+            indicatorTextContent = str(currentNumberOfMatch) + "/" + str(numberOfInitialMatch)
+            indicatorText = indicatorFont.render(indicatorTextContent, 1, (255,255,255))
+            indicatorTextInformation.width, indicatorTextInformation.height = indicatorFont.size(indicatorTextContent)
+            indicatorTextInformation.x = indicatorPosition[0]+(indicatorDim[0]-indicatorTextInformation.width)/2
+            indicatorTextInformation.y = indicatorPosition[1]+5
+            screen.blit(indicatorText, (indicatorTextInformation.x, indicatorTextInformation.y))
+
+            if finalNormalUserInput:
+                getFromAnalysis=trivialAnalysis(currentNumberOfMatch,numberOfInitialMatch,wtw,finalNormalUserInput)
+                finalNormalUserInput = False
+                if getFromAnalysis[0] == True:
+                    userPlayed = getFromAnalysis[2]
+                else:
+                    errorToDisplay = getFromAnalysis[1]
+
+                if getFromAnalysis[0] == True:
+                    computerPlayed = playTrivial(currentNumberOfMatch-userPlayed)
+
+            currentNumberOfMatch=currentNumberOfMatch-userPlayed
+            if currentNumberOfMatch == 0:
+                winer = True
+            else:
+                currentNumberOfMatch=currentNumberOfMatch-computerPlayed
+                if currentNumberOfMatch == 0:
+                    winer = False
+
+            numberOfMatchDelled = numberOfInitialMatch - currentNumberOfMatch
+
+            if currentNumberOfMatch == 0:
+                print("machin")
+                weHaveAWiner = True
+
         else:
-            matchDim = [int(maxMatchDim[0]),int(maxMatchDim[0]*matchPicRatio)]
+            print("we have a winer")
+            timeOfEndOfGame = int(time.time())-beginingOfGame
+            winingFallingScreen(winer,wtw,numberOfInitialMatch,timeOfEndOfGame)
 
-
-
-        matchAreaDim = [matchDim[0]*numberOfInitialMatch, matchDim[1]]
-
-        matchAreaPos = [historyAreaWidth+matchAreaBorder.left+((maxMatchAreaDim[0]-matchAreaDim[0])/2),matchAreaBorder.top]
-        secondMatchAreaPos = [matchAreaPos[0]+(matchAreaDim[0]-(numberOfInitialMatch*1.5)*matchDim[0])/2,matchAreaPos[1]]
-
-        i = 0
-        matchS = []
-        while i < numberOfInitialMatch:
-            matchLeftVoid = 0
-            if i != 0:
-                matchLeftVoid = matchDim[0]/2
-            currentMatchPos=[secondMatchAreaPos[0]+i*(matchLeftVoid+matchDim[0]),secondMatchAreaPos[1]]
-            matchS.append(pygame.image.load("match.png").convert_alpha())
-            matchS[i] = pygame.transform.scale(matchS[i], (matchDim[0], matchDim[1]))
-            screen.blit(matchS[i], (currentMatchPos[0], currentMatchPos[1]))
-            i=i+1
 
         if textToanalyse in allowedEntry:
             normalTextZone = myfont.render("".join(textToanalyse), 1, (255,255,255))
             screen.blit(normalTextZone, (100,100))
 
 
-        myfont = pygame.font.SysFont("monospace", 14)
-        if textToanalyse["mode"] == "normal":
-            print(textToanalyse["content"])
-            normalText = myfont.render("".join(textToanalyse["content"]), 1, (255,255,255))
-            screen.blit(normalText, (100,100))
-
-
         makeTextZone()
-        makeTimetZone(beginingOfGame)
+        timeZoneWidth = makeTimetZone(beginingOfGame)
+
+        if textToanalyse["mode"] == "normal":
+            errorToDisplay = False
+            normalText = myfont.render("".join(textToanalyse["content"]), 1, (255,255,255))
+
+            normalTextInformation.width, normalTextInformation.height = normalText.get_size()
+            normalTextInformation.x = xSize - normalTextInformation.width - 5 - timeZoneWidth
+            normalTextInformation.y = ySize - textZoneHeigh
+            screen.blit(normalText, (normalTextInformation.x, normalTextInformation.y))
+
+
+        if errorToDisplay != False:
+            normalText = myfont.render(errorToDisplay, 1, red)
+
+            normalTextInformation.width, normalTextInformation.height = normalText.get_size()
+            normalTextInformation.x = xSize - normalTextInformation.width - 5 - timeZoneWidth
+            normalTextInformation.y = ySize - textZoneHeigh
+            screen.blit(normalText, (normalTextInformation.x, normalTextInformation.y))
+
+
+
+
+#       testSurface = pygame.Surface((indicatorTextInformation.width, indicatorTextInformation.height))
+#       testSurface.fill(red)
+#       screen.blit(testSurface, (indicatorTextInformation.x,indicatorTextInformation.y))
 
         #####################
         pygame.display.flip()
@@ -406,9 +574,10 @@ def trivial(numberOfInitialMatch,screen):
 
 programHaveToContinue = True
 def main(variant="trivial", number=numberOfInitialMatch):
+    wtw = "ttl"
     global programHaveToContinue
     while programHaveToContinue:
         if variant == "trivial":
-            trivial(number,screen)
+            trivial(number, wtw, screen)
 
 main("trivial",numberOfInitialMatch)
