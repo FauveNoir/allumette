@@ -15,7 +15,7 @@ There is two main type of actions: The game actions and the managin actions.
 ## Command Line
 You have to tell Allumette from command line, there are several options:
 
-|                       |                                                      |
+| Command               | Usage                                                |
 | --------------------- | ---------------------------------------------------- |
 |  `-n` `--number`      |  The number of match or colums (default: 16)         |
 |  `-v` `--varient`     |  The varient (default: Trivial)                      |
