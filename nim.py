@@ -266,7 +266,6 @@ def makeTimetZone(beginingOfGame):
     screen.blit(timeZoneBackgroundSurface,
                 (timeZoneBackground.x, timeZoneBackground.y))
     screen.blit(timeZoneText, (timeZoneInformation.x, timeZoneInformation.y))
-#    screen.blit(timeZoneBorder, (timeZoneInformation.x,timeZoneInformation.y))
     timeZoneBorder = pygame.draw.polygon(screen, yellow_colour, [[timeZoneBackground.x, timeZoneBackground.y], [timeZoneBackground.x, timeZoneBackground.y + timeZoneBackground.height - 2], [
                                          timeZoneBackground.x + timeZoneBackground.width - 2, timeZoneBackground.y + timeZoneBackground.height - 2], [timeZoneBackground.x + timeZoneBackground.width - 2, timeZoneBackground.y]], 2)
 
@@ -499,10 +498,50 @@ def printListOfTry(screen, listOfTry):
     if realHistoryHeigh > ySize:
         pageUpText = pageUpDownFont.render("⇈", 1, pageUpDownColor)
         screen.blit(pageUpText, (historyAreaWidth + 8, 4))
+        shadowTop = pygame.image.load("history-top-shadow.png").convert_alpha()
+        shadowTop = pygame.transform.scale(shadowTop, (historyAreaWidth, 8))
+        screen.blit(shadowTop, (0, 0))
 
 
 winMatchDisposition = []
 
+def showVariant(screen, wtw, posX):
+    yellow_colour = (205, 153, 29)
+    xSize, ySize = screen.get_size()
+    variantFont = pygame.font.SysFont("monospace", 14)
+    wtwText = variantFont.render(wtw, 1, (225, 225, 225))
+
+    # Size deffinition
+    variantBackgroundInformation = surfaceInformations()
+    variantBackgroundInformation.left = 2
+    variantBackgroundInformation.right = 2
+    variantBackgroundInformation.height = textZoneHeigh
+    variantBackgroundInformation.y = ySize - textZoneHeigh
+
+    variantTextInformation       = surfaceInformations()
+    variantTextInformation.width, variantTextInformation.height = variantFont.size(wtw)
+
+
+    variantBackgroundInformation.width = variantTextInformation.width
+    variantBackgroundInformation.width = variantBackgroundInformation.width + variantBackgroundInformation.left  + variantBackgroundInformation.right
+    variantBackgroundInformation.x = xSize - variantBackgroundInformation.width - posX
+
+    variantTextInformation.x = variantBackgroundInformation.x + 1 + variantBackgroundInformation.left
+    variantTextInformation.y = variantBackgroundInformation.y + 1
+
+    #creation
+    variantBackground = pygame.Surface(
+        (variantBackgroundInformation.width, variantBackgroundInformation.height))
+    variantBackground.fill(yellow_colour)
+
+    #Blitting
+
+    screen.blit(variantBackground, (variantBackgroundInformation.x, variantBackgroundInformation.y))
+    screen.blit(wtwText, (variantTextInformation.x, variantTextInformation.y))
+
+
+    #Ending
+    return variantBackgroundInformation.width + variantBackgroundInformation.left + variantBackgroundInformation.right
 
 def trivial(numberOfInitialMatch, wtw, screen):
     global programHaveToContinue
@@ -693,6 +732,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
 
         makeTextZone("Trivial")
         timeZoneWidth = makeTimetZone(beginingOfGame)
+        wtwZoneWidth = showVariant(screen, wtw, timeZoneWidth)
 
         if textToanalyse["mode"] == "normal":
             errorToDisplay = False
@@ -700,7 +740,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
                 "".join(textToanalyse["content"]), 1, (255, 255, 255))
 
             normalTextInformation.width, normalTextInformation.height = normalText.get_size()
-            normalTextInformation.x = xSize - normalTextInformation.width - 5 - timeZoneWidth
+            normalTextInformation.x = xSize - normalTextInformation.width - 5 - wtwZoneWidth - timeZoneWidth
             normalTextInformation.y = ySize - textZoneHeigh
             screen.blit(normalText, (normalTextInformation.x,
                                      normalTextInformation.y))
@@ -709,7 +749,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
             normalText = myfont.render(errorToDisplay, 1, red)
 
             normalTextInformation.width, normalTextInformation.height = normalText.get_size()
-            normalTextInformation.x = xSize - normalTextInformation.width - 5 - timeZoneWidth
+            normalTextInformation.x = xSize - normalTextInformation.width - 5 - wtwZoneWidth - timeZoneWidth
             normalTextInformation.y = ySize - textZoneHeigh
             screen.blit(normalText, (normalTextInformation.x,
                                      normalTextInformation.y))
