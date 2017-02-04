@@ -437,6 +437,7 @@ def printListOfTry(screen, listOfTry):
     pageUpDownFont = pygame.font.SysFont("monospace", 18, bold=True)
     pageUpDownColor = (220, 36, 4)
     lineSeparationColor = (205, 153, 29)
+    realLineSeparationPlayed = (54,46,38)
     xSize, ySize = screen.get_size()
     arrowBackground = []
     row = 0
@@ -473,7 +474,6 @@ def printListOfTry(screen, listOfTry):
         rowPosY = ySize - textZoneHeigh - \
             (len(listOfTry) - row) * textZoneHeigh
 
-#        historyNumberText = historyFont.render(str(row) + "  " + arrowSign + " "+ str(listOfTry[row]), 1, (0,0,0))
         historyNumberText = historyFont.render(str(row), 1, (0, 0, 0))
         historyArrowText = historyFont.render(arrowSign, 1, (0, 0, 0))
         numberDelledText = historyFont.render(
@@ -495,6 +495,11 @@ def printListOfTry(screen, listOfTry):
     lineHistorySeparation.fill(lineSeparationColor)
     screen.blit(lineHistorySeparation, (35, 0))
 
+    realLineHistorySeparation = pygame.Surface((1, realHistoryHeigh))
+    realLineHistorySeparation.fill(realLineSeparationPlayed)
+    screen.blit(realLineHistorySeparation, (35, ySize-realHistoryHeigh))
+
+
     if realHistoryHeigh > ySize:
         pageUpText = pageUpDownFont.render("⇈", 1, pageUpDownColor)
         screen.blit(pageUpText, (historyAreaWidth + 8, 4))
@@ -508,7 +513,7 @@ winMatchDisposition = []
 def showVariant(screen, wtw, posX):
     yellow_colour = (205, 153, 29)
     xSize, ySize = screen.get_size()
-    variantFont = pygame.font.SysFont("monospace", 14)
+    variantFont = pygame.font.SysFont("monospace", 14, bold=True)
     wtwText = variantFont.render(wtw, 1, (225, 225, 225))
 
     # Size deffinition
