@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# frdepartment : mainfile
-#!/usr/bin/python
 
 import random
 import sys
