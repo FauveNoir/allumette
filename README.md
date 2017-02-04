@@ -15,8 +15,9 @@ There is two main type of actions: The game actions and the managin actions.
 ## Command Line
 You have to tell Allumette from command line, there are several options:
 
-|  `-n` `--number`      |  The number of match or colums (default: 16)         |
+|                       |                                                      |
 | --------------------- | ---------------------------------------------------- |
+|  `-n` `--number`      |  The number of match or colums (default: 16)         |
 |  `-v` `--varient`     |  The varient (default: Trivial)                      |
 |  `-w`                 |  Mode, there is two values possibles `ttl` and `ltl` |
 
@@ -40,8 +41,9 @@ For example, if you are playing a trivial mode with `ttl` and 20 matchs and you
 
 ###Other stuff
 
-| `:about`                             |  Open the license screen                    |
+| Command                              | Usage                                       |
 | ------------------------------------ | ------------------------------------------- |
+| `:about`                             |  Open the license screen                    |
 | `:colorsheme` <var>⟨varient⟩</var>   |  Change colorsheme.                         |
 | `:quit` `:q`                         |  Quit the game.                             |
 | `:saveas` `:w`                       |  Save the current game with time in a file. |
