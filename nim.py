@@ -254,7 +254,12 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
             generalState.variant = variant
         else:
             generalState.variant = newGameOptions.group("variente")
-        generalState.number = numberOfInitialMatch
+
+        if ( newGameOptions.group("number") == None) :
+            generalState.number = numberOfInitialMatch
+        else:
+            generalState.number = int(newGameOptions.group("number"))
+
         generalState.wtw = wtw
     elif keyboardInput["mode"] == "escape":
         keyboardInput["mode"] = "escape"

@@ -41,14 +41,14 @@ For example, if you are playing a trivial mode with `ttl` and 20 matchs and you
 
 ###Other stuff
 
-| Command                              | Usage                                       |
-| ------------------------------------ | ------------------------------------------- |
-| `:about`                             |  Open the license screen                    |
-| `:colorsheme` <var>⟨varient⟩</var>   |  Change colorsheme.                         |
-| `:quit` `:q`                         |  Quit the game.                             |
-| `:saveas` `:w`                       |  Save the current game with time in a file. |
-| `:open` `:o`                         |  Open registered game                       |
-| `:help` `:h` <var>⟨commad⟩</var>     |  Getting help about a command.              |
+| Command                                                                                   | Usage                                       |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `:about`                                                                                  |  Open the license screen                    |
+| <code>:colorsheme <var>⟨varient⟩</var></code>                                             |  Change colorsheme.                         |
+| `:quit` `:q`                                                                              |  Quit the game.                             |
+| `:saveas` `:w`                                                                            |  Save the current game with time in a file. |
+| `:open` `:o`                                                                              |  Open registered game                       |
+| <code>:help <var>⟨commad⟩</var></code> <code>:h <var>⟨commad⟩</var></code>                |  Getting help about a command.              |
 
 ## Game actions
 The syntax of the game actions mainly depand of the variant you are playing. And in all cases, you have to be in normal mode; to get it, just press <kbd>⎋</kbd> key.
