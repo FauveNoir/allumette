@@ -4,6 +4,7 @@
 import random
 import sys
 import time
+import re
 from optparse import OptionParser
 import pygame
 from pygame.locals import *
@@ -69,6 +70,31 @@ prompt_colour = (25, 21, 18)
 creme_colour = (236, 228, 217)
 yellow_colour = (205, 153, 29)
 red = (225, 0, 0)
+
+
+
+class variants:
+    def __init__(self):
+        self.name = ""
+        self.number = 15
+        self.wtw = "ttl"
+
+trivial = variants()
+trivial.name = "Trivial"
+trivial.number = 16
+trivial.wtw = "ttl"
+
+marienbad = variants()
+marienbad.name = "Marienbad"
+marienbad.number = 5
+marienbad.wtw = "ttl"
+
+knowenVarients = [trivial, marienbad]
+viarentNames = []
+for varientRow in knowenVarients:
+    viarentNames.append(varientRow.name)
+
+
 
 # Sizes deffinitions
 xSize = 640
@@ -212,11 +238,22 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
     elif textToAnalyse in ["quit", "q"]:
         textToAnalyse = ""
         programHaveToContinue = False
-    elif textToAnalyse in ["new", "n"]:
-        textToAnalyse = ""
+#    elif textToAnalyse in ["new", "n"]:
+    #elif re.match("n(ew| *)?$", textToAnalyse) is not None:
+    elif re.match("n(ew)?( +((trivial)|(marienbad)))?( +[0-9]*)?( +((ttl)|(ltl)))? *$", textToAnalyse) is not None:
         programHaveToContinue = True
         functionHaveToContinue = False
-        generalState.variant = variant
+
+        syntaxToExtractOptions = "n(ew)?( +(?P<variente>(trivial|marienbad)))?( +(?P<number>[0-9]*))?( +(?P<wtw>((ttl)|(ltl))))?"
+        newGameOptions = re.match(syntaxToExtractOptions,textToAnalyse)
+        textToAnalyse = ""
+
+        print("machin")
+        type(newGameOptions.group("variente"))
+        if (newGameOptions.group("variente") == None) :
+            generalState.variant = variant
+        else:
+            generalState.variant = newGameOptions.group("variente")
         generalState.number = numberOfInitialMatch
         generalState.wtw = wtw
     elif keyboardInput["mode"] == "escape":

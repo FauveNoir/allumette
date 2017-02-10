@@ -27,9 +27,9 @@ All managing actions is in exmode, it means that the begin by `:`.
 ###Beging new game
 In any situation, the syntax mainly follow this kind of structure
 
-<code>
+<pre>
 :new <var>⟨varient⟩</var> <var>⟨number⟩</var> <var>⟨wtw⟩</var>
-</code>
+</pre>
 
 * The <var>⟨varient⟩</var> is the name of varient, for example `marienbad` or `trivial`.
 * <var>⟨wtw⟩</var> can take two values `ttl` (`take-the-last`) or `ltl` (`let-the-last`).
@@ -66,11 +66,11 @@ In this mode, all the columns are numbered. So, you still have two possibilities
 
 The sintax is the following:
 
-<code>
+<pre>
 <var>⟨column number⟩</var>=<var>⟨match to let⟩</var><kbd>⏎</kbd>
 
 <var>⟨column number⟩</var>-<var>⟨match to take⟩</var><kbd>⏎</kbd>
-</code>
+</pre>
 
 ### In Grundy mode
 In grundy mode all initial pile is numbered and all child pile still get the number of her parent pile. So, if the user chose the pile #3, we get two pile witch is named `3.0` and `3.1`, and if he decide to play the pile 3.1 we will get the piles `3.1.0` and `3.1.1`.
@@ -83,13 +83,13 @@ In this mode, there is two pile. The user have write to take the same number of 
 The two pile are named `a` and `b`.
 
 So, the syntax to take the same number of match in the two piles is:
-<code>
+<pre>
 [-]<var>⟨number of matchs to take⟩</var><kbd>⏎</kbd>
 =<var>⟨number of matchs to let⟩</var><kbd>⏎</kbd>
-</code>
+</pre>
 
 Alternativly, if the user whant to only take matchs from one pile, he have to use this syntax:
-<code>
+<pre>
 <var>⟨Letter of the pile⟩</var>[-]<var>⟨number of matchs to take⟩</var><kbd>⏎</kbd>
 <var>⟨Letter of the pile⟩</var>=<var>⟨number of matchs to let⟩</var><kbd>⏎</kbd>
-</code>
+</pre>
