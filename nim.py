@@ -240,7 +240,7 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         programHaveToContinue = False
 #    elif textToAnalyse in ["new", "n"]:
     #elif re.match("n(ew| *)?$", textToAnalyse) is not None:
-    elif re.match("n(ew)?( +((trivial)|(marienbad)))?( +[0-9]*)?( +((ttl)|(ltl)))? *$", textToAnalyse) is not None:
+    elif re.match("n(ew)?( +((trivial)|(marienbad)))?( +[0-9]*)?( +(((ttl)|(take-the-last))|((ltl)|(let-the-last))))? *$", textToAnalyse) is not None:
         programHaveToContinue = True
         functionHaveToContinue = False
 
@@ -618,7 +618,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
     winer = None
 
     winMatchDisposition = []
-    while functionHaveToContinue and programHaveToContinue:
+    while functionHaveToContinue and programHaveToContinue and (weHaveAWiner == False):
         userPlayed = 0
         computerPlayed = 0
         functionHaveToContinue, textToanalyse = analyseTyping(
@@ -765,12 +765,11 @@ def trivial(numberOfInitialMatch, wtw, screen):
             if currentNumberOfMatch == 0:
                 print("machin")
                 weHaveAWiner = True
+                timeOfEndOfGame = int(time.time()) - beginingOfGame
 
         else:
             print("we have a winer")
             timeOfEndOfGame = int(time.time()) - beginingOfGame
-            winingFallingScreen(
-                winer, wtw, numberOfInitialMatch, timeOfEndOfGame)
 
         if textToanalyse in allowedEntry:
             normalTextZone = myfont.render(
@@ -805,6 +804,17 @@ def trivial(numberOfInitialMatch, wtw, screen):
 #       testSurface = pygame.Surface((indicatorTextInformation.width, indicatorTextInformation.height))
 #       testSurface.fill(red)
 #       screen.blit(testSurface, (indicatorTextInformation.x,indicatorTextInformation.y))
+
+        #####################
+        pygame.display.flip()
+        #####################
+
+    while functionHaveToContinue and programHaveToContinue:
+        winingFallingScreen(
+            winer, wtw, numberOfInitialMatch, timeOfEndOfGame)
+        functionHaveToContinue, textToanalyse = analyseTyping(
+            "trivial", numberOfInitialMatch, wtw)
+        makeTextZone("Trivial")
 
         #####################
         pygame.display.flip()
