@@ -70,7 +70,7 @@ prompt_colour = (25, 21, 18)
 creme_colour = (236, 228, 217)
 yellow_colour = (205, 153, 29)
 winingMainText_colour = (236, 232, 228)
-purple_colour = (170, 0, 75)
+purple_colour = (133, 0, 58)
 
 red = (225, 0, 0)
 
@@ -283,7 +283,7 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
 
     return functionHaveToContinue, keyboardInput
 
-def makeAPause(variant, numberOfInitialMatch, wtw):
+def makeAPause(variant, numberOfInitialMatch, wtw, beginingOfGame):
     global winingMainText_colour
     global indicator_colour
     global programHaveToContinue
@@ -292,6 +292,9 @@ def makeAPause(variant, numberOfInitialMatch, wtw):
     pauseMainText_colour = winingMainText_colour
     pauseTextInfo = surfaceInformations()
     resumeTextInfo = surfaceInformations()
+
+    timeBeforePause = int(time.time()) - beginingOfGame
+    timeOfEndOfGame = int(time.time()) - beginingOfGame
 
     functionHaveToContinue = True
     while functionHaveToContinue and programHaveToContinue:
@@ -326,6 +329,10 @@ def makeAPause(variant, numberOfInitialMatch, wtw):
         #####################
         pygame.display.flip()
         #####################
+
+
+    timeToReturn = int(time.time()) - timeBeforePause
+    return timeToReturn
 
 def makeTimetZone(beginingOfGame):
     timeZoneInformation = surfaceInformations()
@@ -597,7 +604,7 @@ def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
         fallingText = fallingFont.render(fallingTextContent, 1, fallingMainText_colour)
         fallingTextInfo.width, fallingTextInfo.height = fallingFont.size(fallingTextContent)
         fallingTextInfo.x = (xSize - fallingTextInfo.width) / 2
-        fallingTextInfo.y = 40
+        fallingTextInfo.y = (ySize/2) - fallingTextInfo.height
         screen.blit(fallingText, (fallingTextInfo.x, fallingTextInfo.y))
 
         # Bliting help text
@@ -762,7 +769,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
 
         if textToanalyse["mode"] == "pause":
             print("In pause")
-            makeAPause("trivial", numberOfInitialMatch, wtw)
+            beginingOfGame = makeAPause("trivial", numberOfInitialMatch, wtw, beginingOfGame)
 
         # Redifining variables
         xSize, ySize = screen.get_size()
