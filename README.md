@@ -94,3 +94,47 @@ Alternativly, if the user whant to only take matchs from one pile, he have to us
 <var>⟨Letter of the pile⟩</var>[-]<var>⟨number of matchs to take⟩</var><kbd>⏎</kbd>
 <var>⟨Letter of the pile⟩</var>=<var>⟨number of matchs to let⟩</var><kbd>⏎</kbd>
 </pre>
+
+## Installation
+### On Debian and Ubuntu
+OpenAllumette work with python3 and need both python3 and python3’s version of pygame.
+
+Install first python3 with:
+
+```
+sudo aptitude install python3
+```
+
+The following steps are all reproduced from [this treead](https://askubuntu.com/questions/401342/how-to-download-pygame-in-python3-3).
+
+Get pygame source code:
+```
+sudo aptitude install mercurial
+cd /tmp/
+hg clone https://bitbucket.org/pygame/pygame
+cd pygame
+```
+
+Install dependencies:
+```
+sudo aptitude install python3-dev python3-numpy libsdl-dev libsdl-image1.2-dev \
+  libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libportmidi-dev \
+  libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
+```
+
+Bulid pygame and install it:
+```
+python3 setup.py build
+sudo python3 setup.py install
+```
+
+Now, you can install OpenAllumette:
+```
+aptitude install git
+git clone github.com/FauveNoir/allumette.git ./allumette
+ln -s ~/allumette/nim.py ~/.local/bin/allumette
+```
+
+You can now run OpenAllumette with the command `allumette`. Good game.
+
+

@@ -867,6 +867,13 @@ def trivial(numberOfInitialMatch, wtw, screen):
                     matchS[i], (matchDim[0], matchDim[1]))
                 screen.blit(
                     matchS[i], (currentMatchPos[0], currentMatchPos[1]))
+                if i == 0:
+                    #adding crown or warning sign
+                    initialSign = pygame.image.load(
+                        "crown.png").convert_alpha()
+                    screen.blit(
+                        matchS[i], (currentMatchPos[0], currentMatchPos[1]))
+
                 i = i + 1
 
             indicatorFont = pygame.font.SysFont("monospace", 34)
