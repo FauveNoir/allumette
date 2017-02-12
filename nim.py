@@ -69,6 +69,7 @@ indicator_colour = (70, 60, 50)
 prompt_colour = (25, 21, 18)
 creme_colour = (236, 228, 217)
 yellow_colour = (205, 153, 29)
+winingMainText_colour = (236, 232, 228)
 red = (225, 0, 0)
 
 
@@ -453,7 +454,7 @@ def trivialAnalysis(currentMatchNumber, initialMatchNumber, wtw, userInput):
     return answer
 
 
-def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
+def winingFallingScreenMatchExplosion(winer, variant, numberOfInitialMatch, time):
     xSize, ySize = screen.get_size()
 
     if winer == True:
@@ -473,6 +474,63 @@ def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
     elif winer == False:
         print("machin")
 
+def formateSecondToDotedTime(seconds):
+    m, s = divmod(seconds, 60)
+    h, m = divmod(m, 60)
+
+    if h == 0:
+        formatedTime = "%02d:%02d" % (m, s)
+    else:
+        formatedTime = "%02d:%02d:%02d" % (h, m, s)
+
+    return formatedTime
+
+def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
+    global indicator_colour
+    global winingMainText_colour
+    lineSeparationColor = (205, 153, 29)
+    helpText_color = (163, 143, 125)
+    xSize, ySize = screen.get_size()
+
+    time = formateSecondToDotedTime(time)
+
+    if winer == True:
+
+        winingTextInfo = surfaceInformations()
+        winingTimeTextInfo = surfaceInformations()
+        winingHelpTextInfo = surfaceInformations()
+
+
+        print("machin")
+        screen.fill(indicator_colour)
+
+        # Bliting the text "You win"
+        winingFont = pygame.font.SysFont("CMU Typewriter Text", 44, bold=True)
+        winingText = winingFont.render("You win!", 1, winingMainText_colour)
+        winingTextInfo.width, winingTextInfo.height = winingFont.size("You win!")
+        winingTextInfo.x = (xSize - winingTextInfo.width) / 2
+        winingTextInfo.y = 40
+        screen.blit(winingText, (winingTextInfo.x, winingTextInfo.y))
+
+        # Bliting the time passed
+        winingTimeFont = pygame.font.SysFont("CMU Typewriter Text", 137, bold=True)
+        winingTimeText = winingTimeFont.render(time, 1, lineSeparationColor)
+        winingTimeTextInfo.width, winingTimeTextInfo.height = winingTimeFont.size(time)
+        winingTimeTextInfo.x = (xSize - winingTimeTextInfo.width) / 2
+        winingTimeTextInfo.y = 90
+        screen.blit(winingTimeText, (winingTimeTextInfo.x, winingTimeTextInfo.y))
+
+        # Bliting help text
+        helpText = "Type :new to begin new game or :help for more options."
+        winingHelpFont = pygame.font.SysFont("CMU Typewriter Text", 23, bold=True)
+        winingHelpText = winingHelpFont.render(helpText, 1, helpText_color)
+        winingHelpTextInfo.width, winingHelpTextInfo.height = winingHelpFont.size(helpText)
+        winingHelpTextInfo.x = (xSize - winingHelpTextInfo.width) / 2
+        winingHelpTextInfo.y = ySize-90
+        screen.blit(winingHelpText, (winingHelpTextInfo.x, winingHelpTextInfo.y))
+
+    elif winer == False:
+        print("machin")
 
 def printListOfTry(screen, listOfTry):
     historyFont = pygame.font.SysFont("monospace", 14, bold=True)

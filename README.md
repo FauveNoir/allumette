@@ -49,6 +49,7 @@ For example, if you are playing a trivial mode with `ttl` and 20 matchs and you
 | `:saveas` `:w`                                                                            |  Save the current game with time in a file. |
 | `:open` `:o`                                                                              |  Open registered game                       |
 | <code>:help <var>⟨commad⟩</var></code> <code>:h <var>⟨commad⟩</var></code>                |  Getting help about a command.              |
+|  p                                                                                        |  Put game on pause                          |
 
 ## Game actions
 The syntax of the game actions mainly depand of the variant you are playing. And in all cases, you have to be in normal mode; to get it, just press <kbd>⎋</kbd> key.
