@@ -224,6 +224,9 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
             elif normalMode == True:
                 if (event.key is K_ESCAPE) and (normalUserInput != []):
                     normalUserInput = []
+                elif event.key == K_p:
+                    normalUserInput = []
+                    keyboardInput["mode"] = "pause"
                 elif (event.key is K_ESCAPE) and (normalUserInput == []):
                     normalUserInput = []
                     keyboardInput["mode"] = "escape"
@@ -232,6 +235,8 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
                 elif (event.key in [K_RETURN, K_KP_ENTER]):
                     finalNormalUserInput = "".join(normalUserInput)
                     normalUserInput = []
+
+
 
     if textToAnalyse == "about":
         textToAnalyse = ""
@@ -264,6 +269,8 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         generalState.wtw = wtw
     elif keyboardInput["mode"] == "escape":
         keyboardInput["mode"] = "escape"
+    elif keyboardInput["mode"] == "pause":
+        keyboardInput["mode"] = "pause"
     else:
         keyboardInput["mode"] = "ex"
         keyboardInput["content"] = textToAnalyse
@@ -274,6 +281,49 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
 
     return functionHaveToContinue, keyboardInput
 
+def makeAPause(variant, numberOfInitialMatch, wtw):
+    global winingMainText_colour
+    global indicator_colour
+    global programHaveToContinue
+    resumeMainText_colour = (163, 143, 125)
+
+    pauseMainText_colour = winingMainText_colour
+    pauseTextInfo = surfaceInformations()
+    resumeTextInfo = surfaceInformations()
+
+    functionHaveToContinue = True
+    while functionHaveToContinue and programHaveToContinue:
+        xSize, ySize = screen.get_size()
+        functionHaveToContinue, textToanalyse = analyseTyping(None, None, None)
+
+        screen.fill(indicator_colour)
+        if textToanalyse["mode"] == "escape":
+            functionHaveToContinue = False
+
+        # Bliting the text "PAUSE"
+        pauseTextContent = "Pause".upper()
+        pauseFont = pygame.font.SysFont("CMU Typewriter Text", 112, bold=True)
+        pauseText = pauseFont.render(pauseTextContent, 1, pauseMainText_colour)
+        pauseTextInfo.width, pauseTextInfo.height = pauseFont.size(pauseTextContent)
+        pauseTextInfo.x = (xSize - pauseTextInfo.width) / 2
+        pauseTextInfo.y = (ySize/2) - pauseTextInfo.height
+        screen.blit(pauseText, (pauseTextInfo.x, pauseTextInfo.y))
+
+
+        # Bliting the text resume text
+        resumeTextContent = "Type Escape key to continue."
+        resumeFont = pygame.font.SysFont("CMU Typewriter Text", 14, bold=True)
+        resumeText = resumeFont.render(resumeTextContent, 1, resumeMainText_colour)
+        resumeTextInfo.width, resumeTextInfo.height = resumeFont.size(resumeTextContent)
+        resumeTextInfo.x = (xSize - resumeTextInfo.width) / 2
+        resumeTextInfo.y = (ySize- 14) - resumeTextInfo.height - 30
+        screen.blit(resumeText, (resumeTextInfo.x, resumeTextInfo.y))
+
+
+        makeTextZone("Pause - " + variant)
+        #####################
+        pygame.display.flip()
+        #####################
 
 def makeTimetZone(beginingOfGame):
     timeZoneInformation = surfaceInformations()
@@ -681,6 +731,11 @@ def trivial(numberOfInitialMatch, wtw, screen):
         computerPlayed = 0
         functionHaveToContinue, textToanalyse = analyseTyping(
             "trivial", numberOfInitialMatch, wtw)
+
+
+        if textToanalyse["mode"] == "pause":
+            print("In pause")
+            makeAPause("trivial", numberOfInitialMatch, wtw)
 
         # Redifining variables
         xSize, ySize = screen.get_size()
