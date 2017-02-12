@@ -70,6 +70,8 @@ prompt_colour = (25, 21, 18)
 creme_colour = (236, 228, 217)
 yellow_colour = (205, 153, 29)
 winingMainText_colour = (236, 232, 228)
+purple_colour = (170, 0, 75)
+
 red = (225, 0, 0)
 
 
@@ -538,8 +540,10 @@ def formateSecondToDotedTime(seconds):
 def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
     global indicator_colour
     global winingMainText_colour
+    global purple_colour
     lineSeparationColor = (205, 153, 29)
     helpText_color = (163, 143, 125)
+    fallingMainText_colour = winingMainText_colour
     xSize, ySize = screen.get_size()
 
     time = formateSecondToDotedTime(time)
@@ -551,7 +555,6 @@ def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
         winingHelpTextInfo = surfaceInformations()
 
 
-        print("machin")
         screen.fill(indicator_colour)
 
         # Bliting the text "You win"
@@ -580,7 +583,31 @@ def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
         screen.blit(winingHelpText, (winingHelpTextInfo.x, winingHelpTextInfo.y))
 
     elif winer == False:
-        print("machin")
+        fallingTextInfo = surfaceInformations()
+        fallingTimeTextInfo = surfaceInformations()
+        fallingHelpTextInfo = surfaceInformations()
+
+
+
+        screen.fill(purple_colour)
+
+        # Bliting the text "You win"
+        fallingTextContent = "You loose!"
+        fallingFont = pygame.font.SysFont("CMU Typewriter Text", 52, bold=True)
+        fallingText = fallingFont.render(fallingTextContent, 1, fallingMainText_colour)
+        fallingTextInfo.width, fallingTextInfo.height = fallingFont.size(fallingTextContent)
+        fallingTextInfo.x = (xSize - fallingTextInfo.width) / 2
+        fallingTextInfo.y = 40
+        screen.blit(fallingText, (fallingTextInfo.x, fallingTextInfo.y))
+
+        # Bliting help text
+        helpText = "Type :new to begin new game or :help for more options."
+        fallingHelpFont = pygame.font.SysFont("CMU Typewriter Text", 23, bold=True)
+        fallingHelpText = fallingHelpFont.render(helpText, 1, helpText_color)
+        fallingHelpTextInfo.width, fallingHelpTextInfo.height = fallingHelpFont.size(helpText)
+        fallingHelpTextInfo.x = (xSize - fallingHelpTextInfo.width) / 2
+        fallingHelpTextInfo.y = ySize-90
+        screen.blit(fallingHelpText, (fallingHelpTextInfo.x, fallingHelpTextInfo.y))
 
 def printListOfTry(screen, listOfTry):
     historyFont = pygame.font.SysFont("monospace", 14, bold=True)
