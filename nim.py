@@ -840,14 +840,19 @@ def trivial(numberOfInitialMatch, wtw, screen):
             secondMatchAreaPos = [matchAreaPos[
                 0] + (matchAreaDim[0] - (numberOfInitialMatch * 1.5) * matchDim[0]) / 2, matchAreaPos[1]]
 
+            matchRessizing = matchMaxWidth/matchDim[0]
+            print(matchRessizing)
+
             i = 0
             matchS = []
             while i < numberOfInitialMatch:
                 if i < currentNumberOfMatch:
                     if currentNumberOfMatch in [1, 2, 3]:
+                        initialSignDistanceToMatch = matchDim[1]/7
                         matchS.append(pygame.image.load(
                             "match-burned.png").convert_alpha())
                     else:
+                        initialSignDistanceToMatch = matchDim[1]/24
                         if i >= (currentNumberOfMatch - 3):
                             matchS.append(pygame.image.load(
                                 "match-allowed.png").convert_alpha())
@@ -869,10 +874,17 @@ def trivial(numberOfInitialMatch, wtw, screen):
                     matchS[i], (currentMatchPos[0], currentMatchPos[1]))
                 if i == 0:
                     #adding crown or warning sign
-                    initialSign = pygame.image.load(
-                        "crown.png").convert_alpha()
-                    screen.blit(
-                        matchS[i], (currentMatchPos[0], currentMatchPos[1]))
+                    initialSignPos = [0,0]
+                    initialSignPos[1] = currentMatchPos[1] - initialSignDistanceToMatch
+                    initialSign = pygame.image.load("crown.png").convert_alpha()
+                    initialSignSize = initialSign.get_rect().size
+
+                    initialSignSize = [int(initialSignSize[0]/matchRessizing),int(initialSignSize[1]/matchRessizing)]
+                    print(initialSignSize)
+                    initialSign = pygame.transform.scale(initialSign, (initialSignSize[0], initialSignSize[1]))
+
+                    initialSignPos[0] = (currentMatchPos[0]+(matchDim[0]/2)) - (initialSignSize[0]/2)
+                    screen.blit(initialSign, (initialSignPos[0], initialSignPos[1]))
 
                 i = i + 1
 

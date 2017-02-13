@@ -17,7 +17,7 @@ case $DISTRIBUTION in
 		hg clone https://bitbucket.org/pygame/pygame
 		cd pygame
 
-		echo "Bulid pygame and install it:"
+		echo "Bulid pygame and install it"
 		python3 setup.py build
 		sudo python3 setup.py install
 
@@ -25,7 +25,7 @@ case $DISTRIBUTION in
 		git clone github.com/FauveNoir/allumette.git ~/.allumette
 		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
 
-		echo "\n\nYou can now run OpenAllumette with the command `allumette`. Good game."
+		echo "\n\nYou can now run OpenAllumette with the command allumette. Good game."
 	;;
 	*)
 		echo "There is not yet installation for your distribution.\nMaybe are you a volunteer to do it? :)

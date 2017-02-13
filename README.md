@@ -140,3 +140,12 @@ ln -s ~/.allumette/nim.py ~/.local/bin/allumette
 You can now run OpenAllumette with the command `allumette`. Good game.
 
 
+## Screenshots
+### Trivial
+![Trivial screen](./mokup-trivial-main-screen.png)
+### Prewin
+![Prewin screen](./mokup-trivial-flame-screen.png)
+### Wining
+![Wining screen](./mokup-trvial-wining-screen.png)
+### About screen
+![About screen](./mokup-about-screen.png)
