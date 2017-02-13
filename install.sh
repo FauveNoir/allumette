@@ -28,6 +28,6 @@ case $DISTRIBUTION in
 		echo "\n\nYou can now run OpenAllumette with the command allumette. Good game."
 	;;
 	*)
-		echo "There is not yet installation for your distribution.\nMaybe are you a volunteer to do it? :)
+		echo "There is not yet installation for your distribution.\nMaybe are you a volunteer to do it? :)"
 	;;
 esac
