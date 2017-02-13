@@ -99,6 +99,8 @@ Alternativly, if the user whant to only take matchs from one pile, he have to us
 ### On Debian and Ubuntu
 OpenAllumette work with python3 and need both python3 and python3’s version of pygame.
 
+You can install OpenAllumette by the [`install.sh` script](./install.sh) or with the following instruction:
+
 Install first python3 with:
 
 ```
@@ -131,8 +133,8 @@ sudo python3 setup.py install
 Now, you can install OpenAllumette:
 ```
 aptitude install git
-git clone github.com/FauveNoir/allumette.git ./allumette
-ln -s ~/allumette/nim.py ~/.local/bin/allumette
+git clone github.com/FauveNoir/allumette.git ~/.allumette
+ln -s ~/.allumette/nim.py ~/.local/bin/allumette
 ```
 
 You can now run OpenAllumette with the command `allumette`. Good game.
