@@ -101,34 +101,17 @@ OpenAllumette work with python3 and need both python3 and python3’s version of
 
 You can install OpenAllumette by the [`install.sh` script](./install.sh) or with the following instruction:
 
-Install first python3 with:
+Install first needed packages with:
 
 ```
-sudo aptitude install python3
+sudo aptitude install git python3 python3-pip
 ```
 
-The following steps are all reproduced from [this treead](https://askubuntu.com/questions/401342/how-to-download-pygame-in-python3-3).
-
-Get pygame source code:
+Install pygame for python3 with the `pip3` util:
 ```
-sudo aptitude install mercurial
-cd /tmp/
-hg clone https://bitbucket.org/pygame/pygame
-cd pygame
+pip3 install Pygame
 ```
 
-Install dependencies:
-```
-sudo aptitude install python3-dev python3-numpy libsdl-dev libsdl-image1.2-dev \
-  libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libportmidi-dev \
-  libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
-```
-
-Bulid pygame and install it:
-```
-python3 setup.py build
-sudo python3 setup.py install
-```
 
 Now, you can install OpenAllumette:
 ```

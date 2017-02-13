@@ -7,21 +7,13 @@ DISTRIBUTION=`lsb_release -i | sed 's/Distributor ID:\t//'`
 
 case $DISTRIBUTION in
 	"Debian")
-		echo "* Installing all dependencies"
-		sudo aptitude install python3 mercurial python3-dev python3-numpy libsdl-dev libsdl-image1.2-dev \
-		  libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libportmidi-dev \
-		  libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev git
+		echo "* Installing all needed packages"
+		sudo aptitude install git python3 python3-pip
 
-		echo "* Installing python3-pygame"
-		cd /tmp/
-		hg clone https://bitbucket.org/pygame/pygame
-		cd pygame
+		echo "* Installing Pygame with Pip"
+		pip3 install Pygame
 
-		echo "Bulid pygame and install it"
-		python3 setup.py build
-		sudo python3 setup.py install
-
-		echo "OpenAllumette installation"
+		echo "Downloading and inpacking OpenAllumette"
 		git clone github.com/FauveNoir/allumette.git ~/.allumette
 		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
 

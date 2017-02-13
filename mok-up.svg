@@ -1003,11 +1003,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="2082.0718"
-     inkscape:cy="-373.27198"
+     inkscape:zoom="1.4"
+     inkscape:cx="1395.5673"
+     inkscape:cy="299.82373"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g7147"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1080"
@@ -4275,7 +4275,10 @@
        width="837.71503"
        height="480"
        x="51.42857"
-       y="160.93361" />
+       y="160.93361"
+       inkscape:export-filename="/home/fauve/dev/nim/mokup-trivial-main-screen.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        y="566.96039"
        x="431.23706"
@@ -7196,7 +7199,7 @@
     <rect
        inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
-       inkscape:export-filename="/tmp/g6503-8.png"
+       inkscape:export-filename="/home/fauve/dev/nim/mokup-trivial-flame-screen.png"
        style="fill:#907c6a;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="rect4634"
        width="837.71503"
@@ -14426,7 +14429,7 @@
     <rect
        inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
-       inkscape:export-filename="/tmp/g6503-8.png"
+       inkscape:export-filename="/home/fauve/dev/nim/mokup-about-screen.png"
        style="fill:#907c6a;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="rect7819"
        width="837.71503"
@@ -15253,7 +15256,7 @@
       <path
          id="path5593"
          style="fill:#dad1ca;fill-opacity:1;stroke:#e94641;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-         d="m -496.96469,3334.0147 0.492,39.3504 c -184.61257,44.0907 -461.68564,45.1393 -650.95991,1.0887 l 0.5884,-38.7108 c 188.68587,43.2364 465.75894,42.1878 649.87951,-1.7283 z"
+         d="m -496.47269,3373.3651 c -184.61257,44.0907 -461.68564,45.1393 -650.95991,1.0887 3.3805,-11.4562 7.2186,-14.6744 10.0173,-36.6029 185.64093,40.4822 451.47728,39.3953 632.46114,-1.9707 -0.85553,16.1777 5.65431,24.9899 8.48147,37.4849 z"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccccc" />
       <g
@@ -20326,7 +20329,7 @@
        height="480"
        x="51.42857"
        y="3200.9336"
-       inkscape:export-filename="/home/fauve/dev/nim/mokup-wining-screen.png"
+       inkscape:export-filename="/home/fauve/dev/nim/mokup-trvial-wining-screen.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
@@ -21392,7 +21395,7 @@
        height="480"
        width="837.71503"
        id="rect7005"
-       style="opacity:1;fill:#aa004b;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+       style="opacity:1;fill:#85003b;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
        inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
