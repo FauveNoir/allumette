@@ -268,7 +268,10 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         else:
             generalState.number = int(newGameOptions.group("number"))
 
-        generalState.wtw = wtw
+        if ( newGameOptions.group("wtw") == None) :
+            generalState.wtw = wtw
+        else:
+            generalState.wtw = newGameOptions.group("wtw")
     elif keyboardInput["mode"] == "escape":
         keyboardInput["mode"] = "escape"
     elif keyboardInput["mode"] == "pause":
@@ -443,26 +446,34 @@ def representsInt(s):
         return False
 
 
-def playTrivial(currentMatchNumber):
+def playTrivial(currentMatchNumber,wtw):
+    if wtw == "ltl":
+        modulator = 0
+    else:
+        modulator = 1
+
     if currentMatchNumber != 0:
-        numberOfMatchToDel = 0
-        if currentMatchNumber >= 3:
-            authorisedNumbers = [3, 2, 1]
-        elif currentMatchNumber == 2:
-            authorisedNumbers = [2, 1]
-        elif currentMatchNumber == 1:
-            authorisedNumbers = [1]
+        if wtw == "ttl":
+            if ((currentMatchNumber - 1) % 4) == 0:
+                numberComputerHaveToDel = 1
+            elif ((currentMatchNumber - 2) % 4) == 0:
+                numberComputerHaveToDel = 2
+            elif ((currentMatchNumber - 3) % 4) == 0:
+                numberComputerHaveToDel = 3
+            else:
+                numberComputerHaveToDel = random.randint(1, 3)
+            answer = numberComputerHaveToDel
 
-        if ((currentMatchNumber - 1) % 4) == 0:
-            numberComputerHaveToDel = 1
-        elif ((currentMatchNumber - 2) % 4) == 0:
-            numberComputerHaveToDel = 2
-        elif ((currentMatchNumber - 3) % 4) == 0:
-            numberComputerHaveToDel = 3
-        else:
-            numberComputerHaveToDel = random.randint(1, 3)
-
-        answer = numberComputerHaveToDel
+        elif wtw == "ltl":
+            if ((currentMatchNumber - 1) % 4) == 0:
+                numberComputerHaveToDel = 3
+            elif ((currentMatchNumber - 2) % 4) == 0:
+                numberComputerHaveToDel = 1
+            elif ((currentMatchNumber - 3) % 4) == 0:
+                numberComputerHaveToDel = 2
+            else:
+                numberComputerHaveToDel = random.randint(1, 3)
+            answer = numberComputerHaveToDel
     else:
         answer = 0
 
@@ -670,10 +681,7 @@ def printListOfTry(screen, listOfTry):
         row = row + 1
         print("It success")
 
-    print(len(listOfTry))
-    print("textZoneHeigh: " + str(textZoneHeigh))
     realHistoryHeigh = (len(listOfTry) + 1) * textZoneHeigh
-    print(realHistoryHeigh, ySize)
 
     lineHistorySeparation = pygame.Surface((1, ySize))
     lineHistorySeparation.fill(lineSeparationColor)
@@ -841,7 +849,6 @@ def trivial(numberOfInitialMatch, wtw, screen):
                 0] + (matchAreaDim[0] - (numberOfInitialMatch * 1.5) * matchDim[0]) / 2, matchAreaPos[1]]
 
             matchRessizing = matchMaxWidth/matchDim[0]
-            print(matchRessizing)
 
             i = 0
             matchS = []
@@ -880,7 +887,6 @@ def trivial(numberOfInitialMatch, wtw, screen):
                     initialSignSize = initialSign.get_rect().size
 
                     initialSignSize = [int(initialSignSize[0]/matchRessizing),int(initialSignSize[1]/matchRessizing)]
-                    print(initialSignSize)
                     initialSign = pygame.transform.scale(initialSign, (initialSignSize[0], initialSignSize[1]))
 
                     initialSignPos[0] = (currentMatchPos[0]+(matchDim[0]/2)) - (initialSignSize[0]/2)
@@ -908,34 +914,32 @@ def trivial(numberOfInitialMatch, wtw, screen):
                 if getFromAnalysis[0] == True:
                     userPlayed = getFromAnalysis[2]
                     listOfTry.append(userPlayed)
-                    print(listOfTry)
                 else:
                     errorToDisplay = getFromAnalysis[1]
 
                 if getFromAnalysis[0] == True:
                     computerPlayed = playTrivial(
-                        currentNumberOfMatch - userPlayed)
+                        currentNumberOfMatch - userPlayed,wtw)
                     listOfTry.append(computerPlayed)
-                    print(listOfTry)
 
             currentNumberOfMatch = currentNumberOfMatch - userPlayed
-            if currentNumberOfMatch == 0:
+            if ((currentNumberOfMatch == 0) and (wtw == "ttl")) or ((currentNumberOfMatch == 1) and (wtw == "ltl")):
                 winer = True
             else:
                 currentNumberOfMatch = currentNumberOfMatch - computerPlayed
-                if currentNumberOfMatch == 0:
+                if (currentNumberOfMatch == 0 and (wtw == "ttl")) or ((currentNumberOfMatch == 1) and (wtw == "ltl")):
                     winer = False
 
             numberOfMatchDelled = numberOfInitialMatch - currentNumberOfMatch
 
-            if currentNumberOfMatch == 0:
-                print("machin")
+            if (currentNumberOfMatch == 0 and (wtw == "ttl")) or ((currentNumberOfMatch == 1) and (wtw == "ltl")):
                 weHaveAWiner = True
                 timeOfEndOfGame = int(time.time()) - beginingOfGame
 
         else:
             print("we have a winer")
             timeOfEndOfGame = int(time.time()) - beginingOfGame
+
 
         if textToanalyse in allowedEntry:
             normalTextZone = myfont.render(
