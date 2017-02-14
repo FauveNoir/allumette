@@ -22,13 +22,16 @@ case $DISTRIBUTION in
 	;;
 	"ManjaroLinux")
 		echo "* Installing all needed packages"
-		sudo aptitude install git python
+		sudo yaourt -S git python
 
 		echo "* Installing pip for python3"
 		mkdir /tmp/allumette
 		cd /tmp/allumette
 		curl -O https://bootstrap.pypa.io/get-pip.py
 		python get-pip.py
+
+		echo "* Installing Pygame with Pip"
+		pip3 install Pygame
 
 		echo "Downloading and inpacking OpenAllumette"
 		mkdir ~/.allumette
