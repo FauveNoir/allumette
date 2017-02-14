@@ -885,7 +885,10 @@ def trivial(numberOfInitialMatch, wtw, screen):
                     #adding crown or warning sign
                     initialSignPos = [0,0]
                     initialSignPos[1] = currentMatchPos[1] - initialSignDistanceToMatch
-                    initialSign = pygame.image.load(mainDir + "/" + "crown.png").convert_alpha()
+                    if wtw == "ttl":
+                        initialSign = pygame.image.load(mainDir + "/" + "crown.png").convert_alpha()
+                    if wtw == "ltl":
+                        initialSign = pygame.image.load(mainDir + "/" + "skull.png").convert_alpha()
                     initialSignSize = initialSign.get_rect().size
 
                     initialSignSize = [int(initialSignSize[0]/matchRessizing),int(initialSignSize[1]/matchRessizing)]
