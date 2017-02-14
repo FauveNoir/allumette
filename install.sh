@@ -14,8 +14,7 @@ case $DISTRIBUTION in
 		pip3 install Pygame
 
 		echo "Downloading and inpacking OpenAllumette"
-		mkdir ~/.allumette
-		git clone http://github.com/FauveNoir/allumette.git ~/.allumette
+		git clone https://github.com/FauveNoir/allumette.git ~/.allumette
 		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
 
 		echo "\n\nYou can now run OpenAllumette with the command allumette. Good game."
@@ -34,8 +33,7 @@ case $DISTRIBUTION in
 		pip3 install Pygame
 
 		echo "Downloading and inpacking OpenAllumette"
-		mkdir ~/.allumette
-		git clone http://github.com/FauveNoir/allumette.git ~/.allumette
+		git clone https://github.com/FauveNoir/allumette.git ~/.allumette
 		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
 
 		echo "\n\nYou can now run OpenAllumette with the command allumette. Good game."
