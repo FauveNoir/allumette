@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
 import random
 import sys
 import time
@@ -60,6 +61,7 @@ class whatToDo:
 
 
 print("This is Nim " + version + "\n")
+mainDir = os.path.dirname(os.path.realpath(__file__))
 
 # Colour deffinitions
 background_colour = (144, 124, 106)
@@ -407,7 +409,7 @@ def aboutScreen(screen):
         # Illustartion deffinition
         illustrationInformation = surfaceInformations()
         illustration = pygame.image.load(
-            "about-illustration.png").convert_alpha()
+            mainDir + "/" + "about-illustration.png").convert_alpha()
         illustrationInformation.width, illustrationInformation.height = illustration.get_size()
 
         illustrationInformationRatio = illustrationInformation.width / \
@@ -533,7 +535,7 @@ def winingFallingScreenMatchExplosion(winer, variant, numberOfInitialMatch, time
         match = 0
         while match < 1000:
             matchS.append(pygame.image.load(
-                "match-animation.png").convert_alpha())
+                mainDir + "/" + "match-animation.png").convert_alpha())
             matchInformation.heigh = random.randint(0, ySize)
             matchInformation.weight = random.randint(0, xSize)
             rotation = random.randint(0, 360)
@@ -695,7 +697,7 @@ def printListOfTry(screen, listOfTry):
     if realHistoryHeigh > ySize:
         pageUpText = pageUpDownFont.render("⇈", 1, pageUpDownColor)
         screen.blit(pageUpText, (historyAreaWidth + 8, 4))
-        shadowTop = pygame.image.load("history-top-shadow.png").convert_alpha()
+        shadowTop = pygame.image.load(mainDir + "/" + "history-top-shadow.png").convert_alpha()
         shadowTop = pygame.transform.scale(shadowTop, (historyAreaWidth, 8))
         screen.blit(shadowTop, (0, 0))
 
@@ -834,7 +836,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
                 matchDim = [int(maxMatchDim[0]), int(
                     maxMatchDim[0] * matchPicRatio)]
 
-            tempImageMatch = pygame.image.load("match.png").convert_alpha()
+            tempImageMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
             matchMaxWidth, matchMaxHeight = tempImageMatch.get_rect().size
 
             if matchDim[0] > matchMaxWidth:
@@ -857,18 +859,18 @@ def trivial(numberOfInitialMatch, wtw, screen):
                     if currentNumberOfMatch in [1, 2, 3]:
                         initialSignDistanceToMatch = matchDim[1]/7
                         matchS.append(pygame.image.load(
-                            "match-burned.png").convert_alpha())
+                            mainDir + "/" + "match-burned.png").convert_alpha())
                     else:
                         initialSignDistanceToMatch = matchDim[1]/24
                         if i >= (currentNumberOfMatch - 3):
                             matchS.append(pygame.image.load(
-                                "match-allowed.png").convert_alpha())
+                                mainDir + "/" + "match-allowed.png").convert_alpha())
                         else:
                             matchS.append(pygame.image.load(
-                                "match.png").convert_alpha())
+                                mainDir + "/" + "match.png").convert_alpha())
                 else:
                     matchS.append(pygame.image.load(
-                        "match-void.png").convert_alpha())
+                        mainDir + "/" + "match-void.png").convert_alpha())
 
                 matchLeftVoid = 0
                 if i != 0:
@@ -883,7 +885,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
                     #adding crown or warning sign
                     initialSignPos = [0,0]
                     initialSignPos[1] = currentMatchPos[1] - initialSignDistanceToMatch
-                    initialSign = pygame.image.load("crown.png").convert_alpha()
+                    initialSign = pygame.image.load(mainDir + "/" + "crown.png").convert_alpha()
                     initialSignSize = initialSign.get_rect().size
 
                     initialSignSize = [int(initialSignSize[0]/matchRessizing),int(initialSignSize[1]/matchRessizing)]

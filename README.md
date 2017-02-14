@@ -96,10 +96,10 @@ Alternativly, if the user whant to only take matchs from one pile, he have to us
 </pre>
 
 ## Installation
+For Debian and ManjaroLinux, you can install OpenAllumette by the [`install.sh` script](./install.sh) or with the following instruction:
+
 ### On Debian and Ubuntu
 OpenAllumette work with python3 and need both python3 and python3’s version of pygame.
-
-You can install OpenAllumette by the [`install.sh` script](./install.sh) or with the following instruction:
 
 Install first needed packages with:
 
