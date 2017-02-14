@@ -15,8 +15,9 @@ case $DISTRIBUTION in
 
 		echo "Downloading and inpacking OpenAllumette"
 		git clone https://github.com/FauveNoir/allumette.git ~/.allumette
+		mkdir  ~/.local/bin/allumette
+		chmod +x  ~/.allumette/nim.py
 		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
-		chmod +x  ~/.local/bin/allumette
 
 		echo "\n\nYou can now run OpenAllumette with the command allumette. Good game."
 	;;
@@ -35,8 +36,9 @@ case $DISTRIBUTION in
 
 		echo "Downloading and inpacking OpenAllumette"
 		git clone https://github.com/FauveNoir/allumette.git ~/.allumette
+		mkdir  ~/.local/bin/allumette
+		chmod +x  ~/.allumette/nim.py
 		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
-		chmod +x  ~/.local/bin/allumette
 
 		echo "\n\nYou can now run OpenAllumette with the command allumette. Good game."
 	;;
