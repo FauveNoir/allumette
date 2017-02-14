@@ -14,6 +14,24 @@ case $DISTRIBUTION in
 		pip3 install Pygame
 
 		echo "Downloading and inpacking OpenAllumette"
+		mkdir ~/.allumette
+		git clone github.com/FauveNoir/allumette.git ~/.allumette
+		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
+
+		echo "\n\nYou can now run OpenAllumette with the command allumette. Good game."
+	;;
+	"ManjaroLinux")
+		echo "* Installing all needed packages"
+		sudo aptitude install git python
+
+		echo "* Installing pip for python3"
+		mkdir /tmp/allumette
+		cd /tmp/allumette
+		curl -O https://bootstrap.pypa.io/get-pip.py
+		python get-pip.py
+
+		echo "Downloading and inpacking OpenAllumette"
+		mkdir ~/.allumette
 		git clone github.com/FauveNoir/allumette.git ~/.allumette
 		ln -s ~/.allumette/nim.py ~/.local/bin/allumette
 
