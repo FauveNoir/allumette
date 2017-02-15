@@ -250,11 +250,11 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         programHaveToContinue = False
 #    elif textToAnalyse in ["new", "n"]:
     #elif re.match("n(ew| *)?$", textToAnalyse) is not None:
-    elif re.match("n(ew)?( +((trivial)|(marienbad)))?( +[0-9]*)?( +(((ttl)|(take-the-last))|((ltl)|(let-the-last))))? *$", textToAnalyse) is not None:
+    elif re.match("n(ew)?( +((trivial)|(marienbad)))?( +[0-9]+)?( +(((ttl)|(take-the-last))|((ltl)|(let-the-last))))? *$", textToAnalyse) is not None:
         programHaveToContinue = True
         functionHaveToContinue = False
 
-        syntaxToExtractOptions = "n(ew)?( +(?P<variente>(trivial|marienbad)))?( +(?P<number>[0-9]*))?( +(?P<wtw>((ttl)|(ltl))))?"
+        syntaxToExtractOptions = "n(ew)?( +(?P<variente>(trivial|marienbad)))?( +(?P<number>[0-9]+))?( +(?P<wtw>((ttl)|(ltl))))?"
         newGameOptions = re.match(syntaxToExtractOptions,textToAnalyse)
         textToAnalyse = ""
 
