@@ -7,7 +7,7 @@ This version of the classic [Nim](https://en.wikipedia.org/wiki/Nim) game is mad
 Later, it will support all possible knowen varients of this game.
 
 
-⚠ if you were searching of dumb-friendly and WIMP interface, go away. Open Allumette is made for nerdz by a geek.
+⚠ if you were searching of dumb-friendly and WIMP interface, go away. Open Allumette is made for nerdz by a geek like if it was a programmer editor. And we are proud of that.
 
 # Usage
 There is two main type of actions: The game actions and the managin actions.
@@ -53,6 +53,8 @@ For example, if you are playing a trivial mode with `ttl` and 20 matchs and you
 | `:open` `:o`                                                                              |  Open registered game                       |
 | <code>:help <var>⟨commad⟩</var></code> <code>:h <var>⟨commad⟩</var></code>                |  Getting help about a command.              |
 |  p                                                                                        |  Put game on pause                          |
+|  <var>⟨number⟩</var>u                                                                     |  Undo one (or <var>⟨number⟩</var>) last action.      |
+|  <var>⟨number⟩</var>r                                                                     |  Redo one (or <var>⟨number⟩</var>) last undid action.|
 
 ## Game actions
 The syntax of the game actions mainly depand of the variant you are playing. And in all cases, you have to be in normal mode; to get it, just press <kbd>⎋</kbd> key.
@@ -135,3 +137,8 @@ You can now run OpenAllumette with the command `allumette`. Good game.
 ![Wining screen](./mokup-trvial-wining-screen.png)
 ### About screen
 ![About screen](./mokup-about-screen.png)
+
+## Bugs thinks to improve
+* Allow historic of commands in ex mode with ↑ and ↓.
+* Showing error in ex mode.
+* Allowing undo with <kbd>u</kbd> and redo with <kbd>r</kbd> with numerical prefix.
