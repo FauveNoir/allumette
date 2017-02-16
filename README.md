@@ -6,6 +6,9 @@ This version of the classic [Nim](https://en.wikipedia.org/wiki/Nim) game is mad
 
 Later, it will support all possible knowen varients of this game.
 
+
+⚠ if you were searching of dumb-friendly and WIMP interface, go away. Open Allumette is made for nerdz by a geek.
+
 # Usage
 There is two main type of actions: The game actions and the managin actions.
 
