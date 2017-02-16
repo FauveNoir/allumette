@@ -48,14 +48,14 @@ For example, if you are playing a trivial mode with `ttl` and 20 matchs and you
 | ----------------------------------------------------------------------------------------- | ------------------------------------------- |
 | `:about`                                                                                  |  Open the license screen                    |
 | <code>:colorsheme <var>⟨varient⟩</var></code>                                             |  Change colorsheme.                         |
-| `:quit` `:q` `ZZ`                                                                         |  Quit the game.                             |
+| `:quit` `:q` <kbd>Z</kbd><kbd>Z</kbd>                                                     |  Quit the game.                             |
 | `:saveas` `:w`                                                                            |  Save the current game with time in a file. |
 | `:open` `:o`                                                                              |  Open registered game                       |
 | `:rules`                                                                                  |  Show the rules for the current varient.    |
 | <code>:help <var>⟨commad⟩</var></code> <code>:h <var>⟨commad⟩</var></code>                |  Getting help about a command.              |
-|  p                                                                                        |  Put game on pause                          |
-|  <var>⟨number⟩</var>u                                                                     |  Undo one (or <var>⟨number⟩</var>) last action.      |
-|  <var>⟨number⟩</var>r                                                                     |  Redo one (or <var>⟨number⟩</var>) last undid action.|
+|  <kbd>p</kbd>                                                                             |  Put game on pause                          |
+|  <var>⟨number⟩</var><kbd>u</kbd>                                                          |  Undo one (or <var>⟨number⟩</var>) last action.      |
+|  <var>⟨number⟩</var><kbd>r</kbd>                                                          |  Redo one (or <var>⟨number⟩</var>) last undid action.|
 
 ## Game actions
 The syntax of the game actions mainly depand of the variant you are playing. And in all cases, you have to be in normal mode; to get it, just press <kbd>⎋</kbd> key.
