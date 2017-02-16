@@ -1011,11 +1011,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
 
     return False
 
-programHaveToContinue = True
-variant = None
-generalState = whatToDo()
-
-def marienbad(numberOfInitialLine=4, wtw="ttl", screen):
+def marienbad(numberOfInitialLine, wtw, screen):
     global programHaveToContinue
     global textUserInput
     global normalUserInput
@@ -1032,12 +1028,16 @@ def marienbad(numberOfInitialLine=4, wtw="ttl", screen):
     number = 1
     i = 1
     while i <= numberOfInitialLine:
-        if i <= (numberOfInitialLine/2)+1
+        if i <= (numberOfInitialLine/2)+1:
             number=number+1
         else:
             number=number-1
         matchMatrix.append(number)
         i=i+1
+
+programHaveToContinue = True
+variant = None
+generalState = whatToDo()
 
 def main(variant="trivial", number=numberOfInitialMatch, wtw="ttl"):
     global generalState

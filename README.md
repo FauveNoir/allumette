@@ -140,6 +140,6 @@ You can now run OpenAllumette with the command `allumette`. Good game.
 ![About screen](./mokup-about-screen.png)
 
 ## Bugs and stuffs to improve
-* Allow historic of commands in ex mode with ↑ and ↓.
+* Allow historic of commands in ex mode with <kbd>↑</kbd> and <kbd>↓</kbd>.
 * Showing error in ex mode.
 * Allowing undo with <kbd>u</kbd> and redo with <kbd>r</kbd> with numerical prefix.
