@@ -16,6 +16,11 @@ parser = OptionParser(usage=usage, version="%prog 0.1")
 
 parser.add_option("-m",              help="Number of match",
                   default=0, action="store", dest="numberOfMatch")
+parser.add_option("-v",              help="The variant of Nim",
+                  default=0, action="store", dest="varient")
+parser.add_option("-w",              help="Mode, there is two values possibles “ttl” and “ltl”",
+                  default=0, action="store", dest="varient")
+
 (options, args) = parser.parse_args()
 
 if not options.numberOfMatch:
@@ -1010,6 +1015,29 @@ programHaveToContinue = True
 variant = None
 generalState = whatToDo()
 
+def marienbad(numberOfInitialLine=4, wtw="ttl", screen):
+    global programHaveToContinue
+    global textUserInput
+    global normalUserInput
+    global exMode
+    global normalMode
+    global textToAnalyse
+    global normalTextToAnalyse
+    global finalNormalUserInput
+    beginingOfGame = int(time.time())
+
+    matchMatrix = []
+
+    columns = (numberOfInitialLine*2)-1
+    number = 1
+    i = 1
+    while i <= numberOfInitialLine:
+        if i <= (numberOfInitialLine/2)+1
+            number=number+1
+        else:
+            number=number-1
+        matchMatrix.append(number)
+        i=i+1
 
 def main(variant="trivial", number=numberOfInitialMatch, wtw="ttl"):
     global generalState

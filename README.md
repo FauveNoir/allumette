@@ -48,7 +48,7 @@ For example, if you are playing a trivial mode with `ttl` and 20 matchs and you
 | ----------------------------------------------------------------------------------------- | ------------------------------------------- |
 | `:about`                                                                                  |  Open the license screen                    |
 | <code>:colorsheme <var>⟨varient⟩</var></code>                                             |  Change colorsheme.                         |
-| `:quit` `:q`                                                                              |  Quit the game.                             |
+| `:quit` `:q` `ZZ`                                                                         |  Quit the game.                             |
 | `:saveas` `:w`                                                                            |  Save the current game with time in a file. |
 | `:open` `:o`                                                                              |  Open registered game                       |
 | <code>:help <var>⟨commad⟩</var></code> <code>:h <var>⟨commad⟩</var></code>                |  Getting help about a command.              |
