@@ -21,7 +21,7 @@ parser.add_option("-m",              help="Number of match",
 if not options.numberOfMatch:
     # If no lelvel was explicitly choosen by the user, it is automatically set
     # to 0.
-    options.numberOfMatch = 16
+    options.numberOfMatch = 15
 
 innitialNumberOfMatch = int(options.numberOfMatch)
 currentNumberOfMatch = int(innitialNumberOfMatch)
@@ -86,7 +86,7 @@ class variants:
 
 trivial = variants()
 trivial.name = "Trivial"
-trivial.number = 16
+trivial.number = 15
 trivial.wtw = "ttl"
 
 marienbad = variants()
@@ -852,14 +852,23 @@ def trivial(numberOfInitialMatch, wtw, screen):
 
             matchRessizing = matchMaxWidth/matchDim[0]
 
+            if wtw == "ttl":
+                lastBurnedMatch = [1, 2, 3]
+            elif wtw == "ltl":
+                lastBurnedMatch = [2, 3, 4]
+
             i = 0
             matchS = []
             while i < numberOfInitialMatch:
                 if i < currentNumberOfMatch:
-                    if currentNumberOfMatch in [1, 2, 3]:
+                    if currentNumberOfMatch in lastBurnedMatch:
                         initialSignDistanceToMatch = matchDim[1]/7
-                        matchS.append(pygame.image.load(
-                            mainDir + "/" + "match-burned.png").convert_alpha())
+                        if i+1 in lastBurnedMatch:
+                            matchS.append(pygame.image.load(
+                                mainDir + "/" + "match-burned.png").convert_alpha())
+                        else:
+                            matchS.append(pygame.image.load(
+                                mainDir + "/" + "match.png").convert_alpha())
                     else:
                         initialSignDistanceToMatch = matchDim[1]/24
                         if i >= (currentNumberOfMatch - 3):
