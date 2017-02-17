@@ -264,7 +264,8 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         textToAnalyse = ""
 
         print("machin")
-        type(newGameOptions.group("variente"))
+        print(newGameOptions.group("variente"))
+        print(newGameOptions.group("number"))
         if (newGameOptions.group("variente") == None) :
             generalState.variant = variant
         else:
@@ -707,7 +708,6 @@ def printListOfTry(screen, listOfTry):
         screen.blit(shadowTop, (0, 0))
 
 
-winMatchDisposition = []
 
 def showVariant(screen, wtw, posX):
     yellow_colour = (205, 153, 29)
@@ -774,13 +774,11 @@ def trivial(numberOfInitialMatch, wtw, screen):
     weHaveAWiner = False
     winer = None
 
-    winMatchDisposition = []
     while functionHaveToContinue and programHaveToContinue and (weHaveAWiner == False):
         userPlayed = 0
         computerPlayed = 0
         functionHaveToContinue, textToanalyse = analyseTyping(
             "trivial", numberOfInitialMatch, wtw)
-
 
         if textToanalyse["mode"] == "pause":
             print("In pause")
@@ -998,6 +996,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
         pygame.display.flip()
         #####################
 
+
     while functionHaveToContinue and programHaveToContinue:
         winingFallingScreen(
             winer, wtw, numberOfInitialMatch, timeOfEndOfGame)
@@ -1011,7 +1010,23 @@ def trivial(numberOfInitialMatch, wtw, screen):
 
     return False
 
-def marienbad(numberOfInitialLine, wtw, screen):
+
+def marienbadInitialColumns(numberOfLines):
+    matchMatrix = []
+    columns = (numberOfLines*2)-1
+    number = 0
+    i = 1
+    while i <= columns:
+        if i <= (columns/2)+1:
+            number=number+1
+        else:
+            number=number-1
+        matchMatrix.append(number)
+        i=i+1
+
+    return matchMatrix
+
+def marienbad(numberOfLines, wtw, screen):
     global programHaveToContinue
     global textUserInput
     global normalUserInput
@@ -1020,20 +1035,37 @@ def marienbad(numberOfInitialLine, wtw, screen):
     global textToAnalyse
     global normalTextToAnalyse
     global finalNormalUserInput
+
+    maximumMatchMatrix = marienbadInitialColumns(numberOfLines)
+    currentMatchMatrix = maximumMatchMatrix
+
+    # Initialisation
     beginingOfGame = int(time.time())
+    listOfTry = []
+    functionHaveToContinue = True
+    errorToDisplay = False
+    weHaveAWiner = False
+    winer = None
 
-    matchMatrix = []
+    while functionHaveToContinue and programHaveToContinue and (weHaveAWiner == False):
+        print("yata")
+        userPlayed = 0
+        computerPlayed = 0
+        functionHaveToContinue, textToanalyse = analyseTyping("Marienbad", numberOfLines, wtw)
 
-    columns = (numberOfInitialLine*2)-1
-    number = 1
-    i = 1
-    while i <= numberOfInitialLine:
-        if i <= (numberOfInitialLine/2)+1:
-            number=number+1
-        else:
-            number=number-1
-        matchMatrix.append(number)
-        i=i+1
+        # Redifining variables
+        xSize, ySize = screen.get_size()
+        gameAreaDim[0] = xSize - historyAreaWidth
+
+
+        # Appling variables
+        screen.fill(background_colour)
+
+        makeTextZone("Marienbad")
+        #####################
+        pygame.display.flip()
+        #####################
+
 
 programHaveToContinue = True
 variant = None
@@ -1052,5 +1084,7 @@ def main(variant="trivial", number=numberOfInitialMatch, wtw="ttl"):
 
         if variant == "trivial":
             trivial(number, wtw, screen)
+        elif variant == "marienbad":
+            marienbad(number, wtw, screen)
 
 main("trivial", numberOfInitialMatch, "ttl")
