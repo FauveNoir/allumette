@@ -471,7 +471,7 @@ def aboutScreen(screen):
         screen.blit(illustration, (illustrationInformation.x,
                                    illustrationInformation.y))
 
-        makeTextZone("About")
+        makeTextZone("About", None)
         #####################
         pygame.display.flip()
         #####################
