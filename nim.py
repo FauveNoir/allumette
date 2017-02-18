@@ -486,33 +486,20 @@ def representsInt(s):
 
 
 def playTrivial(currentMatchNumber,wtw):
-    if wtw == "ltl":
+    if wtw == "ttl":
         modulator = 0
-    else:
+    elif wtw == "ltl":
         modulator = 1
 
     if currentMatchNumber != 0:
-        if wtw == "ttl":
-            if ((currentMatchNumber - 1) % 4) == 0:
-                numberComputerHaveToDel = 1
-            elif ((currentMatchNumber - 2) % 4) == 0:
-                numberComputerHaveToDel = 2
-            elif ((currentMatchNumber - 3) % 4) == 0:
-                numberComputerHaveToDel = 3
-            else:
-                numberComputerHaveToDel = random.randint(1, 3)
-            answer = numberComputerHaveToDel
-
-        elif wtw == "ltl":
-            if ((currentMatchNumber - 1) % 4) == 1:
-                numberComputerHaveToDel = 1
-            elif ((currentMatchNumber - 2) % 4) == 1:
-                numberComputerHaveToDel = 2
-            elif ((currentMatchNumber - 3) % 4) == 1:
-                numberComputerHaveToDel = 3
-            else:
-                numberComputerHaveToDel = random.randint(1, 3)
-            answer = numberComputerHaveToDel
+        if ((currentMatchNumber - 1) % 4) == modulator:
+            answer = 1
+        elif ((currentMatchNumber - 2) % 4) == modulator:
+            answer = 2
+        elif ((currentMatchNumber - 3) % 4) == modulator:
+            answer = 3
+        else:
+            answer = random.randint(1, 3)
     else:
         answer = 0
 
