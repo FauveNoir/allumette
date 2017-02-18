@@ -504,12 +504,12 @@ def playTrivial(currentMatchNumber,wtw):
             answer = numberComputerHaveToDel
 
         elif wtw == "ltl":
-            if ((currentMatchNumber - 1) % 4) == 0:
-                numberComputerHaveToDel = 3
-            elif ((currentMatchNumber - 2) % 4) == 0:
+            if ((currentMatchNumber - 1) % 4) == 1:
                 numberComputerHaveToDel = 1
-            elif ((currentMatchNumber - 3) % 4) == 0:
+            elif ((currentMatchNumber - 2) % 4) == 1:
                 numberComputerHaveToDel = 2
+            elif ((currentMatchNumber - 3) % 4) == 1:
+                numberComputerHaveToDel = 3
             else:
                 numberComputerHaveToDel = random.randint(1, 3)
             answer = numberComputerHaveToDel
@@ -1098,6 +1098,7 @@ def marienbad(numberOfLines, wtw, screen):
 
         makeTextZone("Marienbad", None)
         timeZoneWidth = makeTimetZone(beginingOfGame)
+        wtwZoneWidth = showVariant(screen, wtw, timeZoneWidth)
         #####################
         pygame.display.flip()
         #####################
