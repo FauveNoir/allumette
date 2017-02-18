@@ -144,7 +144,7 @@ charInputed = [K_TAB, K_SPACE, K_EXCLAIM, K_QUOTEDBL, K_HASH, K_DOLLAR, K_AMPERS
                K_AT, K_LEFTBRACKET, K_BACKSLASH, K_RIGHTBRACKET, K_CARET, K_UNDERSCORE, K_BACKQUOTE, K_a, K_b, K_c, K_d, K_e, K_f, K_g, K_h, K_i, K_j, K_k, K_l, K_m, K_n, K_o, K_p, K_q, K_r, K_s, K_t, K_u, K_v, K_w, K_x, K_y, K_z, K_KP_PERIOD, K_KP_DIVIDE, K_KP_MULTIPLY, K_KP_MINUS, K_KP_PLUS, K_KP_EQUALS]
 
 
-def makeTextZone(nameToDisplay):
+def makeTextZone(nameToDisplay, secondName):
     # Redifining variables
     xSize, ySize = screen.get_size()
 
@@ -152,23 +152,41 @@ def makeTextZone(nameToDisplay):
     textZone = pygame.Surface((xSize, textZoneHeigh))
     textZone.fill(text_zone_colour)
     heighTextZonePosition = ySize - textZoneHeigh
-    screen.blit(textZone, (0, heighTextZonePosition))
+
+    promptFont = pygame.font.SysFont("monospace", 14, bold=True)
+
+    # Option title deffinition
+    secondPromptZone = pygame.Surface((1, 1))
+    secondPromptZoneInfo = surfaceInformations()
+    secondEcart = 0
+    secondLittleEcart = 0
+    secondPromptZoneInfo.width = 0
+    if secondName != None:
+        textSecondSizeWidth, textSecondSizeHeight = promptFont.size(secondName)
+        secondPromptZoneInfo.width = textSecondSizeWidth + 8
+        secondPromptZoneInfo.heigh = textZoneHeigh
+        secondPromptZone = pygame.Surface((secondPromptZoneInfo.width, secondPromptZoneInfo.heigh))
+        secondPromptZone.fill(yellow_colour)
+        secondPromptText = promptFont.render(secondName, 1, prompt_colour)
+        secondTextSizeWidth, secondTextSizeHeight = promptFont.size(secondName)
+ 
+        secondPromptTriangle = pygame.draw.polygon(screen, prompt_colour, [[secondPromptZoneInfo.width, ySize - textZoneHeigh], [
+                                             secondPromptZoneInfo.width, ySize], [secondPromptZoneInfo.width + trianglePromptWidth, ySize - (textZoneHeigh / 2)]], 0)
+        secondEcart = secondPromptZoneInfo.width + trianglePromptWidth
+        secondLittleEcart = trianglePromptWidth
 
     # promptzone deffinition
-    promptFont = pygame.font.SysFont("monospace", 14, bold=True)
     textSizeWidth, textSizeHeight = promptFont.size(nameToDisplay)
     promptZoneInfo = surfaceInformations()
     promptZoneInfo.width = textSizeWidth + 8
     promptZoneInfo.heigh = textZoneHeigh
-    promptZone = pygame.Surface((promptZoneInfo.width, promptZoneInfo.heigh))
+
+    promptZone = pygame.Surface((promptZoneInfo.width + secondLittleEcart, promptZoneInfo.heigh))
+
     promptZone.fill(prompt_colour)
     promptText = promptFont.render(nameToDisplay, 1, (205, 153, 29))
     textSizeWidth, textSizeHeight = promptFont.size(nameToDisplay)
-    screen.blit(promptZone, (0, heighTextZonePosition))
-    screen.blit(promptText, (4, heighTextZonePosition + 1))
 
-    promptTriangle = pygame.draw.polygon(screen, prompt_colour, [[promptZoneInfo.width, ySize - textZoneHeigh], [
-                                         promptZoneInfo.width, ySize], [promptZoneInfo.width + trianglePromptWidth, ySize - (textZoneHeigh / 2)]], 0)
 
     # initialize font; must be called after 'pygame.init()' to avoid 'Font not
     # Initialized' error
@@ -176,6 +194,19 @@ def makeTextZone(nameToDisplay):
 
     # render text
     label = myfont.render("".join(textUserInput), 1, (255, 255, 255))
+
+
+    #bliting cascade
+    screen.blit(textZone, (0, heighTextZonePosition))
+    screen.blit(promptZone, (0 + secondPromptZoneInfo.width, heighTextZonePosition))
+    promptTriangle = pygame.draw.polygon(screen, prompt_colour, [[promptZoneInfo.width + secondEcart, ySize - textZoneHeigh], [
+                                         promptZoneInfo.width + secondEcart, ySize], [promptZoneInfo.width + secondEcart + trianglePromptWidth, ySize - (textZoneHeigh / 2)]], 0)
+    screen.blit(promptText, (4 + secondEcart, heighTextZonePosition + 1))
+    if secondName != None:
+        screen.blit(secondPromptZone, (0, heighTextZonePosition))
+        screen.blit(secondPromptText, (4, heighTextZonePosition + 1))
+        secondPromptTriangle = pygame.draw.polygon(screen, yellow_colour, [[secondPromptZoneInfo.width, ySize - textZoneHeigh], [
+                                             secondPromptZoneInfo.width, ySize], [secondPromptZoneInfo.width + trianglePromptWidth, ySize - (textZoneHeigh / 2)]], 0)
     screen.blit(label, (promptZoneInfo.width +
                         trianglePromptWidth + 4, heighTextZonePosition))
 
@@ -336,7 +367,7 @@ def makeAPause(variant, numberOfInitialMatch, wtw, beginingOfGame):
         screen.blit(resumeText, (resumeTextInfo.x, resumeTextInfo.y))
 
 
-        makeTextZone("Pause - " + variant)
+        makeTextZone(variant,"Pause")
         #####################
         pygame.display.flip()
         #####################
@@ -782,7 +813,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
 
         if textToanalyse["mode"] == "pause":
             print("In pause")
-            beginingOfGame = makeAPause("trivial", numberOfInitialMatch, wtw, beginingOfGame)
+            beginingOfGame = makeAPause("Trivial", numberOfInitialMatch, wtw, beginingOfGame)
 
         # Redifining variables
         xSize, ySize = screen.get_size()
@@ -963,7 +994,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
                 "".join(textToanalyse), 1, (255, 255, 255))
             screen.blit(normalTextZone, (100, 100))
 
-        makeTextZone("Trivial")
+        makeTextZone("Trivial", None)
         timeZoneWidth = makeTimetZone(beginingOfGame)
         wtwZoneWidth = showVariant(screen, wtw, timeZoneWidth)
 
@@ -1002,7 +1033,7 @@ def trivial(numberOfInitialMatch, wtw, screen):
             winer, wtw, numberOfInitialMatch, timeOfEndOfGame)
         functionHaveToContinue, textToanalyse = analyseTyping(
             "trivial", numberOfInitialMatch, wtw)
-        makeTextZone("Trivial")
+        makeTextZone("Trivial", None)
 
         #####################
         pygame.display.flip()
@@ -1052,6 +1083,9 @@ def marienbad(numberOfLines, wtw, screen):
         userPlayed = 0
         computerPlayed = 0
         functionHaveToContinue, textToanalyse = analyseTyping("Marienbad", numberOfLines, wtw)
+        if textToanalyse["mode"] == "pause":
+            print("In pause")
+            beginingOfGame = makeAPause("Marienbad", numberOfInitialMatch, wtw, beginingOfGame)
 
         # Redifining variables
         xSize, ySize = screen.get_size()
@@ -1060,8 +1094,10 @@ def marienbad(numberOfLines, wtw, screen):
 
         # Appling variables
         screen.fill(background_colour)
+        printListOfTry(screen, listOfTry)
 
-        makeTextZone("Marienbad")
+        makeTextZone("Marienbad", None)
+        timeZoneWidth = makeTimetZone(beginingOfGame)
         #####################
         pygame.display.flip()
         #####################

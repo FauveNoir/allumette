@@ -1004,10 +1004,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="3065.0355"
-     inkscape:cy="936.53911"
+     inkscape:cx="2432.2819"
+     inkscape:cy="-428.33307"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g7449"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1080"
@@ -1028,7 +1028,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -22516,7 +22516,7 @@
          inkscape:export-ydpi="96" />
       <path
          style="fill:#191512;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         d="m 51.92857,3659.8475 84.82578,0 10,10.1903 -10,10.1903 -84.82578,0 z"
+         d="m 112.00037,3659.8475 100.48314,0 10,10.1903 -10,10.1903 -100.48314,0 z"
          id="path7453"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccccc"
@@ -22527,17 +22527,44 @@
          sodipodi:linespacing="125%"
          id="text7455"
          y="3676.1692"
-         x="59.044533"
-         style="font-size:19.25951003999999855px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cd991d;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:Anonymous Pro Bold"
+         x="134.7737"
+         style="font-size:19.25951004px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cd991d;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:Anonymous Pro Bold"
          xml:space="preserve"
          inkscape:export-filename="/tmp/nim.png"
          inkscape:export-xdpi="96"
          inkscape:export-ydpi="96"><tspan
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#cd991d;fill-opacity:1;font-family:Anonymous Pro;-inkscape-font-specification:Anonymous Pro Bold"
            y="3676.1692"
-           x="59.044533"
+           x="134.7737"
            id="tspan7457"
            sodipodi:role="line">Trivial</tspan></text>
+      <g
+         id="g7171">
+        <path
+           style="fill:#cd991d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 51.632705,3659.8475 66.390505,0 10,10.1903 -10,10.1903 -66.390505,0 z"
+           id="path7158"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cccccc"
+           inkscape:export-filename="/tmp/nim.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text7160"
+           y="3676.1692"
+           x="58.748669"
+           style="font-size:19.25951004px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#191512;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:Anonymous Pro Bold"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/nim.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#191512;fill-opacity:1;font-family:Anonymous Pro;-inkscape-font-specification:Anonymous Pro Bold"
+             y="3676.1692"
+             x="58.748669"
+             id="tspan7162"
+             sodipodi:role="line">Pause</tspan></text>
+      </g>
     </g>
     <g
        transform="translate(952.16251,0)"
