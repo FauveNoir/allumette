@@ -1056,6 +1056,7 @@ def marienbad(numberOfLines, wtw, screen):
 
     maximumMatchMatrix = marienbadInitialColumns(numberOfLines)
     currentMatchMatrix = maximumMatchMatrix
+    numberOfColumns = numberOfLines*2 - 1
 
     # Initialisation
     beginingOfGame = int(time.time())
@@ -1066,7 +1067,6 @@ def marienbad(numberOfLines, wtw, screen):
     winer = None
 
     while functionHaveToContinue and programHaveToContinue and (weHaveAWiner == False):
-        print("yata")
         userPlayed = 0
         computerPlayed = 0
         functionHaveToContinue, textToanalyse = analyseTyping("Marienbad", numberOfLines, wtw)
@@ -1078,14 +1078,76 @@ def marienbad(numberOfLines, wtw, screen):
         xSize, ySize = screen.get_size()
         gameAreaDim[0] = xSize - historyAreaWidth
 
+        # loading images
+        tempImageMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
 
-        # Appling variables
+        # Creatiing surface information
+        gameAreaInfo = surfaceInformations()
+        realGameAreaInfo = surfaceInformations()
+        matchInfo = surfaceInformations()
+        maxMatchInfo = surfaceInformations()
+        matchHorizontalSeparation = 0
+
+        # Fixing constants
+        matchInfo.top = 10
+        realGameAreaInfo.top = 20
+        realGameAreaInfo.bottom = 30
+        realGameAreaInfo.left = 30
+        realGameAreaInfo.right = 30
+
+        # Calculatiing element’s size
+        realGameAreaInfo.height = ySize - textZoneHeigh - realGameAreaInfo.top - realGameAreaInfo.bottom
+        realGameAreaInfo.width = xSize - historyAreaWidth - realGameAreaInfo.left - realGameAreaInfo.right
+        maxMatchInfo.width, maxMatchInfo.height = tempImageMatch.get_rect().size
+        matchInfo.height = realGameAreaInfo.height / numberOfLines
+
+        if matchInfo.height >= maxMatchInfo.height:
+            matchInfo.height = maxMatchInfo.height
+        else:
+            matchInfo.width = matchInfo.height / matchPicRatio
+
+        matchHorizontalSeparation = (realGameAreaInfo.width - (matchInfo.width*numberOfColumns)) / (numberOfColumns-1)
+
+        # calculating positions
+        realGameAreaInfo.x = historyAreaWidth + realGameAreaInfo.left
+        realGameAreaInfo.y = realGameAreaInfo.top
+
+        matchPositions = []
+        print(maximumMatchMatrix)
+        print(numberOfColumns)
+        print(matchHorizontalSeparation)
+        print(realGameAreaInfo.width)
+        i = 0
+        for numberOfMatchInAColumn in maximumMatchMatrix:
+            j = 0
+            matchPositions.append([])
+            cumuledX = matchInfo.width + matchHorizontalSeparation
+            while j < numberOfMatchInAColumn:
+                matchPositions[i].append(surfaceInformations())
+                cumuledY = matchInfo.height + matchInfo.top
+                matchPositions[i][j].x = realGameAreaInfo.x + i*cumuledX
+                matchPositions[i][j].y = ySize-textZoneHeigh - realGameAreaInfo.y  - (j+1)*cumuledY
+                j=j+1
+            i = i+1
+
+
+        # Bliting first interface
         screen.fill(background_colour)
         printListOfTry(screen, listOfTry)
 
+        # Bliting the game
+        for column in matchPositions:
+            for match in column:
+                visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
+                visualMatch = pygame.transform.scale(visualMatch, (int(matchInfo.width), int(matchInfo.height)))
+                screen.blit(visualMatch, (match.x, match.y))
+
+
+        # Bliting second interface
         makeTextZone("Marienbad", None)
         timeZoneWidth = makeTimetZone(beginingOfGame)
         wtwZoneWidth = showVariant(screen, wtw, timeZoneWidth)
+
         #####################
         pygame.display.flip()
         #####################
