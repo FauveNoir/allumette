@@ -294,9 +294,6 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         newGameOptions = re.match(syntaxToExtractOptions,textToAnalyse)
         textToAnalyse = ""
 
-        print("machin")
-        print(newGameOptions.group("variente"))
-        print(newGameOptions.group("number"))
         if (newGameOptions.group("variente") == None) :
             generalState.variant = variant
         else:
@@ -311,6 +308,7 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
             generalState.wtw = wtw
         else:
             generalState.wtw = newGameOptions.group("wtw")
+        print("New " + str(generalState.variant) + ";" + str(generalState.number) + ";" + str(generalState.wtw) + " game.")
     elif keyboardInput["mode"] == "escape":
         keyboardInput["mode"] = "escape"
     elif keyboardInput["mode"] == "pause":
@@ -323,6 +321,7 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         keyboardInput["mode"] = "normal"
         keyboardInput["content"] = normalUserInput
 
+    print(functionHaveToContinue, keyboardInput)
     return functionHaveToContinue, keyboardInput
 
 def makeAPause(variant, numberOfInitialMatch, wtw, beginingOfGame):
@@ -1069,7 +1068,7 @@ def marienbad(numberOfLines, wtw, screen):
     while functionHaveToContinue and programHaveToContinue and (weHaveAWiner == False):
         userPlayed = 0
         computerPlayed = 0
-        functionHaveToContinue, textToanalyse = analyseTyping("Marienbad", numberOfLines, wtw)
+        functionHaveToContinue, textToanalyse = analyseTyping("marienbad", numberOfLines, wtw)
         if textToanalyse["mode"] == "pause":
             print("In pause")
             beginingOfGame = makeAPause("Marienbad", numberOfInitialMatch, wtw, beginingOfGame)
@@ -1086,6 +1085,7 @@ def marienbad(numberOfLines, wtw, screen):
         realGameAreaInfo = surfaceInformations()
         matchInfo = surfaceInformations()
         maxMatchInfo = surfaceInformations()
+        matchAreaInfo = surfaceInformations()
         matchHorizontalSeparation = 0
 
         # Fixing constants
@@ -1103,20 +1103,23 @@ def marienbad(numberOfLines, wtw, screen):
 
         if matchInfo.height >= maxMatchInfo.height:
             matchInfo.height = maxMatchInfo.height
+            matchInfo.width = maxMatchInfo.width
         else:
             matchInfo.width = matchInfo.height / matchPicRatio
 
         matchHorizontalSeparation = (realGameAreaInfo.width - (matchInfo.width*numberOfColumns)) / (numberOfColumns-1)
 
+        if matchHorizontalSeparation > matchInfo.height*0.66:
+            matchHorizontalSeparation = matchInfo.height*0.66
+
         # calculating positions
-        realGameAreaInfo.x = historyAreaWidth + realGameAreaInfo.left
-        realGameAreaInfo.y = realGameAreaInfo.top
+        matchAreaInfo.width = matchInfo.width*numberOfColumns + (numberOfColumns-1)*matchHorizontalSeparation
+        realGameAreaInfo.x = historyAreaWidth + realGameAreaInfo.left + (realGameAreaInfo.width-matchAreaInfo.width)/2
+
+        matchAreaInfo.height = matchInfo.height*numberOfLines + (numberOfLines-1)*matchInfo.top
+        realGameAreaInfo.y = realGameAreaInfo.top + (realGameAreaInfo.height-matchAreaInfo.height)/2
 
         matchPositions = []
-        print(maximumMatchMatrix)
-        print(numberOfColumns)
-        print(matchHorizontalSeparation)
-        print(realGameAreaInfo.width)
         i = 0
         for numberOfMatchInAColumn in maximumMatchMatrix:
             j = 0
