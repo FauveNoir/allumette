@@ -321,7 +321,6 @@ def analyseTyping(variant, numberOfInitialMatch, wtw):
         keyboardInput["mode"] = "normal"
         keyboardInput["content"] = normalUserInput
 
-    print(functionHaveToContinue, keyboardInput)
     return functionHaveToContinue, keyboardInput
 
 def makeAPause(variant, numberOfInitialMatch, wtw, beginingOfGame):
@@ -1043,6 +1042,59 @@ def marienbadInitialColumns(numberOfLines):
 
     return matchMatrix
 
+def marienbadAnalysis(matchMatrix, userInput):
+
+    # Constant for all the folowing operations
+    columns = len(matchMatrix)
+    numberOfLines = 2 * (columns+1)
+    allowedColumns = range(columns)
+    maximumMatchMatrix = marienbadInitialColumns(numberOfLines)
+
+    # Test if it is possible to play
+    continueFunction = False
+    for column in matchMatrix:
+        if (column != 0) and (continueFunction == False) :
+            continueFunction = True
+
+    if (continueFunction == True):
+        numberOfMatchsToDel = 0
+        syntaxToTestImputValidity = "^ *([0-9]+) *(=|-) *([0-9]+) *$"
+        if re.match(syntaxToTestImputValidity, textToAnalyse) is not None:
+            syntaxToExtractOptions = "^ *(?P<column>[0-9]+) *(?P<operator>(=|-)) *(?P<numberOfMatchUsed>[0-9]+) *$"
+            deletingMatchOparation = re.match(syntaxToExtractOptions,textToAnalyse)
+
+            columnToDelOnIt = int(deletingMatchOparation.group("column"))
+            numberOfMatchUsed = int(deletingMatchOparation.group("numberOfMatchUsed"))
+            delletingOperator = deletingMatchOparation.group("operator")
+
+
+            if (columnToDelOnIt in allowedColumns) :
+                if (numberOfMatchUsed != 0) :
+                    if (delletingOperator == "=") :
+                        if (numberOfMatchUsed <= matchMatrix[columnToDelOnIt]):
+                            numberOfMatchsToDel = matchMatrix[columnToDelOnIt]-numberOfMatchUsed
+                            matchMatrix[columnToDelOnIt] = matchMatrix[columnToDelOnIt]-numberOfMatchsToDel
+                            answer = [True, matchMatrix, str(columnToDelOnIt) + "-" + str(numberOfMatchsToDel)]
+                        else:
+                            answer = [False, "You can not set a number higher than content."]
+                    elif (delletingOperator == "-") :
+                        if (numberOfMatchUsed <= matchMatrix[columnToDelOnIt]):
+                            numberOfMatchsToDel = numberOfMatchUsed
+                            matchMatrix[columnToDelOnIt] = matchMatrix[columnToDelOnIt]-numberOfMatchsToDel
+                            answer = [True, matchMatrix, str(columnToDelOnIt) + "-" + str(numberOfMatchsToDel)]
+                        else:
+                            answer = [False, "You can not use a number higher than content."]
+                else:
+                    answer = [False, "You can not del no match!"]
+            else:
+                answer = [False, "“" + str(deletingMatchOparation.group("column")) + "” is not in valid range."]
+
+        else:
+            answer = [False, "“" + userInput + "” is not a valid syntax."]
+    else:
+        answer = [False, 0]
+    return answer
+
 def marienbad(numberOfLines, wtw, screen):
     global programHaveToContinue
     global textUserInput
@@ -1068,93 +1120,149 @@ def marienbad(numberOfLines, wtw, screen):
     while functionHaveToContinue and programHaveToContinue and (weHaveAWiner == False):
         userPlayed = 0
         computerPlayed = 0
-        functionHaveToContinue, textToanalyse = analyseTyping("marienbad", numberOfLines, wtw)
-        if textToanalyse["mode"] == "pause":
-            print("In pause")
-            beginingOfGame = makeAPause("Marienbad", numberOfInitialMatch, wtw, beginingOfGame)
+        if weHaveAWiner == False:
+            functionHaveToContinue, textToanalyse = analyseTyping("marienbad", numberOfLines, wtw)
+            if textToanalyse["mode"] == "pause":
+                print("In pause")
+                beginingOfGame = makeAPause("Marienbad", numberOfInitialMatch, wtw, beginingOfGame)
 
-        # Redifining variables
-        xSize, ySize = screen.get_size()
-        gameAreaDim[0] = xSize - historyAreaWidth
+            # Redifining variables
+            xSize, ySize = screen.get_size()
+            gameAreaDim[0] = xSize - historyAreaWidth
 
-        # loading images
-        tempImageMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
+            # loading images
+            tempImageMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
 
-        # Creatiing surface information
-        gameAreaInfo = surfaceInformations()
-        realGameAreaInfo = surfaceInformations()
-        matchInfo = surfaceInformations()
-        maxMatchInfo = surfaceInformations()
-        matchAreaInfo = surfaceInformations()
-        matchHorizontalSeparation = 0
+            # Creatiing surface information
+            gameAreaInfo = surfaceInformations()
+            realGameAreaInfo = surfaceInformations()
+            matchInfo = surfaceInformations()
+            maxMatchInfo = surfaceInformations()
+            matchAreaInfo = surfaceInformations()
+            normalTextInformation = surfaceInformations()
+            wtwZoneInfo = surfaceInformations()
+            matchHorizontalSeparation = 0
 
-        # Fixing constants
-        matchInfo.top = 10
-        realGameAreaInfo.top = 20
-        realGameAreaInfo.bottom = 30
-        realGameAreaInfo.left = 30
-        realGameAreaInfo.right = 30
+            # Fixing constants
+            matchInfo.top = 10
+            realGameAreaInfo.top = 20
+            realGameAreaInfo.bottom = 30
+            realGameAreaInfo.left = 30
+            realGameAreaInfo.right = 30
 
-        # Calculatiing element’s size
-        realGameAreaInfo.height = ySize - textZoneHeigh - realGameAreaInfo.top - realGameAreaInfo.bottom
-        realGameAreaInfo.width = xSize - historyAreaWidth - realGameAreaInfo.left - realGameAreaInfo.right
-        maxMatchInfo.width, maxMatchInfo.height = tempImageMatch.get_rect().size
-        matchInfo.height = realGameAreaInfo.height / numberOfLines
+            # Calculatiing element’s size
+            realGameAreaInfo.height = ySize - textZoneHeigh - realGameAreaInfo.top - realGameAreaInfo.bottom
+            realGameAreaInfo.width = xSize - historyAreaWidth - realGameAreaInfo.left - realGameAreaInfo.right
+            maxMatchInfo.width, maxMatchInfo.height = tempImageMatch.get_rect().size
+            matchInfo.height = realGameAreaInfo.height / (numberOfLines*1.2)
+            matchInfo.top = matchInfo.height*0.2
 
-        if matchInfo.height >= maxMatchInfo.height:
-            matchInfo.height = maxMatchInfo.height
-            matchInfo.width = maxMatchInfo.width
+            if matchInfo.height >= maxMatchInfo.height:
+                matchInfo.height = maxMatchInfo.height
+                matchInfo.width = maxMatchInfo.width
+            else:
+                matchInfo.width = matchInfo.height / matchPicRatio
+
+            matchHorizontalSeparation = (realGameAreaInfo.width - (matchInfo.width*numberOfColumns)) / (numberOfColumns-1)
+
+            if matchHorizontalSeparation > matchInfo.height*0.66:
+                matchHorizontalSeparation = matchInfo.height*0.66
+
+            # calculating positions
+            matchAreaInfo.width = matchInfo.width*numberOfColumns + (numberOfColumns-1)*matchHorizontalSeparation
+            realGameAreaInfo.x = historyAreaWidth + realGameAreaInfo.left + (realGameAreaInfo.width-matchAreaInfo.width)/2
+
+            matchAreaInfo.height = matchInfo.height*numberOfLines + (numberOfLines-1)*matchInfo.top
+            realGameAreaInfo.y = realGameAreaInfo.top + (realGameAreaInfo.height-matchAreaInfo.height)/2
+
+            matchPositions = []
+            i = 0
+            for numberOfMatchInAColumn in maximumMatchMatrix:
+                j = 0
+                matchPositions.append([])
+                cumuledX = matchInfo.width + matchHorizontalSeparation
+                while j < numberOfMatchInAColumn:
+                    matchPositions[i].append(surfaceInformations())
+                    cumuledY = matchInfo.height + matchInfo.top
+                    matchPositions[i][j].x = realGameAreaInfo.x + i*cumuledX
+                    matchPositions[i][j].y = ySize-textZoneHeigh - realGameAreaInfo.y  - (j+1)*cumuledY
+                    j=j+1
+                i = i+1
+
+
+            # Bliting first interface
+            screen.fill(background_colour)
+            printListOfTry(screen, listOfTry)
+
+            # Treating normal imput
+            if finalNormalUserInput:
+                getFromAnalysis = marienbadAnalysis(currentMatchMatrix, finalNormalUserInput)
+                finalNormalUserInput = False
+                if getFromAnalysis[0] == True:
+                    currentMatchMatrix = getFromAnalysis[1]
+                    listOfTry.append(getFromAnalysis[2])
+                else:
+                    errorToDisplay = getFromAnalysis[1]
+
+#               TODO uncomment when function playMarienbad will be ready
+#               if getFromAnalysis[0] == True:
+#                   computerPlayed = playMarienbad(currentMatchMatrix,wtw)
+#                   listOfTry.append(getFromAnalysis[2])
+
+            # Bliting the game
+            for column in matchPositions:
+                for match in column:
+                    visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
+                    visualMatch = pygame.transform.scale(visualMatch, (int(matchInfo.width), int(matchInfo.height)))
+                    screen.blit(visualMatch, (match.x, match.y))
+
+            # Bliting second interface
+            makeTextZone("Marienbad", None)
+            timeZoneWidth = makeTimetZone(beginingOfGame)
+            wtwZoneWidth = showVariant(screen, wtw, timeZoneWidth)
+
+            # Display normal mode text
+            normalFont = pygame.font.SysFont("monospace", 14)
+            if textToanalyse["mode"] == "normal":
+                errorToDisplay = False
+                normalText = normalFont.render(
+                    "".join(textToanalyse["content"]), 1, (255, 255, 255))
+
+                normalTextInformation.width, normalTextInformation.height = normalText.get_size()
+                normalTextInformation.x = xSize - normalTextInformation.width - 5 - wtwZoneWidth - timeZoneWidth
+                normalTextInformation.y = ySize - textZoneHeigh
+                screen.blit(normalText, (normalTextInformation.x,
+                                         normalTextInformation.y))
+
+            if errorToDisplay != False:
+                normalText = normalFont.render(errorToDisplay, 1, red)
+
+                normalTextInformation.width, normalTextInformation.height = normalText.get_size()
+                normalTextInformation.x = xSize - normalTextInformation.width - 5 - wtwZoneWidth - timeZoneWidth
+                normalTextInformation.y = ySize - textZoneHeigh
+                screen.blit(normalText, (normalTextInformation.x,
+                                         normalTextInformation.y))
+
+            #####################
+            pygame.display.flip()
+            #####################
+
         else:
-            matchInfo.width = matchInfo.height / matchPicRatio
+            print("we have a winer")
+            timeOfEndOfGame = int(time.time()) - beginingOfGame
 
-        matchHorizontalSeparation = (realGameAreaInfo.width - (matchInfo.width*numberOfColumns)) / (numberOfColumns-1)
-
-        if matchHorizontalSeparation > matchInfo.height*0.66:
-            matchHorizontalSeparation = matchInfo.height*0.66
-
-        # calculating positions
-        matchAreaInfo.width = matchInfo.width*numberOfColumns + (numberOfColumns-1)*matchHorizontalSeparation
-        realGameAreaInfo.x = historyAreaWidth + realGameAreaInfo.left + (realGameAreaInfo.width-matchAreaInfo.width)/2
-
-        matchAreaInfo.height = matchInfo.height*numberOfLines + (numberOfLines-1)*matchInfo.top
-        realGameAreaInfo.y = realGameAreaInfo.top + (realGameAreaInfo.height-matchAreaInfo.height)/2
-
-        matchPositions = []
-        i = 0
-        for numberOfMatchInAColumn in maximumMatchMatrix:
-            j = 0
-            matchPositions.append([])
-            cumuledX = matchInfo.width + matchHorizontalSeparation
-            while j < numberOfMatchInAColumn:
-                matchPositions[i].append(surfaceInformations())
-                cumuledY = matchInfo.height + matchInfo.top
-                matchPositions[i][j].x = realGameAreaInfo.x + i*cumuledX
-                matchPositions[i][j].y = ySize-textZoneHeigh - realGameAreaInfo.y  - (j+1)*cumuledY
-                j=j+1
-            i = i+1
-
-
-        # Bliting first interface
-        screen.fill(background_colour)
-        printListOfTry(screen, listOfTry)
-
-        # Bliting the game
-        for column in matchPositions:
-            for match in column:
-                visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
-                visualMatch = pygame.transform.scale(visualMatch, (int(matchInfo.width), int(matchInfo.height)))
-                screen.blit(visualMatch, (match.x, match.y))
-
-
-        # Bliting second interface
+    while functionHaveToContinue and programHaveToContinue:
+        winingFallingScreen(
+winer, wtw, numberOfInitialMatch, timeOfEndOfGame)
+        functionHaveToContinue, textToanalyse = analyseTyping(
+            "marienbad", numberOfInitialMatch, wtw)
         makeTextZone("Marienbad", None)
-        timeZoneWidth = makeTimetZone(beginingOfGame)
-        wtwZoneWidth = showVariant(screen, wtw, timeZoneWidth)
 
         #####################
         pygame.display.flip()
         #####################
 
+    return False
 
 programHaveToContinue = True
 variant = None
