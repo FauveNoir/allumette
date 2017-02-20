@@ -1118,6 +1118,31 @@ def marienbadInitialColumns(numberOfLines):
 
     return matchMatrix
 
+def marienbadIsItAWinerSituation(matchMatrix, wtw):
+    columnWithMatch = []
+    i=0
+    for row in matchMatrix:
+        if row != 0:
+            columnWithMatch.append(i)
+        i=i+1
+
+    if wtw == "ttl":
+        if len(columnWithMatch)==1:
+            winingColumn=columnWithMatch
+        else:
+            winingColumn=False
+    elif wtw == "ltl":
+        if (len(columnWithMatch)==1) and (matchMatrix[columnWithMatch[0]] > 1):
+            winingColumn=columnWithMatch
+        elif (len(columnWithMatch) == 2 ) and (matchMatrix[columnWithMatch[0]] == 1) and (matchMatrix[columnWithMatch[1]] == 1):
+            winingColumn=columnWithMatch
+        else:
+            winingColumn=False
+    else:
+        winingColumn=False
+
+    return winingColumn
+
 def marienbadAnalysis(matchMatrix, userInput):
 
     # Constant for all the folowing operations
@@ -1290,6 +1315,9 @@ def marienbad(numberOfLines, wtw, screen):
 #                   computerPlayed = playMarienbad(currentMatchMatrix,wtw)
 #                   listOfTry.append(getFromAnalysis[2])
 
+            # Defining if we are in wining position
+            winingColumn = marienbadIsItAWinerSituation(currentMatchMatrix, wtw)
+
             # Bliting the game
             columnNumberFont = pygame.font.SysFont("monospace", 18, bold=True)
             i = 0
@@ -1299,7 +1327,10 @@ def marienbad(numberOfLines, wtw, screen):
                     if (currentMatchMatrix[i] < maximumMatchMatrix[i]) and (j+1 > currentMatchMatrix[i]):
                         visualMatch = pygame.image.load(mainDir + "/" + "match-void.png").convert_alpha()
                     else:
-                        visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
+                        if winingColumn:
+                            visualMatch = pygame.image.load(mainDir + "/" + "match-burned.png").convert_alpha()
+                        else:
+                            visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
                     visualMatch = pygame.transform.scale(visualMatch, (int(matchInfo.width), int(matchInfo.height)))
                     screen.blit(visualMatch, (match.x, match.y))
                     j=j+1
