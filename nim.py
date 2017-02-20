@@ -651,6 +651,80 @@ def winingFallingScreen(winer, variant, numberOfInitialMatch, time):
         fallingHelpTextInfo.y = ySize-90
         screen.blit(fallingHelpText, (fallingHelpTextInfo.x, fallingHelpTextInfo.y))
 
+def printMarienbadListOfTry(screen, listOfTry):
+    global historyAreaWidth
+
+    historyFont = pygame.font.SysFont("monospace", 14, bold=True)
+    pageUpDownFont = pygame.font.SysFont("monospace", 18, bold=True)
+    pageUpDownColor = (220, 36, 4)
+    lineSeparationColor = (205, 153, 29)
+    realLineSeparationPlayed = (54,46,38)
+    xSize, ySize = screen.get_size()
+    arrowBackground = []
+    row = 0
+    arrowPosX = 40
+    delledNumberPosX = 53
+
+    scroowlingHistory = 0
+
+    rightHistoryAreaWidth = 0
+    for aTryGame in listOfTry:
+        tempSizeWidth, tempSizeHeigh = historyFont.size(aTryGame)
+        if tempSizeWidth > rightHistoryAreaWidth:
+            rightHistoryAreaWidth=tempSizeWidth
+    rightHistoryAreaWidth=rightHistoryAreaWidth+2
+
+    historyAreaWidth = rightHistoryAreaWidth + 35 + 20
+
+    historyZone = pygame.Surface((historyAreaWidth, ySize))
+    historyZone.fill(history_area_colour)
+    screen.blit(historyZone, (0, 0))
+
+    while row < len(listOfTry):
+        if (row % 2 == 0):  # even
+            row_coulour = (234, 226, 215)
+            arrowSign = "←"
+        else:  # odd
+            row_coulour = (207, 194, 184)
+            arrowSign = "→"
+
+        arrowBackground.append(pygame.Surface(
+            (historyAreaWidth, textZoneHeigh)))
+        arrowBackground[row].fill(row_coulour)
+
+        rowPosY = ySize - textZoneHeigh - \
+            (len(listOfTry) - row) * textZoneHeigh
+
+        historyNumberText = historyFont.render(str(row), 1, (0, 0, 0))
+        historyArrowText = historyFont.render(arrowSign, 1, (0, 0, 0))
+        numberDelledText = historyFont.render(
+            str(listOfTry[row]), 1, (0, 0, 0))
+
+        screen.blit(arrowBackground[row], (0, rowPosY))
+        screen.blit(historyNumberText, (2, rowPosY + 2))
+        screen.blit(historyArrowText, (arrowPosX, rowPosY + 2))
+        screen.blit(numberDelledText, (delledNumberPosX, rowPosY + 2))
+        row = row + 1
+
+    realHistoryHeigh = (len(listOfTry) + 1) * textZoneHeigh
+
+    lineHistorySeparation = pygame.Surface((1, ySize))
+    lineHistorySeparation.fill(lineSeparationColor)
+    screen.blit(lineHistorySeparation, (35, 0))
+
+    realLineHistorySeparation = pygame.Surface((1, realHistoryHeigh))
+    realLineHistorySeparation.fill(realLineSeparationPlayed)
+    screen.blit(realLineHistorySeparation, (35, ySize-realHistoryHeigh))
+
+
+    if realHistoryHeigh > ySize:
+        pageUpText = pageUpDownFont.render("⇈", 1, pageUpDownColor)
+        screen.blit(pageUpText, (historyAreaWidth + 8, 4))
+        shadowTop = pygame.image.load(mainDir + "/" + "history-top-shadow.png").convert_alpha()
+        shadowTop = pygame.transform.scale(shadowTop, (historyAreaWidth, 8))
+        screen.blit(shadowTop, (0, 0))
+
+
 def printListOfTry(screen, listOfTry):
     historyFont = pygame.font.SysFont("monospace", 14, bold=True)
     pageUpDownFont = pygame.font.SysFont("monospace", 18, bold=True)
@@ -668,6 +742,7 @@ def printListOfTry(screen, listOfTry):
     screen.blit(historyZone, (0, 0))
 
     scroowlingHistory = 0
+
 
     while row < len(listOfTry):
         if (row % 2 == 0):  # even
@@ -1059,9 +1134,10 @@ def marienbadAnalysis(matchMatrix, userInput):
     if (continueFunction == True):
         numberOfMatchsToDel = 0
         syntaxToTestImputValidity = "^ *([0-9]+) *(=|-) *([0-9]+) *$"
-        if re.match(syntaxToTestImputValidity, textToAnalyse) is not None:
+        if re.match(syntaxToTestImputValidity, userInput) is not None:
+            print("True")
             syntaxToExtractOptions = "^ *(?P<column>[0-9]+) *(?P<operator>(=|-)) *(?P<numberOfMatchUsed>[0-9]+) *$"
-            deletingMatchOparation = re.match(syntaxToExtractOptions,textToAnalyse)
+            deletingMatchOparation = re.match(syntaxToExtractOptions,userInput)
 
             columnToDelOnIt = int(deletingMatchOparation.group("column"))
             numberOfMatchUsed = int(deletingMatchOparation.group("numberOfMatchUsed"))
@@ -1104,6 +1180,7 @@ def marienbad(numberOfLines, wtw, screen):
     global textToAnalyse
     global normalTextToAnalyse
     global finalNormalUserInput
+    global historyAreaWidth
 
     maximumMatchMatrix = marienbadInitialColumns(numberOfLines)
     currentMatchMatrix = maximumMatchMatrix
@@ -1141,6 +1218,7 @@ def marienbad(numberOfLines, wtw, screen):
             matchAreaInfo = surfaceInformations()
             normalTextInformation = surfaceInformations()
             wtwZoneInfo = surfaceInformations()
+            columnNumberInfo = surfaceInformations()
             matchHorizontalSeparation = 0
 
             # Fixing constants
@@ -1177,6 +1255,8 @@ def marienbad(numberOfLines, wtw, screen):
 
             matchPositions = []
             i = 0
+            print(maximumMatchMatrix)
+            print(currentMatchMatrix)
             for numberOfMatchInAColumn in maximumMatchMatrix:
                 j = 0
                 matchPositions.append([])
@@ -1192,7 +1272,7 @@ def marienbad(numberOfLines, wtw, screen):
 
             # Bliting first interface
             screen.fill(background_colour)
-            printListOfTry(screen, listOfTry)
+            printMarienbadListOfTry(screen, listOfTry)
 
             # Treating normal imput
             if finalNormalUserInput:
@@ -1210,11 +1290,18 @@ def marienbad(numberOfLines, wtw, screen):
 #                   listOfTry.append(getFromAnalysis[2])
 
             # Bliting the game
+            columnNumberFont = pygame.font.SysFont("monospace", 18, bold=True)
+            i = 0
             for column in matchPositions:
                 for match in column:
                     visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
                     visualMatch = pygame.transform.scale(visualMatch, (int(matchInfo.width), int(matchInfo.height)))
                     screen.blit(visualMatch, (match.x, match.y))
+                columnNumberImage = columnNumberFont.render(str(i), 1, (0, 0,0))
+                columnNumberInfo.width, columnNumberInfo.height = columnNumberImage.get_size()
+                columnNumberInfo.x = column[0].x + (column[0].width/2) - (columnNumberInfo.width/2)
+                screen.blit(columnNumberImage, (columnNumberInfo.x, column[0].y+matchInfo.height+12))
+                i = i+1
 
             # Bliting second interface
             makeTextZone("Marienbad", None)
