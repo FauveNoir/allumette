@@ -1143,6 +1143,57 @@ def marienbadIsItAWinerSituation(matchMatrix, wtw):
 
     return winingColumn
 
+
+def playMarienbad(matchMatrix,wtw):
+    columns = len(matchMatrix)
+    numberOfLines = int((columns+1)/2)
+
+    lineSums = [0] * numberOfLines
+
+    i=0
+    for column in matchMatrix:
+        j=0
+        while j < column:
+            lineSums[j]=lineSums[j]+1
+            j=j+1
+        i=i+1
+
+    allowdedColumnToPlay = []
+    i=0
+    for column in matchMatrix:
+        if column > 0:
+            allowdedColumnToPlay.append(i)
+        i=i+1
+
+    print(lineSums)
+
+    lineSumsBinari = []
+    i = 0
+    for decimalNum in lineSums:
+        lineSumsBinari.append(int("{0:b}".format(decimalNum)))
+
+    print(lineSumsBinari)
+
+    finalSum = sum(lineSumsBinari)
+
+    listOfDigits=list(str(finalSum))
+
+    print(listOfDigits)
+    itIsPossibleToWin = False
+    for aDigit in listOfDigits:
+        if (int(aDigit)%2 == 1):
+            itIsPossibleToWin = True
+
+    if itIsPossibleToWin == False:
+        columnToPlay = random.sample(allowdedColumnToPlay, 1)[0]
+        maxNumberInTheColumn=matchMatrix[columnToPlay]
+        numberOfMatchToPlay = random.randint(1,maxNumberInTheColumn)
+        whatComputerWillPlay = [columnToPlay,numberOfMatchToPlay]
+        print(whatComputerWillPlay)
+
+    return None
+
+
 def marienbadAnalysis(matchMatrix, userInput):
 
     # Constant for all the folowing operations
@@ -1281,8 +1332,6 @@ def marienbad(numberOfLines, wtw, screen):
 
             matchPositions = []
             i = 0
-            print(maximumMatchMatrix)
-            print(currentMatchMatrix)
             for numberOfMatchInAColumn in maximumMatchMatrix:
                 j = 0
                 matchPositions.append([])
@@ -1311,8 +1360,8 @@ def marienbad(numberOfLines, wtw, screen):
                     errorToDisplay = getFromAnalysis[1]
 
 #               TODO uncomment when function playMarienbad will be ready
-#               if getFromAnalysis[0] == True:
-#                   computerPlayed = playMarienbad(currentMatchMatrix,wtw)
+                if getFromAnalysis[0] == True:
+                    computerPlayed = playMarienbad(currentMatchMatrix,wtw)
 #                   listOfTry.append(getFromAnalysis[2])
 
             # Defining if we are in wining position
