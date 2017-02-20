@@ -6,6 +6,7 @@ import random
 import sys
 import time
 import re
+import copy
 from optparse import OptionParser
 import pygame
 from pygame.locals import *
@@ -1145,7 +1146,7 @@ def marienbadAnalysis(matchMatrix, userInput):
 
 
             if (columnToDelOnIt in allowedColumns) :
-                if (numberOfMatchUsed != 0) :
+                if (numberOfMatchUsed != 0) or (delletingOperator != "-"):
                     if (delletingOperator == "=") :
                         if (numberOfMatchUsed <= matchMatrix[columnToDelOnIt]):
                             numberOfMatchsToDel = matchMatrix[columnToDelOnIt]-numberOfMatchUsed
@@ -1183,7 +1184,7 @@ def marienbad(numberOfLines, wtw, screen):
     global historyAreaWidth
 
     maximumMatchMatrix = marienbadInitialColumns(numberOfLines)
-    currentMatchMatrix = maximumMatchMatrix
+    currentMatchMatrix = copy.deepcopy(maximumMatchMatrix)
     numberOfColumns = numberOfLines*2 - 1
 
     # Initialisation
@@ -1293,10 +1294,15 @@ def marienbad(numberOfLines, wtw, screen):
             columnNumberFont = pygame.font.SysFont("monospace", 18, bold=True)
             i = 0
             for column in matchPositions:
+                j = 0
                 for match in column:
-                    visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
+                    if (currentMatchMatrix[i] < maximumMatchMatrix[i]) and (j+1 > currentMatchMatrix[i]):
+                        visualMatch = pygame.image.load(mainDir + "/" + "match-void.png").convert_alpha()
+                    else:
+                        visualMatch = pygame.image.load(mainDir + "/" + "match.png").convert_alpha()
                     visualMatch = pygame.transform.scale(visualMatch, (int(matchInfo.width), int(matchInfo.height)))
                     screen.blit(visualMatch, (match.x, match.y))
+                    j=j+1
                 columnNumberImage = columnNumberFont.render(str(i), 1, (0, 0,0))
                 columnNumberInfo.width, columnNumberInfo.height = columnNumberImage.get_size()
                 columnNumberInfo.x = column[0].x + (column[0].width/2) - (columnNumberInfo.width/2)
