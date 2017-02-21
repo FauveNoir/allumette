@@ -7,6 +7,8 @@ This version of the classic [Nim](https://en.wikipedia.org/wiki/Nim) game is mad
 Later, it will support all possible knowen varients of this game.
 
 
+This game is dedicated to mathematic and serius games enthousiast. Later, it will bring tools to help understunding the Nim games.
+
 ⚠ if you were searching of dumb-friendly and WIMP interface, go away. Open Allumette is made for nerdz by a geek like if it was a programmer editor. And we are proud of that.
 
 # Usage
@@ -74,9 +76,11 @@ In this mode, all the columns are numbered. So, you still have two possibilities
 The sintax is the following:
 
 <pre>
-<var>⟨column number⟩</var>=<var>⟨match to let⟩</var><kbd>⏎</kbd>
+<var>⟨column number⟩</var>*=*<var>⟨match to let⟩</var><kbd>⏎</kbd>
+</pre>
 
-<var>⟨column number⟩</var>-<var>⟨match to take⟩</var><kbd>⏎</kbd>
+<pre>
+<var>⟨column number⟩</var>*-*<var>⟨match to take⟩</var><kbd>⏎</kbd>
 </pre>
 
 ### In Grundy mode
@@ -97,8 +101,8 @@ So, the syntax to take the same number of match in the two piles is:
 
 Alternativly, if the user whant to only take matchs from one pile, he have to use this syntax:
 <pre>
-<var>⟨Letter of the pile⟩</var>[-]<var>⟨number of matchs to take⟩</var><kbd>⏎</kbd>
-<var>⟨Letter of the pile⟩</var>=<var>⟨number of matchs to let⟩</var><kbd>⏎</kbd>
+<var>⟨Letter of the pile⟩</var>[*-*]<var>⟨number of matchs to take⟩</var><kbd>⏎</kbd>
+<var>⟨Letter of the pile⟩</var>*=*<var>⟨number of matchs to let⟩</var><kbd>⏎</kbd>
 </pre>
 
 ## Installation

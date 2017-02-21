@@ -1143,11 +1143,9 @@ def marienbadIsItAWinerSituation(matchMatrix, wtw):
 
     return winingColumn
 
-
-def playMarienbad(matchMatrix,wtw):
+def getNimSum(matchMatrix):
     columns = len(matchMatrix)
     numberOfLines = int((columns+1)/2)
-
     lineSums = [0] * numberOfLines
 
     i=0
@@ -1158,6 +1156,15 @@ def playMarienbad(matchMatrix,wtw):
             j=j+1
         i=i+1
 
+    return lineSums
+
+def playMarienbad(matchMatrix,wtw):
+    columns = len(matchMatrix)
+    numberOfLines = int((columns+1)/2)
+
+    lineSums = getNimSum(matchMatrix)
+
+
     allowdedColumnToPlay = []
     i=0
     for column in matchMatrix:
@@ -1165,12 +1172,8 @@ def playMarienbad(matchMatrix,wtw):
             allowdedColumnToPlay.append(i)
         i=i+1
 
-    print(lineSums)
 
-    lineSumsBinari = []
-    i = 0
-    for decimalNum in lineSums:
-        lineSumsBinari.append(int("{0:b}".format(decimalNum)))
+    lineSumsBinari = calculateLineSumsBinari(lineSums)
 
     print(lineSumsBinari)
 
@@ -1184,14 +1187,102 @@ def playMarienbad(matchMatrix,wtw):
         if (int(aDigit)%2 == 1):
             itIsPossibleToWin = True
 
+    matchLineContainingOdd = None
     if itIsPossibleToWin == False:
         columnToPlay = random.sample(allowdedColumnToPlay, 1)[0]
         maxNumberInTheColumn=matchMatrix[columnToPlay]
         numberOfMatchToPlay = random.randint(1,maxNumberInTheColumn)
         whatComputerWillPlay = [columnToPlay,numberOfMatchToPlay]
-        print(whatComputerWillPlay)
+        columnToPlay = whatComputerWillPlay
+    else:
+        theSumColumnContainingTheOddDigit = marienbadWitchColumnIsOdd(listOfDigits)
+        matchLineContainingOdd = marienbadWitchMatchLineContainOdd(matchMatrix)
+        columnToPlay = matchLineContainingOdd
 
-    return None
+    return columnToPlay
+
+
+def marienbadWitchColumnIsOdd(listOfDigits):
+    for i in range(len(listOfDigits)):
+        aDigit = listOfDigits[i]
+        if (int(aDigit)%2 == 1):
+            return i
+
+def calculateLineSumsBinari(lineSums):
+    lineSumsBinari = []
+    i = 0
+    for decimalNum in lineSums:
+        lineSumsBinari.append(int("{0:b}".format(decimalNum)))
+    return lineSumsBinari
+
+def marienbadWitchMatchLineContainOdd(matchMatrix):
+
+    lineSums = getNimSum(matchMatrix)
+    lineSumsBinari = calculateLineSumsBinari(lineSums)
+    finalSum = sum(lineSumsBinari)
+    listOfDigits=list(str(finalSum))
+    theSumColumnContainingTheOddDigit = marienbadWitchColumnIsOdd(listOfDigits)
+    # Convert LineSums to Binary representation
+    lineSumsBinari = []
+    i = 0
+    for decimalNum in lineSums:
+        lineSumsBinari.append(int("{0:b}".format(decimalNum)))
+
+    # Normalise non-sinificative zeros
+    i = 0
+    maxLen = 0
+    for binaryNum in lineSumsBinari:
+        tempLen = len(str(binaryNum))
+        if tempLen > maxLen:
+            maxLen = tempLen
+        i=i+1
+
+    i = 0
+    for binaryNum in lineSumsBinari:
+        tempLen = len(str(binaryNum))
+        howZeroToAdd = maxLen - tempLen
+        if howZeroToAdd > 0:
+            for j in range(1,howZeroToAdd+1):
+                lineSumsBinari[i] = "0" + str(lineSumsBinari[i])
+        else:
+            lineSumsBinari[i] = str(lineSumsBinari[i])
+        i=i+1
+
+    #Only let the theSumColumnContainingTheOddDigitNTH digit in each binaryNum
+    octetsOfDesiredColumn = []
+    i = 0
+    for binaryNum in lineSumsBinari:
+        extractedOctet = list(str(binaryNum))[theSumColumnContainingTheOddDigit]
+        octetsOfDesiredColumn.append(extractedOctet)
+        i=i+1
+
+
+    # Search the lines containing 1
+    i = 0
+    linesImpliyingOdd = []
+    for i in range(0,len(octetsOfDesiredColumn)):
+        if octetsOfDesiredColumn[i] == "1":
+            linesImpliyingOdd.append(i)
+        i=i+1
+
+    higherMatchLine = linesImpliyingOdd[-1]
+
+    # Search the column matching the lines.
+    i = 0
+    for match in matchMatrix:
+        if match == higherMatchLine:
+            theColumn=i
+        i=i+1
+
+    print("matchMatrix: " + str(matchMatrix))
+    print("lineSums: " + str(lineSums))
+    print("higherMatchLine: " + str(higherMatchLine))
+
+    print("Là ↓")
+    print(theColumn)
+
+    return(theColumn)
+
 
 
 def marienbadAnalysis(matchMatrix, userInput):
@@ -1362,7 +1453,8 @@ def marienbad(numberOfLines, wtw, screen):
 #               TODO uncomment when function playMarienbad will be ready
                 if getFromAnalysis[0] == True:
                     computerPlayed = playMarienbad(currentMatchMatrix,wtw)
-#                   listOfTry.append(getFromAnalysis[2])
+                    listOfTry.append(str(computerPlayed) + "-" + "1")
+                    currentMatchMatrix[computerPlayed] = currentMatchMatrix[computerPlayed]-1
 
             # Defining if we are in wining position
             winingColumn = marienbadIsItAWinerSituation(currentMatchMatrix, wtw)
