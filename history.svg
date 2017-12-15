@@ -1,0 +1,1707 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="82.00074"
+   height="487.02853"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="history.svg"
+   inkscape:export-filename="/home/fove48/prog/einstein-game/mok-up.png"
+   inkscape:export-xdpi="121.40166"
+   inkscape:export-ydpi="121.40166">
+  <defs
+     id="defs4">
+    <clipPath
+       id="clipPath3807"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:none"
+         d="m -64.28125,0 c -2.382099,0 -4.28125,2.6416072 -4.28125,5.90625 l 0,8.90625 c 0,2.708841 1.314604,4.961607 3.125,5.65625 l 0,137.75 7.125,0 0,-137.75 c 1.810396,-0.694643 3.125,-2.947409 3.125,-5.65625 l 0,-8.90625 C -55.1875,2.6416072 -57.086651,0 -59.46875,0 l -4.8125,0 z"
+         id="path3809" />
+    </clipPath>
+    <filter
+       inkscape:collect="always"
+       id="filter4684"
+       x="-0.30790654"
+       width="1.6158131"
+       y="-0.026028836"
+       height="1.0520577"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.7159375"
+         id="feGaussianBlur4686" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5553">
+      <rect
+         y="1304.4263"
+         x="51.42857"
+         height="480"
+         width="837.71503"
+         id="rect5555"
+         style="fill:none;stroke:none"
+         inkscape:export-filename="/tmp/nim.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5866">
+      <rect
+         ry="0"
+         rx="0"
+         y="894.42639"
+         x="-1487.353"
+         height="302.85715"
+         width="101.42857"
+         id="rect5868"
+         style="fill:none;stroke:none" />
+    </clipPath>
+    <filter
+       inkscape:collect="always"
+       id="filter6109"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.69813228"
+         id="feGaussianBlur6111" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter5514"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.5974046"
+         id="feGaussianBlur5516" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5524">
+      <rect
+         ry="0"
+         rx="0"
+         y="-2065.1665"
+         x="-1302.0015"
+         height="275.71445"
+         width="145.71431"
+         id="rect5526"
+         style="fill:none;stroke:none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5524-9">
+      <rect
+         ry="0"
+         rx="0"
+         y="-2065.1665"
+         x="-1302.0015"
+         height="275.71445"
+         width="145.71431"
+         id="rect5526-4"
+         style="fill:none;stroke:none" />
+    </clipPath>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter5514-8">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.5974046"
+         id="feGaussianBlur5516-2" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6665">
+      <rect
+         ry="0"
+         rx="0"
+         y="-2065.1665"
+         x="-1302.0015"
+         height="275.71445"
+         width="145.71431"
+         id="rect6667"
+         style="fill:none;stroke:none" />
+    </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6776"
+       id="radialGradient3602"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.254836,0,-135.84409)"
+       cx="117.5653"
+       cy="533.06476"
+       fx="117.5653"
+       fy="533.06476"
+       r="18.578125" />
+    <linearGradient
+       id="linearGradient3589">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3591" />
+      <stop
+         id="stop3593"
+         offset="0.46959281"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d6d6d6;stop-opacity:1;"
+         offset="1"
+         id="stop3595" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3580">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3582" />
+      <stop
+         id="stop3584"
+         offset="0.46959281"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d6d6d6;stop-opacity:1;"
+         offset="1"
+         id="stop3586" />
+    </linearGradient>
+    <radialGradient
+       r="18.578125"
+       fy="533.06476"
+       fx="117.5653"
+       cy="533.06476"
+       cx="117.5653"
+       gradientTransform="matrix(1,0,0,1.254836,0,-135.84409)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient4784"
+       xlink:href="#linearGradient6776"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3571">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3573" />
+      <stop
+         id="stop3575"
+         offset="0.46959281"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d6d6d6;stop-opacity:1;"
+         offset="1"
+         id="stop3577" />
+    </linearGradient>
+    <linearGradient
+       y2="471.79471"
+       x2="202.85715"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(118.96133,-333.75316)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3569"
+       xlink:href="#linearGradient6776"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient6776">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop6778" />
+      <stop
+         id="stop6780"
+         offset="0.46959281"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d6d6d6;stop-opacity:1;"
+         offset="1"
+         id="stop6782" />
+    </linearGradient>
+    <linearGradient
+       y2="471.79471"
+       x2="202.85715"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(118.96133,-333.75316)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4780"
+       xlink:href="#linearGradient6776"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3645">
+      <stop
+         id="stop3647"
+         style="stop-color:#ffffff;stop-opacity:0.3137255"
+         offset="0" />
+      <stop
+         id="stop3649"
+         style="stop-color:#ffffff;stop-opacity:0.25098041"
+         offset="0.19" />
+      <stop
+         id="stop3651"
+         style="stop-color:#6b6b6b;stop-opacity:0.1254902"
+         offset="0.60000002" />
+      <stop
+         id="stop3653"
+         style="stop-color:#000000;stop-opacity:0.1254902"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2893-8">
+      <stop
+         id="stop2895-5"
+         style="stop-color:#ffffff;stop-opacity:0.3137255"
+         offset="0" />
+      <stop
+         id="stop2897-0"
+         style="stop-color:#ffffff;stop-opacity:0.25098041"
+         offset="0.19" />
+      <stop
+         id="stop2901-6"
+         style="stop-color:#6b6b6b;stop-opacity:0.1254902"
+         offset="0.60000002" />
+      <stop
+         id="stop2899-5"
+         style="stop-color:#000000;stop-opacity:0.1254902"
+         offset="1" />
+    </linearGradient>
+    <radialGradient
+       r="18.578125"
+       fy="533.06476"
+       fx="117.5653"
+       cy="533.06476"
+       cx="117.5653"
+       gradientTransform="matrix(1,0,0,1.254836,0,-135.84409)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient4790"
+       xlink:href="#linearGradient2893-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3632">
+      <stop
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1"
+         id="stop3634" />
+      <stop
+         offset="1"
+         style="stop-color:#888888;stop-opacity:1"
+         id="stop3636" />
+    </linearGradient>
+    <linearGradient
+       y2="622.15186"
+       x2="291.59088"
+       y1="622.15186"
+       x1="171.1123"
+       gradientTransform="translate(100.96133,-334.18497)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3630"
+       xlink:href="#linearGradient3784"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3624">
+      <stop
+         offset="0"
+         style="stop-color:#6c6d6f;stop-opacity:1"
+         id="stop3626" />
+      <stop
+         offset="1"
+         style="stop-color:#010101;stop-opacity:1"
+         id="stop3628" />
+    </linearGradient>
+    <linearGradient
+       y2="471.79471"
+       x2="202.85715"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(123.81847,-170.61354)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3622"
+       xlink:href="#linearGradient3734"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3784">
+      <stop
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1"
+         id="stop3786" />
+      <stop
+         offset="1"
+         style="stop-color:#888888;stop-opacity:1"
+         id="stop3788" />
+    </linearGradient>
+    <linearGradient
+       y2="622.15186"
+       x2="291.59088"
+       y1="622.15186"
+       x1="171.1123"
+       gradientTransform="translate(100.96133,-334.18497)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4788"
+       xlink:href="#linearGradient3784"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3734">
+      <stop
+         offset="0"
+         style="stop-color:#6c6d6f;stop-opacity:1"
+         id="stop3736" />
+      <stop
+         offset="1"
+         style="stop-color:#010101;stop-opacity:1"
+         id="stop3738" />
+    </linearGradient>
+    <linearGradient
+       y2="471.79471"
+       x2="202.85715"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(123.81847,-170.61354)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4786"
+       xlink:href="#linearGradient3734"
+       inkscape:collect="always" />
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="506.37289"
+       x2="415.49393"
+       y1="456.01575"
+       x1="414.99789"
+       id="linearGradient4169"
+       xlink:href="#linearGradient4131"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="622.15186"
+       x2="291.59088"
+       y1="622.15186"
+       x1="171.1123"
+       gradientTransform="translate(181.34787,-153.29211)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4155"
+       xlink:href="#linearGradient4792"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="492.33041"
+       x2="203.21429"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(204.20501,10.27932)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4153"
+       xlink:href="#linearGradient4131"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="622.15186"
+       x2="291.59088"
+       y1="622.15186"
+       x1="171.1123"
+       gradientTransform="translate(181.34787,-153.86354)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4145"
+       xlink:href="#linearGradient4792"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="492.33041"
+       x2="203.21429"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(204.20501,9.7078914)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4143"
+       xlink:href="#linearGradient4131"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="622.15186"
+       x2="291.59088"
+       y1="622.15186"
+       x1="171.1123"
+       gradientTransform="translate(-12.402123,-153.29211)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3354"
+       xlink:href="#linearGradient4792"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="492.33041"
+       x2="203.21429"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(10.455017,10.27932)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3352"
+       xlink:href="#linearGradient3580-5"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="503.75897"
+       x2="262.32144"
+       y1="408.3056"
+       x1="167.14285"
+       gradientTransform="translate(130.23821,10.66966)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3348"
+       xlink:href="#linearGradient4368"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6776-9"
+       id="linearGradient4780-4"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(118.96133,-333.75316)"
+       x1="202.85715"
+       y1="445.62701"
+       x2="202.85715"
+       y2="471.79471" />
+    <linearGradient
+       id="linearGradient6776-9">
+      <stop
+         id="stop6778-8"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.46959281"
+         id="stop6780-3" />
+      <stop
+         id="stop6782-4"
+         offset="1"
+         style="stop-color:#d6d6d6;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6776-9"
+       id="linearGradient3569-4"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(118.96133,-333.75316)"
+       x1="202.85715"
+       y1="445.62701"
+       x2="202.85715"
+       y2="471.79471" />
+    <linearGradient
+       id="linearGradient3571-0">
+      <stop
+         id="stop3573-2"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.46959281"
+         id="stop3575-8" />
+      <stop
+         id="stop3577-8"
+         offset="1"
+         style="stop-color:#d6d6d6;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6776-9"
+       id="radialGradient4784-6"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.254836,0,-135.84409)"
+       cx="117.5653"
+       cy="533.06476"
+       fx="117.5653"
+       fy="533.06476"
+       r="18.578125" />
+    <linearGradient
+       id="linearGradient3580-5">
+      <stop
+         id="stop3582-5"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.46959281"
+         id="stop3584-0" />
+      <stop
+         id="stop3586-1"
+         offset="1"
+         style="stop-color:#d6d6d6;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3589-0">
+      <stop
+         id="stop3591-4"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.46959281"
+         id="stop3593-9" />
+      <stop
+         id="stop3595-0"
+         offset="1"
+         style="stop-color:#d6d6d6;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       r="18.578125"
+       fy="533.06476"
+       fx="117.5653"
+       cy="533.06476"
+       cx="117.5653"
+       gradientTransform="matrix(1,0,0,1.254836,0,-135.84409)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3602-8"
+       xlink:href="#linearGradient6776-9"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4368"
+       id="linearGradient3412"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(512.28023,-178.79463)"
+       x1="167.14285"
+       y1="408.3056"
+       x2="262.32144"
+       y2="503.75897" />
+    <linearGradient
+       id="linearGradient3400">
+      <stop
+         id="stop3402"
+         offset="0"
+         style="stop-color:#edeff3;stop-opacity:1;" />
+      <stop
+         id="stop3404"
+         offset="1"
+         style="stop-color:#ada4ab;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="503.75897"
+       x2="262.32144"
+       y1="408.3056"
+       x1="167.14285"
+       gradientTransform="translate(512.28023,-178.79463)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3398"
+       xlink:href="#linearGradient4368"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4368">
+      <stop
+         id="stop4370"
+         offset="0"
+         style="stop-color:#edeff3;stop-opacity:1;" />
+      <stop
+         id="stop4374"
+         offset="1"
+         style="stop-color:#ada4ab;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="503.75897"
+       x2="262.32144"
+       y1="408.3056"
+       x1="167.14285"
+       gradientTransform="translate(512.28023,-178.79463)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4754"
+       xlink:href="#linearGradient4368"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3388">
+      <stop
+         id="stop3390"
+         style="stop-color:#ffffff;stop-opacity:0.72284645;"
+         offset="0" />
+      <stop
+         id="stop3392"
+         style="stop-color:#888888;stop-opacity:0.71535581;"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       y2="622.15186"
+       x2="291.59088"
+       y1="622.15186"
+       x1="171.1123"
+       gradientTransform="translate(371.24704,-342.7564)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3386"
+       xlink:href="#linearGradient4792"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3380">
+      <stop
+         offset="0"
+         style="stop-color:#6c6d6f;stop-opacity:1"
+         id="stop3382" />
+      <stop
+         offset="1"
+         style="stop-color:#010101;stop-opacity:1"
+         id="stop3384" />
+    </linearGradient>
+    <linearGradient
+       y2="471.79471"
+       x2="202.85715"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(394.10418,-179.18497)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3378"
+       xlink:href="#linearGradient3734-4"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4792">
+      <stop
+         id="stop4794"
+         style="stop-color:#ffffff;stop-opacity:0.72284645;"
+         offset="0" />
+      <stop
+         id="stop4796"
+         style="stop-color:#888888;stop-opacity:0.71535581;"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       y2="622.15186"
+       x2="291.59088"
+       y1="622.15186"
+       x1="171.1123"
+       gradientTransform="translate(371.24704,-342.7564)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4752"
+       xlink:href="#linearGradient4792"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3734-4">
+      <stop
+         offset="0"
+         style="stop-color:#6c6d6f;stop-opacity:1"
+         id="stop3736-1" />
+      <stop
+         offset="1"
+         style="stop-color:#010101;stop-opacity:1"
+         id="stop3738-9" />
+    </linearGradient>
+    <linearGradient
+       y2="471.79471"
+       x2="202.85715"
+       y1="445.62701"
+       x1="202.85715"
+       gradientTransform="translate(394.10418,-179.18497)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4750"
+       xlink:href="#linearGradient3734-4"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4064">
+      <stop
+         id="stop4066"
+         offset="0"
+         style="stop-color:#1599dc;stop-opacity:1;" />
+      <stop
+         style="stop-color:#1599dc;stop-opacity:1;"
+         offset="0.56904972"
+         id="stop4070" />
+      <stop
+         id="stop4068"
+         offset="1"
+         style="stop-color:#0976b4;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       r="35.776787"
+       fy="252.62904"
+       fx="655.94733"
+       cy="252.62904"
+       cx="655.94733"
+       gradientTransform="matrix(-0.01009293,0.87845367,-1.9981599,-0.0229576,1168.5565,-308.59312)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient4748"
+       xlink:href="#linearGradient4064"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4131">
+      <stop
+         id="stop4133"
+         style="stop-color:#909193;stop-opacity:1;"
+         offset="0" />
+      <stop
+         id="stop4135"
+         style="stop-color:#1b1b1b;stop-opacity:1;"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4131"
+       id="linearGradient45429"
+       gradientUnits="userSpaceOnUse"
+       x1="414.99789"
+       y1="456.01575"
+       x2="415.49393"
+       y2="506.37289" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4131"
+       id="linearGradient45431"
+       gradientUnits="userSpaceOnUse"
+       x1="414.99789"
+       y1="456.01575"
+       x2="415.49393"
+       y2="506.37289" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3734"
+       id="linearGradient45457"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(123.81847,-170.61354)"
+       x1="202.85715"
+       y1="445.62701"
+       x2="202.85715"
+       y2="471.79471" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3784"
+       id="linearGradient45459"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(100.96133,-334.18497)"
+       x1="171.1123"
+       y1="622.15186"
+       x2="291.59088"
+       y2="622.15186" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2893-8"
+       id="radialGradient45463"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.254836,0,-135.84409)"
+       cx="117.5653"
+       cy="533.06476"
+       fx="117.5653"
+       fy="533.06476"
+       r="18.578125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3580-5"
+       id="linearGradient45469"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(10.455017,10.27932)"
+       x1="202.85715"
+       y1="445.62701"
+       x2="203.21429"
+       y2="492.33041" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4792"
+       id="linearGradient45471"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-12.402123,-153.29211)"
+       x1="171.1123"
+       y1="622.15186"
+       x2="291.59088"
+       y2="622.15186" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4368"
+       id="linearGradient45473"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(130.23821,10.66966)"
+       x1="167.14285"
+       y1="408.3056"
+       x2="262.32144"
+       y2="503.75897" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5524-9-2">
+      <rect
+         ry="0"
+         rx="0"
+         y="-2065.1665"
+         x="-1302.0015"
+         height="275.71445"
+         width="145.71431"
+         id="rect5526-4-5"
+         style="fill:none;stroke:none" />
+    </clipPath>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter5514-8-5">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.5974046"
+         id="feGaussianBlur5516-2-0" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3734"
+       id="linearGradient5651"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(123.81847,-170.61354)"
+       x1="202.85715"
+       y1="445.62701"
+       x2="202.85715"
+       y2="471.79471" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3784"
+       id="linearGradient5653"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(100.96133,-334.18497)"
+       x1="171.1123"
+       y1="622.15186"
+       x2="291.59088"
+       y2="622.15186" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2893-8"
+       id="radialGradient5657"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.254836,0,-135.84409)"
+       cx="117.5653"
+       cy="533.06476"
+       fx="117.5653"
+       fy="533.06476"
+       r="18.578125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3580-5"
+       id="linearGradient5663"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(10.455017,10.27932)"
+       x1="202.85715"
+       y1="445.62701"
+       x2="203.21429"
+       y2="492.33041" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4792"
+       id="linearGradient5665"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-12.402123,-153.29211)"
+       x1="171.1123"
+       y1="622.15186"
+       x2="291.59088"
+       y2="622.15186" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4368"
+       id="linearGradient5667"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(130.23821,10.66966)"
+       x1="167.14285"
+       y1="408.3056"
+       x2="262.32144"
+       y2="503.75897" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5524-9-2-3">
+      <rect
+         ry="0"
+         rx="0"
+         y="-2065.1665"
+         x="-1302.0015"
+         height="275.71445"
+         width="145.71431"
+         id="rect5526-4-5-6"
+         style="fill:none;stroke:none" />
+    </clipPath>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter5514-8-5-7">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.5974046"
+         id="feGaussianBlur5516-2-0-5" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5524-9-2-3-3">
+      <rect
+         ry="0"
+         rx="0"
+         y="-2065.1665"
+         x="-1302.0015"
+         height="275.71445"
+         width="145.71431"
+         id="rect5526-4-5-6-6"
+         style="fill:none;stroke:none" />
+    </clipPath>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter5514-8-5-7-7">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.5974046"
+         id="feGaussianBlur5516-2-0-5-5" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="317.32051"
+     inkscape:cy="143.99231"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1916"
+     inkscape:window-height="1039"
+     inkscape:window-x="0"
+     inkscape:window-y="39"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-959.55182,-2537.865)">
+    <rect
+       y="2544.8936"
+       x="959.55182"
+       height="480"
+       width="82.00074"
+       id="rect5331"
+       style="fill:#907c6a;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       inkscape:export-filename="/tmp/g6503-8.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#51453a;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect5333"
+       width="82.00074"
+       height="20.380592"
+       x="959.55182"
+       y="3004.5129"
+       inkscape:export-filename="/tmp/g6503-8.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       inkscape:export-ydpi="96"
+       inkscape:export-xdpi="96"
+       inkscape:export-filename="/tmp/g6503-8.png"
+       y="2984.1323"
+       x="959.55182"
+       height="20.380592"
+       width="82.00074"
+       id="rect5773"
+       style="fill:#191512;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <text
+       inkscape:export-ydpi="96"
+       inkscape:export-xdpi="96"
+       inkscape:export-filename="/tmp/g6503-8.png"
+       xml:space="preserve"
+       style="font-size:19.25951004px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cd991d;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:Anonymous Pro Bold"
+       x="965.26819"
+       y="3000.4541"
+       id="text4161-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4163-6"
+         x="965.26819"
+         y="3000.4541"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#cd991d;fill-opacity:1;font-family:Anonymous Pro;-inkscape-font-specification:Anonymous Pro Bold">Trivial</tspan></text>
+    <rect
+       inkscape:export-ydpi="96"
+       inkscape:export-xdpi="96"
+       inkscape:export-filename="/tmp/g6503-8.png"
+       rx="0"
+       y="3007.3728"
+       x="964.19641"
+       height="12.678572"
+       width="9.1964283"
+       id="rect8199-7"
+       style="fill:#cd991d;fill-opacity:1;stroke:none" />
+    <g
+       id="g6875"
+       transform="translate(-340.44815,30.990015)"
+       inkscape:export-filename="/tmp/g6503-8.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         transform="translate(1248.5714,1188.5714)"
+         id="g6775">
+        <rect
+           ry="0"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6583"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1671.1887"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1689.7601"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6585"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1686.5845"
+           id="text6587"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             sodipodi:role="line"
+             id="tspan6589"
+             x="52.78986"
+             y="1686.5845">21 ← <tspan
+   id="tspan6591"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <text
+           sodipodi:linespacing="125%"
+           id="text6593"
+           y="1705.1559"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             y="1705.1559"
+             x="52.78986"
+             id="tspan6595"
+             sodipodi:role="line">22 → <tspan
+   id="tspan6597"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1708.3315"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6599"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text6601"
+           y="1723.7272"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             y="1723.7272"
+             x="52.78986"
+             id="tspan6603"
+             sodipodi:role="line">23 ← <tspan
+   id="tspan6605"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1596.9032"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6607"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <rect
+           ry="0"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6609"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1615.4746"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           sodipodi:linespacing="125%"
+           id="text6611"
+           y="1612.299"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"><tspan
+             y="1612.299"
+             x="52.78986"
+             id="tspan6613"
+             sodipodi:role="line">17 ← <tspan
+   id="tspan6615"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1630.8704"
+           id="text6617"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6619"
+             x="52.78986"
+             y="1630.8704">18 → <tspan
+   id="tspan6621"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           ry="0"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6623"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1634.046"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1652.6174"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6625"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1649.4417"
+           id="text6627"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6629"
+             x="52.78986"
+             y="1649.4417">19 ← <tspan
+   id="tspan6631"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           sodipodi:linespacing="125%"
+           id="text6633"
+           y="1668.0131"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"><tspan
+             y="1668.0131"
+             x="52.78986"
+             id="tspan6635"
+             sodipodi:role="line">20 → <tspan
+   id="tspan6637"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           ry="0"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6639"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1522.6177"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1541.1891"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6641"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1538.0134"
+           id="text6643"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             sodipodi:role="line"
+             id="tspan6645"
+             x="52.78986"
+             y="1538.0134">13 ← <tspan
+   id="tspan6647"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <text
+           sodipodi:linespacing="125%"
+           id="text6649"
+           y="1556.5848"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             y="1556.5848"
+             x="52.78986"
+             id="tspan6651"
+             sodipodi:role="line">14 → <tspan
+   id="tspan6653"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1559.7605"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6655"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <rect
+           ry="0"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6657"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1578.3319"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text6659"
+           y="1575.1561"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             y="1575.1561"
+             x="52.78986"
+             id="tspan6661"
+             sodipodi:role="line">15 ← <tspan
+   id="tspan6663"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1593.7275"
+           id="text6665"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             sodipodi:role="line"
+             id="tspan6667"
+             x="52.78986"
+             y="1593.7275">16 → <tspan
+   id="tspan6669"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1448.332"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6671"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <rect
+           ry="0"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6673"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1466.9034"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           sodipodi:linespacing="125%"
+           id="text6675"
+           y="1463.7278"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"><tspan
+             y="1463.7278"
+             x="52.78986"
+             id="tspan6677"
+             sodipodi:role="line">9  ← <tspan
+   id="tspan6679"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1482.2992"
+           id="text6681"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6683"
+             x="52.78986"
+             y="1482.2992">10 → <tspan
+   id="tspan6685"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           ry="0"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6687"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1485.4749"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1504.0463"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6689"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1500.8705"
+           id="text6691"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6693"
+             x="52.78986"
+             y="1500.8705">11 ← <tspan
+   id="tspan6695"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           sodipodi:linespacing="125%"
+           id="text6697"
+           y="1519.4419"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"><tspan
+             y="1519.4419"
+             x="52.78986"
+             id="tspan6699"
+             sodipodi:role="line">12 → <tspan
+   id="tspan6701"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           ry="0"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6703"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1374.0464"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1392.6178"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6705"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1389.4421"
+           id="text6707"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             sodipodi:role="line"
+             id="tspan6709"
+             x="52.78986"
+             y="1389.4421">5  ← <tspan
+   id="tspan6711"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <text
+           sodipodi:linespacing="125%"
+           id="text6713"
+           y="1408.0135"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             y="1408.0135"
+             x="52.78986"
+             id="tspan6715"
+             sodipodi:role="line">6  → <tspan
+   id="tspan6717"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1411.1892"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6719"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <rect
+           ry="0"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6721"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1429.7606"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text6723"
+           y="1426.5848"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             y="1426.5848"
+             x="52.78986"
+             id="tspan6725"
+             sodipodi:role="line">7  ← <tspan
+   id="tspan6727"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1445.1562"
+           id="text6729"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             sodipodi:role="line"
+             id="tspan6731"
+             x="52.78986"
+             y="1445.1562">8  → <tspan
+   id="tspan6733"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           ry="0"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6735"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1318.3323"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1333.728"
+           id="text6737"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6739"
+             x="52.78986"
+             y="1333.728">2  → <tspan
+   id="tspan6741"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           ry="0"
+           style="fill:#ece4d9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6743"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1336.9037"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1355.4751"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6745"
+           style="fill:#cfc1b8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1352.2993"
+           id="text6747"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6749"
+             x="52.78986"
+             y="1352.2993">3  ← <tspan
+   id="tspan6751"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+        <text
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           sodipodi:linespacing="125%"
+           id="text6753"
+           y="1370.8707"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"><tspan
+             y="1370.8707"
+             x="52.78986"
+             id="tspan6755"
+             sodipodi:role="line">4  → <tspan
+   id="tspan6757"
+   style="fill:#007edf;fill-opacity:1">1</tspan></tspan></text>
+        <rect
+           ry="0"
+           style="fill:#d5c3aa;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect6759"
+           width="82.000702"
+           height="18.571365"
+           x="51.42857"
+           y="1726.903"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <text
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           x="52.78986"
+           y="1742.2987"
+           id="text6761"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             sodipodi:role="line"
+             id="tspan6763"
+             x="52.78986"
+             y="1742.2987">24 → <tspan
+   id="tspan6765"
+   style="fill:#d7005f;fill-opacity:1">3</tspan></tspan></text>
+        <rect
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           y="1745.4744"
+           x="51.42857"
+           height="18.571365"
+           width="82.000702"
+           id="rect6767"
+           style="fill:#a78d7c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           ry="0" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text6769"
+           y="1760.8701"
+           x="52.78986"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Typewriter Text;-inkscape-font-specification:CMU Typewriter Text Medium"
+           xml:space="preserve"
+           inkscape:export-filename="/tmp/g6503-8.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"><tspan
+             y="1760.8701"
+             x="52.78986"
+             id="tspan6771"
+             sodipodi:role="line">25 ← <tspan
+   id="tspan6773"
+   style="fill:#289500;fill-opacity:1">2</tspan></tspan></text>
+      </g>
+      <path
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="/tmp/g6503-8.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path6873"
+         d="m 1326.5946,2506.8884 0,445.7547"
+         style="fill:none;stroke:#362e26;stroke-width:0.99841928;stroke-opacity:1" />
+    </g>
+  </g>
+  <style
+     type="text/css"
+     id="style4">svg { background-color: rgb(255, 255, 255); } rect { opacity: 0; }</style>
+  <style
+     type="text/css"
+     id="style4-8">svg { background-color: rgb(255, 255, 255); } rect { opacity: 0; }</style>
+</svg>
