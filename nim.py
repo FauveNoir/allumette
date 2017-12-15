@@ -1450,7 +1450,6 @@ def marienbad(numberOfLines, wtw, screen):
                 else:
                     errorToDisplay = getFromAnalysis[1]
 
-#               TODO uncomment when function playMarienbad will be ready
                 if getFromAnalysis[0] == True:
                     computerPlayed = playMarienbad(currentMatchMatrix,wtw)
                     listOfTry.append(str(computerPlayed) + "-" + "1")

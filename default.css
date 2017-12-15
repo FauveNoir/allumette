@@ -1,0 +1,297 @@
+:root{
+	--first-tab: 3em;
+	--second-tab: 5em;
+	--second-tab: 4em;
+	--pre-margin: 2em;
+}
+
+@font-face
+{
+	font-family: "Anonymous Pro";
+	src: url("./AnonymousPro.ttf") format("ttf");
+}
+
+body
+{
+	font-family: "Anonymous Pro", monospace, "Monaco", "Courrier New";
+}
+
+*
+{
+	font-size: 14px;
+	line-height: 1.1;
+	margin: 0px;
+	text-align: left;
+}
+
+.constant
+{
+	font-weight: bold;
+}
+
+dt
+{
+	font-weight: bold;
+}
+
+* var
+{
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.externalCommand
+{
+	font-weight: bold;
+}
+
+.externalCommand.usermanual:after
+{
+	content: "(1)";
+}
+
+
+.externalCommand.programmermanual:after
+{
+	content: "(3)";
+}
+
+h1
+{
+	font-weight: bold;
+	margin-top: 1em;
+	text-transform: uppercase;
+}
+
+h2, h3, h4, h5, h6
+{
+	margin-top: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-left: var(--first-tab);
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small
+{
+	text-transform: none;
+}
+
+p, dl, ol, ul
+{
+	margin-left: var(--second-tab);
+}
+
+p > ol, dd > ol
+{
+	margin-left: 2em;
+}
+
+pre, img
+{
+	margin-left: calc(var(--second-tab) + var(--pre-margin));
+}
+
+p > img
+{
+	margin-left: var(--pre-margin);
+}
+
+dl dl
+{
+	margin-left: 0;
+}
+
+dd > p
+{
+	margin-left: 0em;
+}
+
+pre
+{
+	white-space: -moz-pre-discard-newlines;
+}
+
+ul
+{
+	list-style: none;
+	padding-left: 0;
+}
+
+
+ul li:before
+{
+	content: ".";
+	margin-right: 4em
+}
+
+
+p
+{
+	margin-bottom: 1em;
+}
+
+nav
+{
+	margin-bottom: 4em;
+}
+
+a[href]
+{
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a[href]:hover
+{
+	font-weight: bold;
+}
+
+a.visible:before
+{
+	content: "<";
+}
+
+a.visible:after
+{
+	content: ">";
+}
+
+dd
+{
+	margin-left: 4em;
+	padding-bottom: 1em;
+}
+
+nav > div
+{
+	position: absolute;
+	display: inline;
+}
+
+nav > div:first-of-type
+{
+	top: 0px;
+	left: 0px;
+	text-align: left;
+}
+
+nav > div:last-of-type
+{
+	top: 0px;
+	right: 0px;
+	text-align: right;
+}
+
+nav > div:nth-of-type(2)
+{
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	text-align: center;
+}
+
+footer
+{
+	margin-top: 3em;
+	text-align: center;
+}
+
+footer > div
+{
+	display: inline-block;
+	width: 32%;
+}
+
+footer > div:first-of-type
+{
+	text-align: left;
+	position: absolute;
+	left: 0;
+}
+
+footer > div:last-of-type
+{
+	text-align: right;
+	position: absolute;
+	right: 0;
+}
+
+footer > div:nth-of-type(2)
+{
+	text-align: center;
+}
+
+pre, img
+{
+	margin-bottom: 1em;
+}
+
+dd > blockquote, dd > pre, dd > img
+{
+	margin-left: 2em;
+	margin-bottom: 1em;
+}
+
+
+h1+h2
+{
+	margin-top: 1px;
+}
+
+h1 > a[href], h2 > a[href]
+{
+	color: inherit;
+	font-weight: inherit;
+}
+
+h1 > a[href]:hover, h2 > a[href]:hover
+{
+	color: inherit;
+	text-shadow: 0 0 2px;
+}
+
+a[href].h1-ref
+{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+a[href].h1-ref:hover
+{
+	text-shadow: 0 0 2px;
+}
+
+a[href].h2-ref
+{
+	color: inherit;
+	font-weight: inherit;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+a.displayedLink[href]
+{
+	font-weight: bold;
+}
+
+a.displayedLink[href]:hover
+{
+	color: inherit;
+	font-weight: bold;
+	text-shadow: 0 0 2px;
+}
+
+a.displayedLink[href]:before, a.displayedLink[href]:after
+{
+	content: "|";
+	font-weight: normal;
+}
+
+
+.Function { font-weight:bold; }
+.Type { font-weight:bold; }
+.String { font-style: italic; }
+.Identifier { font-weight: bold}

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Fauve">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <title>Open Allumette — Vimlike and graphical implementation of the classical Nim game</title>
+
+    <link href="./default.css" rel="stylesheet">
+    <link href="./molokai.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav>
+      <div>
+      Open Allumette(6)
+      </div>
+      <div>
+      Games Manual
+      </div>
+      <div>
+      Open Allumette(6)
+      </div>
+    </nav>
+    <article>
+    <h1><a name="name"></a><a href="#name">Name</a></h1>
+
+    <p>
+    
+    </p>
+
+    <h1><a name="synopsys"></a><a href="#synopsys">Synopsys</a></h1>
+       <pre><span class="constant">openallumette</span> [ [<span class="option">-n</span>|<span class="option">--number</span>] <var>SeedNumber</var> ]  [ [<span class="option">-v</span>|<span class="option">--varient</span>] [trivial | marienbad | grundy | wythoff ]  [<span class="option">-w</span> [ttl|ltl] ]
+<span class="constant">openallumette</span>  <var class="constant">Descriptor</var>
+<span class="constant">openallumette</span> [<span class="option">-h</span>|<span class="option">--help</span>]  [<span class="option">-v</span>|<span class="option">--version</span>]  [<span class="option">--hall-of-fame</span>]</pre>
+
+
+       <pre><span class="constant">openallumettetutor</span>
+<span class="constant">openallumette</span> <span class="option constant">--tutor</span></pre>
+
+
+    <h1><a name="logo"></a><a href="#logo">Logo</a></h1>
+    <p>
+    <img src="./logo.png" src="" />
+    </p>
+
+    <h1><a name="description"></a><a href="#description">Description</a></h1>
+    <p>
+    <span class="constant">openallumette</span> is a classical Nim game’s implementation writen in Python and Pygame library made to be all used with the keyboard (like <span class="externalCommand usermanual">vim</span>).<br />
+    At the first runing of this software, it is showen a tutorial showing how to use commands  and interact with the interface. This tutorial are not reshown in the nexts runings but you can see it again with the shell command <code><span class="constant">openallumettetutor</span></code>.
+    </p>
+
+    <p>
+    Note that Nim games have a mathematical solution. Once you find it for a varient, you win at every game, then it is not yet insteresting to play it. That’s why <span class="constant">openallumette</span> is only designed Nim enthousiasts to find this solution.
+    </p>
+
+    <p>
+    Later, it will support all possible knowen varients of this game.<br />
+
+    This game is dedicated to mathematic and serius games enthousiast. Later, it will bring tools to help understunding the Nim games.
+    </p>
+
+    <p>
+    ⚠ if you were searching of dumb-friendly and WIMP interface, go away. Open Allumette is made for nerdz by a geek like if it was a programmer editor. And we are proud of that.
+    </p>
+
+    <h1><a name="rules"></a><a href="#rules">Rules</a></h1>
+    <p>
+    The classical Nim game is a turn-based game. The exact rules depend of the varient, but generally the player have to take the last match (in the ttl or take-the-last mode) or to force his opponent to take the last match (in the ltl or let-the-last mode). For the moment <span class="constant">openallumette</span> only bring IA opponent. It will probably support in futures versions online mode over XMPP.
+    </p>
+
+    <h1><a name="usage"></a><a href="#usage">Usage</a></h1>
+    <p>
+    The player can directly run the game with the desired configurations by using the starting options <code>-n</code>, <code>-v</code>, <code>-w</code> (See the <a href="options" class="h1-ref">Options</a>’s section for that), or alternatively with the standard descriptor string (See the <a href="descriptor" class="h1-ref">The configuration descriptor</a>’s section). <br />
+    Once he has open Open Allumette he could open another game session with the ex or normal commands (See the <a href="#commands" class="h1-ref">Commands</a> and <a href="#excommand" class="h1-ref">Ex commands</a>’s sections).
+    </p>
+
+    <h1><a name="options"></a><a href="#options">Options</a></h1>
+    <dl>
+      <dt><code>-n</code>, <code>--number=<var>SeedNumber</var></code></dt>
+      <dd>Start a new game with <var>SeedNumber</var> as seed number (default: 16)</dd>
+
+      <dt></code>-v</code>, <code>--varient=<var>Varient</var></code></dt>
+      <dd>Start new game with <var>Varient</var> as varient (default: <code>trivial</code>)</dd>
+
+      <dt><code>-w</code> <var>wtw</var></dt>
+      <dd>Start new game with with <var>wtw</var> as mode, there is two values possibles <code>ttl</code> and <code>ltl</code>. See <a href="#wtw" class="h1-ref">wtw Mode</a>’s section for more inforamtions.</dd>
+
+      <dt><code>-c</code>, <code>--color-sheme=<var>Colorsheme</var></code></dt>
+      <dd>Set the colorsheme witch will be used to <var>Colorsheme</var></dd>
+
+      <dt><code>--hall-of-fame</code></dt>
+      <dd>Display in the shell the hall of fame.</dd>
+    </dl>
+
+    <h1><a name="windowszones"></a><a href="#windowszones">Window’s Anatomy</a></h1>
+    <p>
+    In a game session, the screen is generaly divided into tree main parts as described follow. The command zone allow typing commands, the history zone display list of actions, and the matchs zone give a view of the current situation.
+    </p>
+
+<pre>╔═════╦════════════════════════════════════════════════════╗
+║     ║                                                    ║
+║     ║                                                    ║
+║     ║                                                    ║
+║<a href="#windowszones-history" class="h2-ref">Hist-</a>║                                                    ║
+║<a href="#windowszones-history" class="h2-ref">ori</a>  ║                                                    ║
+║<a href="#windowszones-history" class="h2-ref">Zone</a> ║                                                    ║
+║     ║                                                    ║
+║     ║                   <a href="#windowszones-matcharea"  class="h2-ref">Matchs zone</a>                      ║
+║     ║                                                    ║
+║     ║                                                    ║
+║     ║                                                    ║
+║     ║                                                    ║
+║     ║                                                    ║
+║     ║                                                    ║
+║     ║                                                    ║
+╠═════╩════════════════════════════════════════════════════╣
+║<a href="#windowszones-commandzone"  class="h2-ref">Command zone</a>                                              ║
+╚══════════════════════════════════════════════════════════╝</pre>
+    <h2><a name="windowszones-commandzone"></a><a href="#windowszones-commandzone">Command’s zone</a></h2>
+    <p>
+    It’s probably the main zone of the game because is the main part of the user’s interaction. It’s set on the window’s bottom and is divided into five parts witch are, frome left to right :
+    </p>
+    <dl>
+      <dt>Varient name</dt>
+      <dd>Depending of the current screen displayed by the game, this zone remember witch varient or part of the game is currently displayed.</dd>
+
+      <dt>Ex command zone</dt>
+      <dd>This zone display the ex-mode commands. See <a class="h1-ref" href="#commands">Commands</a>’s section for more details.</dd>
+
+      <dt>Key bindings</dt>
+      <dd>This zone display the normal-mode commands.  See <a class="h1-ref" href="#keybinding">Key Bindings</a>’s section for more details.</dd>
+
+      <dt>Mode</dt>
+      <dd>This zone display the WTW variable, it could be <code>ttl</code> (take the last) or <code>ltl</code> (let the last). See <a class="h1-ref" href="#wtw">wtw Mode</a>’s section for more details.</dd>
+
+      <dt>Passed time</dt>
+      <dd>This zone display the time passed since the bigining of the game.</dd>
+    </dl>
+
+
+    <h2><a name="windowszones-history"></a><a href="#windowszones-history">History zone</a></h2>
+    <p>
+    The history zone display chronological list of actions the opponents do in the game. See <a class="h1-ref" href="#keybinding">Key Bindings</a>’s section for more details about controling this area.
+    </p>
+
+    <h2><a name="windowszones-matcharea"></a><a href="#windowszones-matcharea">Match area</a></h2>
+    <p>
+    This part display current state of the game.
+    </p>
+
+    <h1><a name="keybinding"></a><a href="#keybinding">Key Bindins</a></h1>
+    <dl>
+      <dt><kbd>n</kbd></dt>
+      <dd>Reload a new game with exactly the same parametters as the current one.</dd>
+
+      <dt><kbd>p</kbd></dt>
+      <dd>Put game on pause and suspend the time count.</dd>
+
+      <dt><code><var>number</var><kbd>u</kbd></code></dt>
+      <dd>Undo one (or <var>number</var>) last action(s).</dd>
+
+      <dt><code><var>number</var><kbd>r</kbd></code></dt>
+      <dd>Redo one (or <var>number</var>) last undid action(s).</dd>
+
+
+      <dt><kbd>F8</kbd></dt>
+      <dd>Toggle showing help mode for some varients.</dd>
+
+      <dt><kbd>↓</kbd>, <kbd>j</kbd></dt>
+      <dd>Go backward in the history of ex commands.</dd>
+
+      <dt><kbd>↑</kbd>, <kbd>k</kbd></dt>
+      <dd>Go forward in the history of ex commands.</dd>
+
+
+      <dt><kbd>⇟</kbd>, <kbd>ALT-j</kbd></dt>
+      <dd>Drop down history list.</dd>
+
+      <dt><kbd>⇞</kbd>, <kbd>ALT-k</kbd></dt>
+      <dd>Drop up history list.</dd>
+
+      <dt><kbd>⇲</kbd>, <kbd>J</kbd>, <kbd>G</kbd></dt>
+      <dd>Go to history list bottom.</dd>
+
+      <dt><kbd>⇱</kbd>, <kbd>K</kbd>, <kbd>gg</kbd></dt>
+      <dd>Go to history list top.</dd>
+
+      <dt><kbd>CTRL-↓</kbd>, <kbd>CTRL-j</kbd></dt>
+      <dd>Drop down autocompletion help menue in ex mode.</dd>
+
+      <dt><kbd>CTRL-↑</kbd>, <kbd>CTRL-k</kbd></dt>
+      <dd>Drop up autocompletion help menue in ex mode.</dd>
+    </dl>
+
+    <h1><a name="excommand"></a><a href="#excommand">Ex commands</a></h1>
+    <p>
+    The “Ex commands” refer to all commands witch begin with the colon (:) and generaly his typing apear in the <a href="#windowszones-commandzone"  class="h2-ref">Command zone</a>. This kind of commands could do many things, especially advanced features. Some ex commands, the ones described on the <a class="h1-ref" href="#commands">Commands</a>’s section are for general use and could be used in any situations. Some others ex commands are specific to a varient game and are described in the <a class="h1-ref" href="#varients">Varients</a>’s section.
+    <p>
+
+    <p>
+    To enter ex mode, the user have to type colon key (:) and a cursor will apear in the command zone. When the user begin typing a command, he can get at any time more information about it with <kbd>Tab</kbd> key witch will bring an autocompletion mode.<br />
+
+    <img src="auto-completion-example.png" alt="" />
+    </p>
+
+    <p>
+    Then, the autocompletion mode open a box over the command zone, showing a quick help about the command writen.<br />
+    At any time, the player could hide the autocompletion box with <kbd>Esc</kbd> key.
+    </p>
+
+    <h1><a name="commands"></a><a href="#commands">Commands</a></h1>
+    <p>
+    All this commands could be entered at any time and they are displayed in the command zone in the window’s bottom for the ex-commands with a cursor (witch are begin with the prefix <code>:</code>).
+    </p>
+    <dl>
+      <dt><code>:n</code>, <code>:new</code> <var>varient</var> <var>SeedNumber</var> <var>wtw</var><br />
+<code>:n</code>, <code>:new</code> <var>Descriptor</var></dt>
+      <dd>
+      <p>Open new game with following options:</p>
+        <dl>
+          <dt>
+	  <var>varient</var>
+          </dt>
+          <dd>
+	  The varient name, witch could be <code>trivial</code> (default), <code>marienbad</code>, <code>grundy</code>, or <code>whythoff</code>. See <a class="h1-ref" href="#varients">Varient</a>’s section for more details about each varient.
+          </dd>
+
+          <dt>
+	  <var>SeedNumber</var>
+          </dt>
+          <dd>
+	  The seed number. It repreasent the number in the initial situation of a particular function. His exact usage depend of the varient.
+          </dd>
+
+          <dt>
+	  <var>wtw</var>
+          </dt>
+          <dd>
+	  It represent the condition of wining and could take two values: <code>ttl</code> (<code>take-the-last</code>) where the player have to take the last match to win ; <code>ltl</code> (<code>let-the-last</code>) where the goal for the player have to force his oponent to take the last match.
+          </dd>
+
+        </dl>
+	<p>
+	Alternatively, you can just use the configuration descriptor described in the <a href="#descriptor" class="h1-ref">The configuration descriptor</a>’s section.
+	</p>
+      </dd>
+
+      <dt><code>:about</code></dt>
+      <dd>Open the license screen.<br />
+
+      <dt><code>:colorsheme <var>varient</var></code></dt>
+      <dd>Change colorsheme to the <var>varient</var> one.</dd>
+
+      <dt><code>:quit</code>, <code>:q</code>, <kbd>ZZ</kbd></code></dt>
+      <dd>Quit the game.</dd>
+
+      <dt><code>:saveas</code>, <code>:w</code></dt>
+      <dd>Save the current game with time in a file.</dd>
+
+      <dt><code>:open</code>, <code>:o</code></dt>
+      <dd>Open registered game</dd>
+
+      <dt><code>:rules</code></dt>
+      <dd>Show the rules for the current varient.</dd>
+
+      <dt><code>:help <var>command</var></code>, <code>:h <var>command</var></code></dt>
+      <dd>Getting help about a <var>command</var>.</dd>
+
+
+
+      <dt><code>:tutor</code></dt>
+      <dd>Open the tutorial mode.</dd>
+
+      <dt><code>:tip</code></dt>
+      <dd>Bring a tip.</dd>
+
+    </dl>
+
+    <h1><a name="varients"></a><a href="#varients">Varients</a></h1>
+    <p>
+    The syntax of the game actions mainly depand of the variant you are playing. And in all cases, you have to be in normal mode; to get it, just press <kbd>⎋</kbd> key.
+    </p>
+    <h2><a name="trivial"></a><a href="#trivial">Trivial <small>(The default one)</small></a></h2>
+    <h3><a name="trivial-initializing"></a><a href="#trivial-initializing">Initializing</a></h3>
+    <p>
+    In the Trivial varient theire is only one heap of match, so the <var>SeedNumber</var> defined in the initializing exactly match the number of match in this unique heap. The trivial varient didn’t have assistant mode.
+    </p>
+    <h3><a name="trivial-rules"></a><a href="#trivial-rules">Rules</a></h3>
+    <p>
+    In the trivial variente, theire is only one heap of <var>SeedNumber</var> match. And, on each turn, every player have to take one, two, or tree matchs.<br />
+    </p>
+    <h3><a name="trivial-intreface"></a><a href="#trivial-intreface">Intreface and command</a></h3>
+    <p>
+    To del 1, 2, or 3 matchs from the total number of matches in this varient theire is two possibilities. When the player type a del command, before it take effect, it is showen in the key bindings zone (See the <a href="#windowszones-commandzone" class="h1-ref">Command’s zone</a>’s section), untel he tape enter key.<br />
+      <img src="mokup-trivial-main-screen.png" alt="" />
+    It depend of the colorsheme but in general, the allowed matchs is distinguished by a shadow effect or some other effect. And the last match  have a crown on top if the ttl mode is activated or a skull and bones if the ltl mode is activated.
+    </p>
+    <dl>
+      <dt>
+      -[1|3|3], [1|2|3]<kbd>⏎</kbd>
+      </dt>
+      <dd>
+      You can explicitly indicate the number of match you whant to del, for this, just type the number of match followed by <kbd>⏎</kbd>. Optionnaly, the number of match you want to take could be precead by minus symbol <kbd>-</kbd>.
+      </dd>
+
+      <dt>
+      =<var>NumberToLet</var><kbd>⏎</kbd>
+      </dt>
+      <dd>
+        You can also indicate the number of match you hant to let. For this you just have to prefix the number of match by equal sign =.
+      </dd>
+    </dl>
+
+    <h3><a name="trivial-wining-situation"></a><a href="#trivial-wining-situation">Wining situation</a></h3>
+    <p>
+    When the player could take the last match (so there is only tree match in the maximum), the remain matches are displayed burning (but this depend of the colorsheme).
+    <img src="mokup-trivial-flame-screen.png" alt="" />
+    </p>
+
+
+    <h2><a name="marienbad"></a><a href="#marienbad">Marienbad</a></h2>
+    <h3><a name="marienbad-initializing"></a><a href="#marienbad-initializing">Initializing</a></h3>
+    <p>
+    In the Marienbad variente, theire is as line number as the <var>SeedNumber</var> defined in the initializing. The top line contain one match, and the number of match increase at each column by two matchs. So we can calculate the number of colums with “2×<var>SeedNumber</var>-1”.<br />
+
+    For example, with <var>SeedNumber</var>=4, we get the following configuration:<br/>
+    <pre>0       | 
+1     | | | 
+2   | | | | | 
+3 | | | | | | | 
+
+  0 1 2 3 4 5 6</pre>
+    </p>
+    <h3><a name="marienbad-rules"></a><a href="#marienbad-rules">Rules</a></h3>
+    <p>
+    At his turn, the player must take as matchs as he want from any column but from one and only one column. Depending of the WTW mode, the winer will be the one who can take the last match or force the oponent to take it.
+    </p>
+
+    <h3><a name="marienbad-interface"></a><a href="#marienbad-interface">Intreface and commands</a></h3>
+    <p>
+    To take matchs in the Marienbad varient, there are two information to give:
+    </p>
+    <ul>
+      <li>The column number.</li>
+      <li>The number of match to take (or, alternativly, to let).</li>
+    </ul>
+
+    <p>
+    So, theire is two operators and syntaxs possible:
+    </p>
+    <dl>
+      <dt>
+      <var>column</var><span >=</span><var>matchs</var>
+      </dt>
+
+      <dd>
+      Witch heap the number remain matchs to <var>matchs</var> in column of the number <var>column</var>
+      </dd>
+
+      <dt>
+      <var>column</var><span >-</span><var>matchs</var>
+      </dt>
+
+      <dd>
+      Witch del <var>matchs</var> matchs in column of the number <var>column</var>.
+      </dd>
+
+    </dl>
+      <img src="marienbad.png" alt="" />
+
+    <h3><a name="marienbad-assistant"></a><a href="#marienbad-assistant">Assistant mode (Spoiler)</a></h3>
+    <p>
+    WARNING: This section spoil the trick. Read it only if you have difficulties with the resolution of the Marienbad solution.
+    </p>
+    <p>
+    In addition to that, the Marienbad’s varient have an assistant mode helping the player to understind how the mathematical mecanism is runing and how to find the wining strategy. By pressing the <kbd>F8</kbd> key witch bring a little box with indications.
+    </p>
+    <p>
+    The box show the total match of each line and his binary representation. The wining strategy consist to maintain a binary value’s total (represented in the box by the T value) even at each turn.
+    </p>
+
+    <p>
+    As example, at the begining of marienbad game with a seed number equal to 4, this is how the assistant’s box appear:
+    </p>
+<pre>1 = 0 0 1
+3 = 0 1 1
+5 = 1 0 1
+7 = 1 1 1
+---------
+T = 2 2 4
+</pre>
+
+    <p>
+    The number 5 represent the total match of the 3th line, his benary value is 101. And T represent the total of benary values summed in decimal system. For wining, the T value have to be alway even at the end of the turn.
+    </p>
+
+    <h2><a name="Grundy"></a><a href="#grundy">Grundy</a></h2>
+    <h3><a name="Grundy-initialization"></a><a href="#grundy-initialization">Initialization</a></h3>
+    <p>
+    In the Grundy varient theire is only one heap in the bigining, so the <var>SeedNumber</var> is the number of the matchs in the innitial heap.
+    </p>
+    <h3><a name="Grundy-rules"></a><a href="#grundy-rules">Rules</a></h3>
+    <p>
+    In this varient, the player didn’t take matchs and the goal isn’t to take the last one. Theire is only one heap of matchs and the fiirst player have to divided into two unequel heaps. In the next turn, each player have to take one child heap and divided into two unequal heaps. In the ttl mode, the goal is to make the oponant unable to play. In the ltl mode, the goal for the player is to be unable to play.
+    </p>
+
+    <h3><a name="Grundy-interface"></a><a href="#grundy-interface">Interface and commands</a></h3>
+    <p>
+    In the <span class="constant">openallumette</span> implementation, all heaps have a number identifier code in the Grudy’s varient (exept the first, beacuse numbering him is useless). This identifier code is formed after the father heaps’s idintifier code and the number of current heap, separated with a dot “.”. When the initial heap is divided it give two child heap witch are numbered 0 and 1. After that, when a heap with an identifier code “<var>N</var> is divided, it give two others heap with identifiers codes <var>N</var>.0 and <var>N</var>.1.
+    </p>
+
+    <p>
+    Now, if the player want to divied a heap with the identifier code <var>heap</var> into two heap with <var>a</var> and <var>b</var> matchs (with <var>a</var>+<var>b</var>=the number of match of the concerned heap), he have to indicate the identifier code of the heap and of the two terms <var>a</var> or <var>b</var>. Note it isn’t necessary to indicate the two terms of this substraction, because the second one is defined after the initial number of matchs in the heap.
+    </p>
+
+    <dl>
+      <dt>
+      <var>heap</var>:<var>term0</var>, <var>heap</var>:<var>term0</var>+<var>term1</var>
+      </dt>
+      <dd>
+      Divide the heap with the identifier code <var>heap</var> into two child heaps with respectivelly <var>term0</var> and <var>term1</var> matchs and respectively <var>heap</var>.0 and <var>heap</var>.1 as identifier code. Note only one term is needed, the second one is absolutely facultative.
+      </dd>
+    </dl>
+    <h3><a name="Grundy-assistant"></a><a href="#grundy-assistant">Assistant mode</a></h3>
+    <p>
+    TODO
+    </p>
+    <h2><a name="Wythoff"></a><a href="#Wythoff">Wythoff</a></h2>
+    <h3><a name="Wythoff-initialization"></a><a href="#Wythoff-initialization">Initialisation</a></h3>
+    <p>
+    In the Whythoff varient, theire is tow heaps of the same number of match in the initial situation, so the <var>SeedNumber</var> defined in the initialiasation is the number of matchs in each heap.
+    </p>
+    <h3><a name="Wythoff-rules"></a><a href="#Wythoff-rules">Rules</a></h3>
+    <p>
+    In the Whythoff varient, theire is two heaps and the players have, at theire turns two choices of actions:
+    <ul>
+      <li>Take the same quantities of matchs from the two heaps.</li>
+      <li>Take any quantities of matchs but from on and only one heap.</li>
+    </ul>
+    </p>
+    <h3><a name="Wythoff-interface"></a><a href="#Wythoff-interface">Interface and commands</a></h3>
+    <p>
+    The two heaps are named A and B. So, depending of if the player want take the same number of matchs from the two heaps or from one and only one heap, theire is two possible commands:
+    <img src="Wythoff-screen.png" alt="" />
+    </p>
+    <dl>
+      <dt>
+      [-]<var>matchs</var>
+      </dt>
+
+      <dd>
+      Take <var>matchs</var> matchs from the two heaps.
+      </dd>
+
+      <dt>
+      <var>heap</var>-<var>matchs</var>
+      </dt>
+
+      <dd>
+      Take <var>matchs</var> matchs from the heap <var>heap</var>.
+      </dd>
+      <dt>
+
+      <var>heap</var>=<var>matchs</var>
+      </dt>
+
+      <dd>
+      Set the remain matchs to <var>matchs</var> in the heap <var>heap</var>.
+      </dd>
+    </dl>
+
+    <h1><a name="descriptor"></a><a href="#descriptor">The configuration descriptor</a></h1>
+    <p>
+    The configuraton descriptor is a short string describing the main configuration of a Nim session, including all variables. The main form of a configuration descriptor is:
+    </p>
+    <pre><var>FirstPlayer</var> <var>Variente</var>;<var>SeedNumber</var>;<var>wtw</var></pre>
+
+    <p>
+    Where the variable have the following meanings:
+    </p>
+
+    <dl>
+      <dt>
+      <var>FirstPlayer</var>
+      </dt>
+
+      <dd>
+      Describe witch will be the first player. <code>+</code> for the human player ; <code>-</code> for the computer. The default is the user.
+      </dd>
+
+      <dt>
+      <var>Variente</var>
+      </dt>
+
+      <dd>
+      Varient name, see the <a class="h1-ref" href="#varients">Varient</a>’s section for allowed vallues.
+      </dd>
+
+      <dt>
+      <var>SeedNumber</var>
+      </dt>
+
+      <dd>
+      The seed number. His usage depend of the choosen varient.
+      </dd>
+
+      <dt>
+      <var>wtw</var>
+      </dt>
+
+      <dd>
+      The “What to (do for) win” variable. See <a href="#wtw" class="h1-ref">wtw Mode</a>’s section for more details.
+      </dd>
+    </dl>
+
+    <p>
+    For example the descriptor <code>+Marienbad;26;ttl</code> means the curent game in Marienbad varient, with 26 lines (then 57 columns), the winer is the player who take the last and the human player will be the first to play.
+    </p>
+
+    <p>
+    Note you can place all this ellements in another order, Open Allumette will understund it, but it steel better to place it in the canonical order. In addition to that, the first player information is optionnal.
+    </p>
+
+
+    <h1><a name="wtw"></a><a href="#wtw">wtw Mode</a></h1>
+    <p>
+    The <var>wtw</var> variable (for “Wat to [do for] win”) define the conditions of wining and the goal of the game. Generaly, the wining in the classical Nim game is set in two modes, one when the goal is to unlaw the opponent to be able to play, witch called “normal” mode, and another mode where the goal is to force the opponent to play the last possible movement.<br />
+    In Open Allumette, the normal mode is called <code>ttl</code> (for “take the last”) and the other mode is called <code>ltl</code> (for “let the last”).
+    </p>
+
+    <p>
+    The exact meaning of <code>ttl</code> and <code>ltl</code> could depend of the varient played. But in general, the <code>ttl</code> means the winer is the player who could take the last match of the game and <code>ltl</code> means the winer is the player who will be forced to take the last match.
+    </p>
+
+    <p>
+    However, there is some exeptions like with the grundy varient where the <code>ttl</code> means the goal it to divide the last splitable heap and <code>ltl</code> means the goal is to force the opponent to divide the last splitable heap. See <a href="#grundy" class="h2-ref">Grundy</a> for more details.
+    </p>
+
+
+    <h1><a name="colorsheme"></a><a href="#colorsheme">Colorsheme</a></h1>
+    <p>
+    It is possible to change the default colorsheme with another one and also edit new one with CSS.
+    </p>
+    <p>
+    For changing the current colorsheme, just use <code>--colorsheme</code> or <code>-c</code> in the shell, or the ex command <code>:c[olorsheme]</code>. And then, chose a colorsheme between the installed ones.
+    </p>
+
+    <dl>
+      <dt>
+      Molokai
+      </dt>
+      <dd>
+      <img src="colorsheme-molokai.png" "Molokai theme" />
+      </dd>
+    </dl>
+
+
+    <h1><a name="bibliography"></a><a href="#bibliography">Bibliography</a></h1>
+    <p>
+    Here is some ressources for mathematical studys and comprehension of the Nim game.
+    </p>
+    <dl>
+      <dt>
+      Grundy’s varient
+      </dt>
+      <dd>
+        <ol>
+          <li>
+            P. M. Grundy. <cite>Mathematics and Games</cite>. Eureka, vol.27, 1964.
+          </li>
+          <li>
+            E. Berlekamp, J. H. Conway, and R. Guy. <cite>Winning Ways for your Mathematical Plays</cite>. Academic Press, 1982.
+          </li>
+        </ol>
+      </dd>
+    </dl>
+    <h1><a name="screenshots"></a><a href="#screenshots">Screenshots</a></h1>
+    <p>
+    You can see all screenshots at the official webstie.
+    </p>
+    <dl>
+      <dt>
+      About screen
+      </dt>
+      <dd>
+      <img src="mokup-about-screen.png" alt="" />
+      </dd>
+
+
+      <dt>
+      Wining screen
+      </dt>
+      <dd>
+      <img src="mokup-wining-screen.png" alt="" />
+      </dd>
+
+      <dt>
+      Falling screen
+      </dt>
+      <dd>
+      <img src="falling-screen.png" alt="" />
+      </dd>
+
+      <dt>
+      Pause screen
+      </dt>
+      <dd>
+      <img src="pause-screen.png" alt="" />
+      </dd>
+    </dl>
+
+    <h1><a name="install"></a><a href="#install">Installation</a></h1>
+    <dl>
+      <dt>
+      Linuces and BSD
+      </dt>
+      <dd>
+      TODO
+      </dd>
+
+      <dt>
+      Windows
+      </dt>
+      <dd>
+      TODO
+      </dd>
+
+    </dl>
+
+    <h1><a name="licence"></a><a href="#licence">Licence</a></h1>
+    <p>
+    This game, included the related files and manpages, is placed under the CC-by-sa 3.0 lincence.
+    </p>
+    <h1><a name="author"></a><a href="#author">Author</a></h1>
+    <p>
+    The mayor part of <span>Open Allumette</span> is writen by Fauve (aka Idriss al Idrissi) <a class="visible" href="http://taniere.info">http://taniere.info</a> and could be foud on Github at <a class="visible" href="https://github.com/FauveNoir/">https://github.com/FauveNoir/</a>.
+    </p>
+    </article>
+    <footer>
+      <div>
+      Games Manual
+      </div>
+      <div>
+      2017-12-14
+      </div>
+      <div class="externalCommand">
+      openallumette(3)
+      </div>
+    </footer>
+  </body>
+</html>
