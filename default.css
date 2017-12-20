@@ -229,6 +229,11 @@ pre, img
 	margin-bottom: 1em;
 }
 
+img
+{
+	max-width: 100%;
+}
+
 dd > blockquote, dd > pre, dd > img
 {
 	margin-left: 2em;
