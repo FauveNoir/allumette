@@ -5,10 +5,10 @@
     <meta name="author" content="Fauve">
     <link rel="shortcut icon" href="../favicon.png">
 
-    <title>Open Allumette — Vimlike and graphical implementation of the classical Nim game</title>
+    <title>Open Allumette — Une implémentation graphique et ispirée par Vim du jeu de Nim classique</title>
 
-    <link href="../default.css" rel="stylesheet">
-    <link href="../molokai.css" rel="stylesheet">
+    <link href="./default.css" rel="stylesheet">
+    <link href="./molokai.css" rel="stylesheet">
 
   </head>
   <body>
@@ -17,20 +17,20 @@
       Open Allumette(6)
       </div>
       <div>
-      Games Manual
+      Manuel du jeu
       </div>
       <div>
       Open Allumette(6)
       </div>
     </nav>
     <article>
-    <h1><a name="name"></a><a href="#name">Name</a></h1>
+    <h1><a name="name"></a><a href="#name">Nom</a></h1>
 
     <p>
     
     </p>
 
-    <h1><a name="synopsys"></a><a href="#synopsys">Synopsys</a></h1>
+    <h1><a name="synopsys"></a><a href="#synopsys">Resumé</a></h1>
        <pre><span class="constant">openallumette</span> [ [<span class="option">-n</span>|<span class="option">--number</span>] <var>SeedNumber</var> ]  [ [<span class="option">-v</span>|<span class="option">--varient</span>] [trivial | marienbad | grundy | wythoff ]  [<span class="option">-w</span> [ttl|ltl] ]
 <span class="constant">openallumette</span>  <var class="constant">Descriptor</var>
 <span class="constant">openallumette</span> [<span class="option">-h</span>|<span class="option">--help</span>]  [<span class="option">-v</span>|<span class="option">--version</span>]  [<span class="option">--hall-of-fame</span>]</pre>
@@ -47,32 +47,33 @@
 
     <h1><a name="description"></a><a href="#description">Description</a></h1>
     <p>
-    <span class="constant">openallumette</span> is a classical Nim game’s implementation writen in Python and Pygame library made to be all used with the keyboard (like <span class="externalCommand usermanual">vim</span>).<br />
-    At the first runing of this software, it is showen a tutorial showing how to use commands  and interact with the interface. This tutorial are not reshown in the nexts runings but you can see it again with the shell command <code><span class="constant">openallumettetutor</span></code>.
+
+    <span class="constant">openallumette</span> est une implémentation du jeu de Nim en Python se basant sur la bibliothèque Pygame, et conçue pour fonctionner seulement avec un clavier (comme <span class="externalCommand usermanual">vim</span>).<br /><br>
+     Au premier lancement, un tutoriel sur les commandes et les moyens d'interaction avec l'interface est affiché.<br> Ce tutoriel ne sera pas affiché lors des lancements suivants même si vous pouvez le voir à nouveau en entrant la commande <code><span class="constant">openallumettetutor</span></code>.
     </p>
 
     <p>
-    Note that Nim games have a mathematical solution. Once you find it for a varient, you win at every game, then it is not yet insteresting to play it. That’s why <span class="constant">openallumette</span> is only designed Nim enthousiasts to find this solution.
+    Notez que les jeux de Nim ont une solution mathématique. Dès que vous la trouvez pour une variante, vous gagnez à tous les coups, il devient alors inintéressant de jouer à la variante. <br>C'est justement la raison d'être d'<span class="constant">openallumette</span>: guider les amateurs vers cette solution.
     </p>
 
     <p>
-    Later, it will support all possible knowen varients of this game.<br />
+    Dans les futures versions, toutes les variantes du jeu connues seront disponibles. <br />
 
-    This game is dedicated to mathematic and serius games enthousiast. Later, it will bring tools to help understunding the Nim games.
+    Ce jeu a été conçu pour les matheux et les amateurs sérieux de jeux. Plus tard, des outils pour mieux comprendre les jeux de Nim seront ajoutés.
     </p>
 
     <p>
-    ⚠ if you were searching of dumb-friendly and WIMP interface, go away. Open Allumette is made for nerdz by a geek like if it was a programmer editor. And we are proud of that.
+    ⚠ Si vous cherchez un jeu enfantin et une interface graphique, passez votre chemin. Open Allumette est fait pour les nerdz par un geek, comme s’il s’agissait d’un éditeur de texte pour programmeurs. Et nous en sommes fiers.
     </p>
 
-    <h1><a name="rules"></a><a href="#rules">Rules</a></h1>
+    <h1><a name="rules"></a><a href="#rules">Règles</a></h1>
     <p>
-    The classical Nim game is a turn-based game. The exact rules depend of the varient, but generally the player have to take the last match (in the ttl or take-the-last mode) or to force his opponent to take the last match (in the ltl or let-the-last mode). For the moment <span class="constant">openallumette</span> only bring IA opponent. It will probably support in futures versions online mode over XMPP.
+    Le jeu de Nim classique est un jeu au tour-par-tour. Les règles exactes dépendent de la variante, généralement le joueur doit prendre la dernière allumette (mode ttl pour "take-the-last" soit "prends la dernière") ou forcer l'adversaire à la prendre (mode ltl pour "let-the-last" soit "laisse la dernière"). Pour le moment  <span class="constant">openallumette</span> Pour le moment openallumette ne permet de jouer que contre un bot. Dans de futures versions, un mode multijoueur à travers XMPP sera probablement disponible.
     </p>
 
-    <h1><a name="usage"></a><a href="#usage">Usage</a></h1>
+    <h1><a name="usage"></a><a href="#usage">Utilisation</a></h1>
     <p>
-    The player can directly run the game with the desired configurations by using the starting options <code>-n</code>, <code>-v</code>, <code>-w</code> (See the <a href="options" class="h1-ref">Options</a>’s section for that), or alternatively with the standard descriptor string (See the <a href="descriptor" class="h1-ref">The configuration descriptor</a>’s section). <br />
+    Le joueur peut directement lancer le jeu avec les configurations désirées en utilisant les options <code>-n</code>, <code>-v</code> et <code>-w</code> (Voir la section <a href="options" class="h1-ref">Options</a>), ou aussi avec la chaîne de descripteur standard (Voir la section <a href="descriptor" class="h1-ref">Configuration du descripteur</a>). <br />
     Once he has open Open Allumette he could open another game session with the ex or normal commands (See the <a href="#commands" class="h1-ref">Commands</a> and <a href="#excommand" class="h1-ref">Ex commands</a>’s sections).
     </p>
 
