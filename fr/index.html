@@ -11,8 +11,8 @@
     <link href="../molokai.css" rel="stylesheet">
 
   </head>
-  <body>
-    <nav>
+<body contenteditable="true">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="height: 0; width: 0; position: absolute; visibility: hidden;"><defs><linearGradient xlink:href="#svgstore6a45fb6cf0487dd441f6df3494faf9fca" id="svgstore6a45fb6cf0487dd441f6df3494faf9fcd" x1="-160.488" y1="567.047" x2="-133.214" y2="567.047" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.1 0 0 1.257 -285.032 -849.998)"></linearGradient><linearGradient id="svgstore6a45fb6cf0487dd441f6df3494faf9fca"><stop offset="0" stop-color="#fae39f"></stop><stop offset="1" stop-color="#fdf9e5"></stop></linearGradient><linearGradient xlink:href="#svgstore6a45fb6cf0487dd441f6df3494faf9fcb" id="svgstore6a45fb6cf0487dd441f6df3494faf9fcc" x1="-198.752" y1="551.756" x2="-163.752" y2="551.756" gradientUnits="userSpaceOnUse" gradientTransform="translate(-265.396 -688.899)"></linearGradient><linearGradient id="svgstore6a45fb6cf0487dd441f6df3494faf9fcb"><stop offset="0" stop-color="#897256"></stop><stop offset="1" stop-color="#bca26c"></stop></linearGradient></defs><symbol viewBox="0 0 34.999998 34.999997" id="curly-lips"><title>curly-lips</title><g transform="translate(154.643 -429.148)"><circle cx="-446.648" cy="-137.143" r="17.5" transform="rotate(-90)" fill="url(#svgstore6a45fb6cf0487dd441f6df3494faf9fcc)"></circle><circle cx="-446.56" cy="-137.176" transform="rotate(-90)" r="15" fill="url(#svgstore6a45fb6cf0487dd441f6df3494faf9fcd)"></circle><path d="M-149.072 443.14c2.727-.41 5.785-.788 8.3-.91M-125.437 443.15c-2.727-.41-5.786-.79-8.3-.912" fill-rule="evenodd" stroke="#756032" stroke-width="2.4"></path><path d="M-145.837 450.01s4.42 10.608 8.334 2.02M-128.29 449.948s-4.42 10.606-8.333 2.02" stroke="#756032" stroke-width="2.4" fill="none"></path><path fill="#756032" d="M-138.605 451.514h3.125v1.384h-3.125z"></path></g></symbol></svg><nav>
       <div>
       Open Allumette(6)
       </div>
@@ -42,13 +42,13 @@
 
     <h1><a name="logo"></a><a href="#logo">Logo</a></h1>
     <p>
-    <img src="../logo.png" src="" />
+    <img src="../logo.png">
     </p>
 
     <h1><a name="description"></a><a href="#description">Description</a></h1>
     <p>
 
-    <span class="constant">openallumette</span> est une implémentation du jeu de Nim en Python se basant sur la bibliothèque Pygame, et conçue pour fonctionner seulement avec un clavier (comme <span class="externalCommand usermanual">vim</span>).<br /><br>
+    <span class="constant">openallumette</span> est une implémentation du jeu de Nim en Python se basant sur la bibliothèque Pygame, et conçue pour fonctionner seulement avec un clavier (comme <span class="externalCommand usermanual">vim</span>).<br><br>
      Au premier lancement, un tutoriel sur les commandes et les moyens d'interaction avec l'interface est affiché.<br> Ce tutoriel ne sera pas affiché lors des lancements suivants même si vous pouvez le voir à nouveau en entrant la commande <code><span class="constant">openallumettetutor</span></code>.
     </p>
 
@@ -57,7 +57,7 @@
     </p>
 
     <p>
-    Dans les futures versions, toutes les variantes du jeu connues seront disponibles. <br />
+    Dans les futures versions, toutes les variantes du jeu connues seront disponibles. <br>
 
     Ce jeu a été conçu pour les matheux et les amateurs sérieux de jeux. Plus tard, des outils pour mieux comprendre les jeux de Nim seront ajoutés.
     </p>
@@ -73,42 +73,40 @@
 
     <h1><a name="usage"></a><a href="#usage">Utilisation</a></h1>
     <p>
-    Le joueur peut directement lancer le jeu avec les configurations désirées en utilisant les options <code>-n</code>, <code>-v</code> et <code>-w</code> (Voir la section <a href="options" class="h1-ref">Options</a>), ou aussi avec la chaîne de descripteur standard (Voir la section <a href="descriptor" class="h1-ref">Configuration du descripteur</a>). <br />
-    Once he has open Open Allumette he could open another game session with the ex or normal commands (See the <a href="#commands" class="h1-ref">Commands</a> and <a href="#excommand" class="h1-ref">Ex commands</a>’s sections).
+    Le joueur peut directement lancer le jeu avec les configurations désirées en utilisant les options <code>-n</code>, <code>-v</code> et <code>-w</code> (Voir la section <a href="options" class="h1-ref">Options</a>), ou aussi avec la chaîne de descripteur standard (Voir la section <a href="descriptor" class="h1-ref">Configuration du descripteur</a>). <br>
+    À partir du moment où Open Allumette est lancé, le joueur peut ouvrir une autre session avec les commandes normales ou ex (voir les sections <a href="#commands" class="h1-ref">CommandEs</a> et <a href="#excommand" class="h1-ref">Ex commands</a>’s).
     </p>
 
     <h1><a name="options"></a><a href="#options">Options</a></h1>
     <dl>
-      <dt><code>-n</code>, <code>--number=<var>SeedNumber</var></code></dt>
-      <dd>Start a new game with <var>SeedNumber</var> as seed number (default: 16)</dd>
+      <dt><code>-n</code>, <code>--number=<var>Graine</var></code></dt>
+      <dd>Démarre une partie avec <var>Graine</var> comme valeur de graine (valeur par défaut: 16)</dd>
 
-      <dt></code>-v</code>, <code>--varient=<var>Varient</var></code></dt>
-      <dd>Start new game with <var>Varient</var> as varient (default: <code>trivial</code>)</dd>
+      <dt>-v, <code>--varient=<var>VariantE</var></code></dt>
+      <dd>Démarre une partie avec <code><var>VariantE</var></code> comme variante de jeu (valeur par défaut: trivial)<br></dd>
 
       <dt><code>-w</code> <var>wtw</var></dt>
-      <dd>Start new game with with <var>wtw</var> as mode, there is two values possibles <code>ttl</code> and <code>ltl</code>. See <a href="#wtw" class="h1-ref">wtw Mode</a>’s section for more inforamtions.</dd>
+      <dd>Démarre une nouvelle partie en mode <var>wtw</var><code>, il y a deux modes possibles, ttl et ltl. Voir la section</code> <a href="#wtw" class="h1-ref">wtw Mode</a> pour plus de détails.</dd>
 
-      <dt><code>-c</code>, <code>--color-sheme=<var>Colorsheme</var></code></dt>
-      <dd>Set the colorsheme witch will be used to <var>Colorsheme</var></dd>
+      <dt><code>-c</code>, <code>--color-sheme=<var>palette</var></code></dt>
+      <dd>Utilise&nbsp;<var>palette</var> comme palette à utiliser.<var><br></var></dd>
 
       <dt><code>--hall-of-fame</code></dt>
-      <dd>Display in the shell the hall of fame.</dd>
+      <dd>Affiche le tableau d'honneur dans la console.</dd>
     </dl>
 
-    <h1><a name="windowszones"></a><a href="#windowszones">Window’s Anatomy</a></h1>
-    <p>
-    In a game session, the screen is generaly divided into tree main parts as described follow. The command zone allow typing commands, the history zone display list of actions, and the matchs zone give a view of the current situation.
-    </p>
+    <h1><a name="windowszones"></a><a href="#windowszones">Composition de la fenêtre</a></h1>
+    <p>Lors d'une partie, l'écran est normalement divisé en trois parties comme schématisé ci dessous. La zone des commandes permettant de taper les commandes, la zone d'historique montrant une liste d'actions et la zone des allumettes donnant une vue de la situation actuelle de la partie.<br></p>
 
 <pre>╔═════╦════════════════════════════════════════════════════╗
 ║     ║                                                    ║
 ║     ║                                                    ║
 ║     ║                                                    ║
-║<a href="#windowszones-history" class="h2-ref">Hist-</a>║                                                    ║
-║<a href="#windowszones-history" class="h2-ref">ori</a>  ║                                                    ║
-║<a href="#windowszones-history" class="h2-ref">Zone</a> ║                                                    ║
 ║     ║                                                    ║
-║     ║                   <a href="#windowszones-matcharea"  class="h2-ref">Matchs zone</a>                      ║
+║     ║                                                    ║
+║<a href="#windowszones-history" class="h2-ref">Zo</a><a href="#windowszones-history" class="h2-ref">ne</a> ║                                                    ║
+║     ║                                                    ║
+║     ║                   <a href="#windowszones-matcharea" class="h2-ref">Matchs zone</a>                      ║
 ║     ║                                                    ║
 ║     ║                                                    ║
 ║     ║                                                    ║
@@ -117,7 +115,7 @@
 ║     ║                                                    ║
 ║     ║                                                    ║
 ╠═════╩════════════════════════════════════════════════════╣
-║<a href="#windowszones-commandzone"  class="h2-ref">Command zone</a>                                              ║
+║<a href="#windowszones-commandzone" class="h2-ref">Command zone</a>                                              ║
 ╚══════════════════════════════════════════════════════════╝</pre>
     <h2><a name="windowszones-commandzone"></a><a href="#windowszones-commandzone">Command’s zone</a></h2>
     <p>
@@ -197,17 +195,17 @@
 
     <h1><a name="excommand"></a><a href="#excommand">Ex commands</a></h1>
     <p>
-    The “Ex commands” refer to all commands witch begin with the colon (:) and generaly his typing apear in the <a href="#windowszones-commandzone"  class="h2-ref">Command zone</a>. This kind of commands could do many things, especially advanced features. Some ex commands, the ones described on the <a class="h1-ref" href="#commands">Commands</a>’s section are for general use and could be used in any situations. Some others ex commands are specific to a varient game and are described in the <a class="h1-ref" href="#varients">Varients</a>’s section.
-    <p>
+    The “Ex commands” refer to all commands witch begin with the colon (:) and generaly his typing apear in the <a href="#windowszones-commandzone" class="h2-ref">Command zone</a>. This kind of commands could do many things, especially advanced features. Some ex commands, the ones described on the <a class="h1-ref" href="#commands">Commands</a>’s section are for general use and could be used in any situations. Some others ex commands are specific to a varient game and are described in the <a class="h1-ref" href="#varients">Varients</a>’s section.
+    </p><p>
 
-    <p>
-    To enter ex mode, the user have to type colon key (:) and a cursor will apear in the command zone. When the user begin typing a command, he can get at any time more information about it with <kbd>Tab</kbd> key witch will bring an autocompletion mode.<br />
+    </p><p>
+    To enter ex mode, the user have to type colon key (:) and a cursor will apear in the command zone. When the user begin typing a command, he can get at any time more information about it with <kbd>Tab</kbd> key witch will bring an autocompletion mode.<br>
 
-    <img src="../auto-completion-example.png" alt="" />
+    <img src="../auto-completion-example.png" alt="">
     </p>
 
     <p>
-    Then, the autocompletion mode open a box over the command zone, showing a quick help about the command writen.<br />
+    Then, the autocompletion mode open a box over the command zone, showing a quick help about the command writen.<br>
     At any time, the player could hide the autocompletion box with <kbd>Esc</kbd> key.
     </p>
 
@@ -216,7 +214,7 @@
     All this commands could be entered at any time and they are displayed in the command zone in the window’s bottom for the ex-commands with a cursor (witch are begin with the prefix <code>:</code>).
     </p>
     <dl>
-      <dt><code>:n</code>, <code>:new</code> <var>varient</var> <var>SeedNumber</var> <var>wtw</var><br />
+      <dt><code>:n</code>, <code>:new</code> <var>varient</var> <var>SeedNumber</var> <var>wtw</var><br>
 <code>:n</code>, <code>:new</code> <var>Descriptor</var></dt>
       <dd>
       <p>Open new game with following options:</p>
@@ -249,12 +247,12 @@
       </dd>
 
       <dt><code>:about</code></dt>
-      <dd>Open the license screen.<br />
+      <dd>Open the license screen.<br>
 
-      <dt><code>:colorsheme <var>varient</var></code></dt>
+      </dd><dt><code>:colorsheme <var>varient</var></code></dt>
       <dd>Change colorsheme to the <var>varient</var> one.</dd>
 
-      <dt><code>:quit</code>, <code>:q</code>, <kbd>ZZ</kbd></code></dt>
+      <dt><code>:quit</code>, <code>:q</code>, <kbd>ZZ</kbd></dt>
       <dd>Quit the game.</dd>
 
       <dt><code>:saveas</code>, <code>:w</code></dt>
@@ -290,12 +288,12 @@
     </p>
     <h3><a name="trivial-rules"></a><a href="#trivial-rules">Rules</a></h3>
     <p>
-    In the trivial variente, theire is only one heap of <var>SeedNumber</var> match. And, on each turn, every player have to take one, two, or tree matchs.<br />
+    In the trivial variente, theire is only one heap of <var>SeedNumber</var> match. And, on each turn, every player have to take one, two, or tree matchs.<br>
     </p>
     <h3><a name="trivial-intreface"></a><a href="#trivial-intreface">Intreface and command</a></h3>
     <p>
-    To del 1, 2, or 3 matchs from the total number of matches in this varient theire is two possibilities. When the player type a del command, before it take effect, it is showen in the key bindings zone (See the <a href="#windowszones-commandzone" class="h1-ref">Command’s zone</a>’s section), untel he tape enter key.<br />
-      <img src="../mokup-trivial-main-screen.png" alt="" />
+    To del 1, 2, or 3 matchs from the total number of matches in this varient theire is two possibilities. When the player type a del command, before it take effect, it is showen in the key bindings zone (See the <a href="#windowszones-commandzone" class="h1-ref">Command’s zone</a>’s section), untel he tape enter key.<br>
+      <img src="../mokup-trivial-main-screen.png" alt="">
     It depend of the colorsheme but in general, the allowed matchs is distinguished by a shadow effect or some other effect. And the last match  have a crown on top if the ttl mode is activated or a skull and bones if the ltl mode is activated.
     </p>
     <dl>
@@ -317,23 +315,23 @@
     <h3><a name="trivial-wining-situation"></a><a href="#trivial-wining-situation">Wining situation</a></h3>
     <p>
     When the player could take the last match (so there is only tree match in the maximum), the remain matches are displayed burning (but this depend of the colorsheme).
-    <img src="../mokup-trivial-flame-screen.png" alt="" />
+    <img src="../mokup-trivial-flame-screen.png" alt="">
     </p>
 
 
     <h2><a name="marienbad"></a><a href="#marienbad">Marienbad</a></h2>
     <h3><a name="marienbad-initializing"></a><a href="#marienbad-initializing">Initializing</a></h3>
     <p>
-    In the Marienbad variente, theire is as line number as the <var>SeedNumber</var> defined in the initializing. The top line contain one match, and the number of match increase at each column by two matchs. So we can calculate the number of colums with “2×<var>SeedNumber</var>-1”.<br />
+    In the Marienbad variente, theire is as line number as the <var>SeedNumber</var> defined in the initializing. The top line contain one match, and the number of match increase at each column by two matchs. So we can calculate the number of colums with “2×<var>SeedNumber</var>-1”.<br>
 
-    For example, with <var>SeedNumber</var>=4, we get the following configuration:<br/>
-    <pre>0       | 
+    For example, with <var>SeedNumber</var>=4, we get the following configuration:<br>
+    </p><pre>0       | 
 1     | | | 
 2   | | | | | 
 3 | | | | | | | 
 
   0 1 2 3 4 5 6</pre>
-    </p>
+    <p></p>
     <h3><a name="marienbad-rules"></a><a href="#marienbad-rules">Rules</a></h3>
     <p>
     At his turn, the player must take as matchs as he want from any column but from one and only one column. Depending of the WTW mode, the winer will be the one who can take the last match or force the oponent to take it.
@@ -353,7 +351,7 @@
     </p>
     <dl>
       <dt>
-      <var>column</var><span >=</span><var>matchs</var>
+      <var>column</var><span>=</span><var>matchs</var>
       </dt>
 
       <dd>
@@ -361,7 +359,7 @@
       </dd>
 
       <dt>
-      <var>column</var><span >-</span><var>matchs</var>
+      <var>column</var><span>-</span><var>matchs</var>
       </dt>
 
       <dd>
@@ -369,7 +367,7 @@
       </dd>
 
     </dl>
-      <img src="../marienbad.png" alt="" />
+      <img src="../marienbad.png" alt="">
 
     <h3><a name="marienbad-assistant"></a><a href="#marienbad-assistant">Assistant mode (Spoiler)</a></h3>
     <p>
@@ -436,15 +434,15 @@ T = 2 2 4
     <h3><a name="Wythoff-rules"></a><a href="#Wythoff-rules">Rules</a></h3>
     <p>
     In the Whythoff varient, theire is two heaps and the players have, at theire turns two choices of actions:
-    <ul>
+    </p><ul>
       <li>Take the same quantities of matchs from the two heaps.</li>
       <li>Take any quantities of matchs but from on and only one heap.</li>
     </ul>
-    </p>
+    <p></p>
     <h3><a name="Wythoff-interface"></a><a href="#Wythoff-interface">Interface and commands</a></h3>
     <p>
     The two heaps are named A and B. So, depending of if the player want take the same number of matchs from the two heaps or from one and only one heap, theire is two possible commands:
-    <img src="../Wythoff-screen.png" alt="" />
+    <img src="../Wythoff-screen.png" alt="">
     </p>
     <dl>
       <dt>
@@ -521,13 +519,13 @@ T = 2 2 4
     </p>
 
     <p>
-    Note you can place all this ellements in another order, Open Allumette will understund it, but it steel better to place it in the canonical order. In addition to that, the first player information is optionnal.
+    Note you can place all this ellements in another order, Open&nbsp;Allumette will understund it, but it steel better to place it in the canonical order. In addition to that, the first player information is optionnal.
     </p>
 
 
     <h1><a name="wtw"></a><a href="#wtw">wtw Mode</a></h1>
     <p>
-    The <var>wtw</var> variable (for “Wat to [do for] win”) define the conditions of wining and the goal of the game. Generaly, the wining in the classical Nim game is set in two modes, one when the goal is to unlaw the opponent to be able to play, witch called “normal” mode, and another mode where the goal is to force the opponent to play the last possible movement.<br />
+    The <var>wtw</var> variable (for “Wat to [do for] win”) define the conditions of wining and the goal of the game. Generaly, the wining in the classical Nim game is set in two modes, one when the goal is to unlaw the opponent to be able to play, witch called “normal” mode, and another mode where the goal is to force the opponent to play the last possible movement.<br>
     In Open Allumette, the normal mode is called <code>ttl</code> (for “take the last”) and the other mode is called <code>ltl</code> (for “let the last”).
     </p>
 
@@ -553,7 +551,7 @@ T = 2 2 4
       Molokai
       </dt>
       <dd>
-      <img src="../colorsheme-molokai.png" "Molokai theme" />
+      <img src="../colorsheme-molokai.png" "molokai="" theme"="">
       </dd>
     </dl>
 
@@ -586,7 +584,7 @@ T = 2 2 4
       About screen
       </dt>
       <dd>
-      <img src="../mokup-about-screen.png" alt="" />
+      <img src="../mokup-about-screen.png" alt="">
       </dd>
 
 
@@ -594,21 +592,21 @@ T = 2 2 4
       Wining screen
       </dt>
       <dd>
-      <img src="../mokup-wining-screen.png" alt="" />
+      <img src="../mokup-wining-screen.png" alt="">
       </dd>
 
       <dt>
       Falling screen
       </dt>
       <dd>
-      <img src="../falling-screen.png" alt="" />
+      <img src="../falling-screen.png" alt="">
       </dd>
 
       <dt>
       Pause screen
       </dt>
       <dd>
-      <img src="../pause-screen.png" alt="" />
+      <img src="../pause-screen.png" alt="">
       </dd>
     </dl>
 
@@ -650,5 +648,7 @@ T = 2 2 4
       openallumette(3)
       </div>
     </footer>
-  </body>
+  
+
+<div id="pagehacker-floating-toolbar" style="place-content: initial; place-items: initial; place-self: initial; animation: initial; -moz-appearance: initial; backface-visibility: initial; background-blend-mode: initial; -moz-binding: initial; block-size: initial; border-block-end: initial; border-block-start: initial; border-radius: initial; border-collapse: initial; border-inline-end: initial; border-inline-start: initial; border-spacing: initial; bottom: initial; -moz-box-align: initial; box-decoration-break: initial; -moz-box-direction: initial; -moz-box-flex: initial; -moz-box-ordinal-group: initial; -moz-box-orient: initial; -moz-box-pack: initial; box-shadow: initial; box-sizing: initial; caption-side: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color: initial; color-adjust: initial; color-interpolation: initial; color-interpolation-filters: initial; columns: initial; column-fill: initial; column-gap: initial; column-rule: initial; content: initial; -moz-control-character-visibility: initial; counter-increment: initial; counter-reset: initial; cursor: initial; display: initial; dominant-baseline: initial; empty-cells: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; float: initial; -moz-float-edge: initial; flood-color: initial; flood-opacity: initial; font: initial; -moz-force-broken-image-icon: initial; grid: initial; grid-area: initial; hyphens: initial; image-orientation: initial; -moz-image-region: initial; image-rendering: initial; ime-mode: initial; inline-size: initial; isolation: initial; letter-spacing: initial; lighting-color: initial; list-style: initial; margin-block-end: initial; margin-block-start: initial; margin: initial; margin-inline-end: initial; margin-inline-start: initial; marker: initial; mask: initial; mask-type: initial; max-block-size: initial; max-height: initial; max-inline-size: initial; max-width: initial; min-block-size: initial; min-height: initial; min-inline-size: initial; min-width: initial; mix-blend-mode: initial; object-fit: initial; object-position: initial; offset-block-end: initial; offset-block-start: initial; offset-inline-end: initial; offset-inline-start: initial; order: initial; -moz-orient: initial; outline: initial; outline-offset: initial; -moz-outline-radius: initial; overflow: initial; padding-block-end: initial; padding-block-start: initial; padding: initial; padding-inline-end: initial; padding-inline-start: initial; page-break-after: initial; page-break-before: initial; page-break-inside: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: initial; quotes: initial; resize: initial; right: initial; ruby-align: initial; ruby-position: initial; scroll-behavior: initial; scroll-snap-coordinate: initial; scroll-snap-destination: initial; scroll-snap-points-x: initial; scroll-snap-points-y: initial; scroll-snap-type: initial; shape-rendering: initial; -moz-stack-sizing: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; -moz-tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-combine-upright: initial; text-decoration: initial; text-emphasis: initial; text-emphasis-position: initial; -webkit-text-fill-color: initial; text-indent: initial; text-orientation: initial; text-overflow: initial; text-rendering: initial; text-shadow: initial; -moz-text-size-adjust: initial; -webkit-text-stroke: initial; text-transform: initial; touch-action: initial; transform: initial; transform-origin: initial; transform-style: initial; -moz-user-focus: initial; -moz-user-input: initial; -moz-user-modify: initial; vector-effect: initial; vertical-align: initial; visibility: initial; white-space: initial; width: initial; will-change: initial; -moz-window-dragging: initial; word-break: initial; word-spacing: initial; overflow-wrap: initial; writing-mode: initial; -moz-user-select: none; opacity: 1; transition: opacity 0.4s ease-out 0s; position: fixed; top: 10px; left: 10px; height: 40px; z-index: 10000; border: 1px solid rgb(204, 204, 204); background: rgba(240, 240, 240, 0.9) none repeat scroll 0% 0%;" contenteditable="false"><link rel="stylesheet" type="text/css" href="moz-extension://c3141c81-1fe2-4c4a-9db1-be694f7c6d95/fontello/css/phicons.css"><div id="ph-move" style="all: initial; height: 36px; margin: 2px; display: inline-block; vertical-align: top; background-color: rgba(204, 204, 204, 0.9); cursor: move"><span class="icon-move" style="all: initial; display: inline-block; margin: 3px; font-size: 10px; color: #666; cursor: move"></span></div><iframe src="moz-extension://c3141c81-1fe2-4c4a-9db1-be694f7c6d95/phbar.html" id="pagehacker-iframe" style="border: medium none; height: 40px; width: 727px;"></iframe></div></body>
 </html>
